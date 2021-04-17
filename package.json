@@ -1,0 +1,20 @@
+{
+  "name": "today-in-science",
+  "version": "1.0.0",
+  "description": "A mobile responsive app that utilizes two APIs to bring the user the most recent articles focused on the popular fields of Science. Many fields of Science are available to the user, so they can catch up on the latest research findings.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaimeGSandoval/today-in-science_v2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaimeGSandoval/today-in-science_v2/issues"
+  },
+  "homepage": "https://github.com/JaimeGSandoval/today-in-science_v2#readme"
+}
