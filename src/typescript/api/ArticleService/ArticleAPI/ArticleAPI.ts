@@ -1,10 +1,20 @@
 import IArticleAPI from './IArticleAPI.intf';
-import Article from '../Article/Article';
+import {
+  Article,
+  createNewArticle,
+  createArticleDomElements,
+} from '../Article/Article';
 import ArticleList from '../ArticleList/ArticleList';
-const webSearchApiKey = '6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862';
 
 class ArticleAPI implements IArticleAPI {
-  async checkResponseData(response: Response): Promise<Response> {
+  private _webSearchApiKey: string;
+
+  constructor() {
+    this._webSearchApiKey =
+      '6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862';
+  }
+
+  private async _checkResponseData(response: Response): Promise<Response> {
     if (!response) {
       throw new Error('A response must be provided!');
     }
@@ -15,7 +25,7 @@ class ArticleAPI implements IArticleAPI {
     }
   }
 
-  async getJsonContent(response: Response): Promise<unknown> {
+  private async _getJsonContent(response: Response): Promise<unknown> {
     if (!response) {
       throw new Error('A response must be provided!');
     }
@@ -32,35 +42,30 @@ class ArticleAPI implements IArticleAPI {
     return jsonContent;
   }
 
-  async getAllArticles(): Promise<any> {
+  public async getAllArticles(): Promise<ArticleList> {
     const response: Response = await fetch(
       'https://google-news1.p.rapidapi.com/search?q=Astronomy&lang=en&pageSize=30',
       {
         method: 'GET',
         headers: {
-          'x-rapidapi-key': webSearchApiKey,
+          'x-rapidapi-key': this._webSearchApiKey,
           'x-rapidapi-host': 'google-news1.p.rapidapi.com',
         },
       }
     );
-    const checkedResponse: Response = await this.checkResponseData(response);
-    const jsonContent = await this.getJsonContent(checkedResponse);
-    return jsonContent as ArticleList[];
+    const checkedResponse: Response = await this._checkResponseData(response);
+    const jsonContent = await this._getJsonContent(checkedResponse);
+    return jsonContent as ArticleList;
   }
 }
 
 const apiClient = new ArticleAPI();
 
-apiClient.getAllArticles().then((data) => {
-  const retrievedArticles = data.articles.slice(0, 30);
-  retrievedArticles.forEach((article: Article) => {
-    const newArticle = new Article(
-      article.title,
-      article.link,
-      article.source,
-      article.published_date
-    );
-    console.log(newArticle);
+apiClient.getAllArticles().then((data: any) => {
+  const retrievedArticles: Article[] = data.articles.slice(0, 30);
+  retrievedArticles.forEach((articleData: Article) => {
+    const newArticle: Article = createNewArticle(articleData);
+    createArticleDomElements(newArticle);
   });
 });
 

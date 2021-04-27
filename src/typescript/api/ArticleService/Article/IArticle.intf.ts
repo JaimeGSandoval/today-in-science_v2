@@ -1,12 +1,8 @@
 interface IArticle {
   title: string;
   link: string;
-  source: Source['title'];
+  source: any;
   published_date: Date;
 }
-
-export type Source = {
-  title: string;
-};
 
 export default IArticle;

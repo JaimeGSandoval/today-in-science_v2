@@ -1,35 +1,65 @@
-import './api/index';
+import './api/ArticleService/index';
 
-// async function load() {
-//   const response = await fetch("https://google-search3.p.rapidapi.com/api/v1/news/q=president+united+states", {
-//     "method": "GET",
-//     "headers": {
-//       "x-rapidapi-key": "6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862",
-//       "x-rapidapi-host": "google-search3.p.rapidapi.com"
-//     }
-//   })
-//   const data = await response.json();
-//   console.log(data);
-// }
-// load();
-
-// fetch(
-//   'https://google-news1.p.rapidapi.com/search?q=Astronomy&lang=en&pageSize=30',
-//   {
-//     method: 'GET',
-//     headers: {
-//       'x-rapidapi-key': '6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862',
-//       'x-rapidapi-host': 'google-news1.p.rapidapi.com',
-//     },
-//   }
-// )
+// NASA
+// fetch('https://twitter32.p.rapidapi.com/getTweets?user_id=11348282', {
+//   method: 'GET',
+//   headers: {
+//     'x-rapidapi-key': '6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862',
+//     'x-rapidapi-host': 'twitter32.p.rapidapi.com',
+//   },
+// })
 //   .then((response) => response.json())
-//   .then((data) => {
-//     const temp = data.articles.slice(0, 30);
-//     temp.forEach((article) => {
-//       console.log(article);
-//     });
+//   .then((twitterData) => {
+//     const tweets = twitterData.data.tweets;
+//     let counter = 0;
+//     for (const tweet in tweets) {
+//       // console.log(tweets[tweet]);
+//       if (tweets[tweet].favorite_count && tweets[tweet].entities.media) {
+//         console.log('IMAGE URL: ', tweets[tweet].entities.media[0].media_url);
+//         console.log('FULL TEXT: ', tweets[tweet].full_text);
+//         console.log('FAVORITE COUNT: ', tweets[tweet].favorite_count);
+//         console.log('REPLY COUNT: ', tweets[tweet].reply_count);
+//         console.log('RETWEET COUNT: ', tweets[tweet].retweet_count);
+//         console.log('\n');
+//         counter++;
+//       }
+//     }
+//     console.log(counter);
 //   })
 //   .catch((err) => {
-//     console.error(err);
+//     console.log(err);
+//   });
+
+// Space X
+// fetch('https://twitter32.p.rapidapi.com/getTweets?user_id=21436960', {
+//   method: 'GET',
+//   headers: {
+//     'x-rapidapi-key': '6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862',
+//     'x-rapidapi-host': 'twitter32.p.rapidapi.com',
+//   },
+// })
+//   .then((response) => response.json())
+//   .then((twitterData) => {
+//     // console.log(twitterData);
+//     const tweets = twitterData.data.tweets;
+//     let counter = 0;
+//     for (const tweet in tweets) {
+//       // console.log(tweets[tweet]);
+//       // if (tweets[tweet].entities.media) {
+//       //   console.log(tweets[tweet].entities.media[0].media_url);
+//       // }
+//       if (tweets[tweet].favorite_count && tweets[tweet].entities.media) {
+//         console.log('IMAGE URL: ', tweets[tweet].entities.media[0].media_url);
+//         console.log('FULL TEXT: ', tweets[tweet].full_text);
+//         console.log('FAVORITE COUNT: ', tweets[tweet].favorite_count);
+//         console.log('REPLY COUNT: ', tweets[tweet].reply_count);
+//         console.log('RETWEET COUNT: ', tweets[tweet].retweet_count);
+//         console.log('\n');
+//         counter++;
+//       }
+//     }
+//     console.log(counter);
+//   })
+//   .catch((err) => {
+//     console.log(err);
 //   });
