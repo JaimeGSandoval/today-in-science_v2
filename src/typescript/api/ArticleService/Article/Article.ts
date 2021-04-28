@@ -25,8 +25,8 @@ export const createNewArticle = (articleData: Article): Article => {
 
 export const createArticleDomElements = (article: Article) => {
   const title = document.createElement('h1');
-  title.textContent = article.title;
-  title.classList.add('coloredText');
+  title.textContent = 'ARTICLE: ' + article.title;
+  title.classList.add('nasaText');
 
   document.body.appendChild(title);
 };

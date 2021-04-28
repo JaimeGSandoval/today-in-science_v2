@@ -1,4 +1,5 @@
 import './api/ArticleService/index';
+import './api/TwitterService/index';
 
 // NASA
 // fetch('https://twitter32.p.rapidapi.com/getTweets?user_id=11348282', {
