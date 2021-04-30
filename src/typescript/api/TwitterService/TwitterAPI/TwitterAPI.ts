@@ -84,7 +84,7 @@ apiNasaClient.getAllNasaTweets().then((twitterData: any) => {
       retrievedTweets[tweet].entities.media
     ) {
       createTweetDomElements(retrievedTweets[tweet]);
-      console.log('NASA FULL TEXT: ', retrievedTweets[tweet].full_text);
+      console.log(retrievedTweets[tweet]);
       // console.log('NASA FAVORITE COUNT: ', retrievedTweets[tweet].favoriteCount);
       // console.log('NASA REPLY COUNT: ', retrievedTweets[tweet].replyCount);
       // console.log('NASA RETWEET COUNT: ', retrievedTweets[tweet].retweetCount);
@@ -95,19 +95,29 @@ apiNasaClient.getAllNasaTweets().then((twitterData: any) => {
 
 apiSpaceXClient.getAllSpaceXTweets().then((twitterData: any) => {
   const retrievedTweets: Tweet[] = twitterData.data.tweets;
+  const tempArr = [];
   for (const tweet in retrievedTweets) {
-    if (
-      retrievedTweets[tweet].favorite_count &&
-      retrievedTweets[tweet].entities.media
-    ) {
-      createTweetDomElements(retrievedTweets[tweet]);
-      console.log('SPACEX FULL TEXT: ', retrievedTweets[tweet].full_text);
-      // console.log('SPACEX FAVORITE COUNT: ', retrievedTweets[tweet].favorite_count);
-      // console.log('SPACEX REPLY COUNT: ', retrievedTweets[tweet].reply_count);
-      // console.log('SPACEX RETWEET COUNT: ', retrievedTweets[tweet].retweet_count);
-      // console.log('\n');
-    }
+    tempArr.push(retrievedTweets[tweet]);
   }
+
+  // tempArr.slice(0, 5).forEach((item) => {
+  //   console.log(item.favorite_count);
+  //   console.log(item.full_text);
+  //   console.log(item.image_url);
+  //   console.log(item.reply_count);
+  //   console.log(item.retweet_count);
+  // });
+  // if (
+  //   retrievedTweets[tweet].favorite_count &&
+  //   retrievedTweets[tweet].entities.media
+  // ) {
+  //   console.log(retrievedTweets);
+  //   // createTweetDomElements(retrievedTweets[tweet]);
+  //   // console.log('SPACEX FAVORITE COUNT: ', retrievedTweets[tweet].favorite_count);
+  //   // console.log('SPACEX REPLY COUNT: ', retrievedTweets[tweet].reply_count);
+  //   // console.log('SPACEX RETWEET COUNT: ', retrievedTweets[tweet].retweet_count);
+  //   // console.log('\n');
+  // }
 });
 
 export default TwitterAPI;

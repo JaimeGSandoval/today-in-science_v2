@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url('../assets/fonts/roboto.woff2')
+      format('woff2');
+}
+
+body {
+
+  h1 {
+    font-family: 'Roboto';
+     color: blue;
+  }
+}
+
+.spacexText {
+  color: skyblue;
+}
