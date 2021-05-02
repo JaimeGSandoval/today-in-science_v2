@@ -1,5 +1,5 @@
-import './api/ArticleService/index';
-import './api/TwitterService/index';
+import './model/ArticleService/index';
+import './model/TwitterService/index';
 import '../sass/styles.scss';
 
 // NASA
