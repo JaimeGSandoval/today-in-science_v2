@@ -1,6 +1,4 @@
-import IArticle from './IArticle.intf';
-
-export class Article implements IArticle {
+export default class Article {
   public readonly title: string;
   public readonly link: string;
   public readonly source: any;

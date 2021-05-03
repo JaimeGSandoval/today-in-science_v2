@@ -1,6 +1,4 @@
-import ITweet from './ITweet.intf';
-
-export class Tweet implements ITweet {
+export default class Tweet {
   public readonly image_url: string;
   public readonly full_text: string;
   public readonly favorite_count: number;
