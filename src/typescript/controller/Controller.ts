@@ -13,6 +13,7 @@ export default class Controller {
     if (!twitterService) {
       throw new Error('The Article Service API is mandatory.');
     }
+
     this._articleService = articleService;
     this._twitterService = twitterService;
   }
@@ -20,14 +21,12 @@ export default class Controller {
   public async getAllArticles(): Promise<Article[]> {
     let retrievedArticles = await this._articleService.getAllArticles();
     retrievedArticles = retrievedArticles.articles.slice(0, 30);
-    console.log(retrievedArticles);
     return retrievedArticles as Article[];
   }
 
   public async getAllTweets(): Promise<Tweet[]> {
     let retrievedTweets = await this._twitterService.getAllTweets();
     retrievedTweets = convertToArray(retrievedTweets).slice(0, 10);
-    console.log(retrievedTweets);
     return retrievedTweets as Tweet[];
   }
 
@@ -38,12 +37,12 @@ export default class Controller {
 }
 
 const convertToArray = (twitterObject: { data: { tweets: any } }): Tweet[] => {
-  const result = [];
-  const tweets = twitterObject.data.tweets;
-  for (const tweet in tweets) {
-    if (tweets[tweet].favorite_count && tweets[tweet].entities.media) {
-      result.push(tweets[tweet]);
+  let result: Tweet[] = [];
+  const tweets: Tweet[] = Object.values(twitterObject.data.tweets);
+  result = tweets.filter((tweet) => {
+    if (tweet.favorite_count && tweet.entities.media) {
+      return tweet;
     }
-  }
+  });
   return result;
 };
