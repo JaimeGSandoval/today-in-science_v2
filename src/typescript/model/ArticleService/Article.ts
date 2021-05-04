@@ -3,20 +3,12 @@ export default class Article {
   public readonly link: string;
   public readonly source: any;
   public readonly published_date: Date;
-  test: string;
 
-  constructor(
-    title: string,
-    link: string,
-    source: any,
-    published_date: Date,
-    test: string
-  ) {
+  constructor(title: string, link: string, source: any, published_date: Date) {
     this.title = title;
     this.link = link;
     this.source = source;
     this.published_date = published_date;
-    this.test = test;
   }
 }
 

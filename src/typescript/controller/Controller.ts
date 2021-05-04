@@ -17,37 +17,18 @@ export default class Controller {
     this._twitterService = twitterService;
   }
 
-  public async getAllArticles(): Promise<unknown> {
-    let result: Article[];
-    return await this._articleService
-      .getAllArticles()
-      .then((articleData) => {
-        result = articleData.articles.slice(0, 30);
-        console.log('RETRIEVED ARTICLES', result);
-        return result;
-      })
-      .catch((error) => console.log(error));
-
-    return result;
+  public async getAllArticles(): Promise<Article[]> {
+    let retrievedArticles = await this._articleService.getAllArticles();
+    retrievedArticles = retrievedArticles.articles.slice(0, 30);
+    console.log(retrievedArticles);
+    return retrievedArticles as Article[];
   }
 
-  public async getAllTweets(): Promise<unknown> {
-    let result: Tweet[];
-    const tweetsArray: Tweet[] = [];
-    return await this._twitterService.getAllTweets().then((twitterData) => {
-      const retrievedTweets = twitterData.data.tweets;
-      for (const tweet in retrievedTweets) {
-        if (
-          retrievedTweets[tweet].favorite_count &&
-          retrievedTweets[tweet].entities.media
-        ) {
-          tweetsArray.push(retrievedTweets[tweet]);
-        }
-      }
-      console.log(tweetsArray.slice(0, 10));
-      result = tweetsArray.slice(0, 10);
-      return result;
-    });
+  public async getAllTweets(): Promise<Tweet[]> {
+    let retrievedTweets = await this._twitterService.getAllTweets();
+    retrievedTweets = convertToArray(retrievedTweets).slice(0, 10);
+    console.log(retrievedTweets);
+    return retrievedTweets as Tweet[];
   }
 
   public start() {
@@ -56,7 +37,13 @@ export default class Controller {
   }
 }
 
-// const retrievedArticles = articleData.articles.slice(0, 29);
-// retrievedArticles.forEach((article: Article) => {
-//   console.log(article);
-// });
+const convertToArray = (twitterObject: { data: { tweets: any } }): Tweet[] => {
+  const result = [];
+  const tweets = twitterObject.data.tweets;
+  for (const tweet in tweets) {
+    if (tweets[tweet].favorite_count && tweets[tweet].entities.media) {
+      result.push(tweets[tweet]);
+    }
+  }
+  return result;
+};
