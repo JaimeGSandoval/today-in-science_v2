@@ -1,3 +1,2 @@
-export * from './Article/Article';
-export * from './ArticleAPI/ArticleAPI';
-export * from './ArticleList/ArticleList';
+export { default as Article } from './Article';
+export { default as ArticleAPI } from './ArticleAPI';

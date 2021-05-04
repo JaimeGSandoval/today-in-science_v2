@@ -1,12 +1,12 @@
-import IArticleAPI from './IArticleAPI.intf';
-import {
-  Article,
-  createNewArticle,
-  createArticleDomElements,
-} from '../Article/Article';
-import ArticleList from '../ArticleList/ArticleList';
+// import IArticleAPI from './IArticleAPI.intf';
+// import {
+//   Article,
+//   createNewArticle,
+//   createArticleDomElements,
+// } from '../Article/Article';
+// import ArticleList from '../ArticleList/ArticleList';
 
-class ArticleAPI implements IArticleAPI {
+export default class ArticleAPI {
   private _webSearchApiKey: string;
 
   constructor() {
@@ -42,7 +42,7 @@ class ArticleAPI implements IArticleAPI {
     return jsonContent;
   }
 
-  public async getAllArticles(): Promise<ArticleList> {
+  public async getAllArticles(): Promise<any> {
     const response: Response = await fetch(
       'https://google-news1.p.rapidapi.com/search?q=Astronomy&lang=en&pageSize=30',
       {
@@ -53,20 +53,19 @@ class ArticleAPI implements IArticleAPI {
         },
       }
     );
+
     const checkedResponse: Response = await this._checkResponseData(response);
     const jsonContent = await this._getJsonContent(checkedResponse);
-    return jsonContent as ArticleList;
+    return jsonContent;
   }
 }
 
-const apiClient = new ArticleAPI();
+// const apiClient = new ArticleAPI();
 
-apiClient.getAllArticles().then((data: any) => {
-  const retrievedArticles: Article[] = data.articles.slice(0, 30);
-  retrievedArticles.forEach((articleData: Article) => {
-    const newArticle: Article = createNewArticle(articleData);
-    createArticleDomElements(newArticle);
-  });
-});
-
-export default ArticleAPI;
+// apiClient.getAllArticles().then((data: any) => {
+//   const retrievedArticles: Article[] = data.articles.slice(0, 30);
+//   retrievedArticles.forEach((articleData: Article) => {
+//     const newArticle: Article = createNewArticle(articleData);
+//     createArticleDomElements(newArticle);
+//   });
+// });

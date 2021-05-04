@@ -1,0 +1,38 @@
+export default class Article {
+  public readonly title: string;
+  public readonly link: string;
+  public readonly source: any;
+  public readonly published_date: Date;
+  test: string;
+
+  constructor(
+    title: string,
+    link: string,
+    source: any,
+    published_date: Date,
+    test: string
+  ) {
+    this.title = title;
+    this.link = link;
+    this.source = source;
+    this.published_date = published_date;
+    this.test = test;
+  }
+}
+
+// export const createNewArticle = (articleData: Article): Article => {
+//   return new Article(
+//     articleData.title,
+//     articleData.link,
+//     articleData.source,
+//     articleData.published_date
+//   );
+// };
+
+// export const createArticleDomElements = (article: Article) => {
+//   const title = document.createElement('h1');
+//   title.textContent = 'ARTICLE: ' + article.title;
+//   title.classList.add('nasaText');
+
+//   document.body.appendChild(title);
+// };

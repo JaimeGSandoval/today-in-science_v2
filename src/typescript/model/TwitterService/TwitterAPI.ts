@@ -1,9 +1,7 @@
-import ITwitterAPI from './ITwitterAPI.intf';
-import TweetList from '../TweetList/TweetList';
-import { createTweetDomElements } from '../Tweet/Tweet';
-import { Tweet } from '../Tweet/Tweet';
+// import { createTweetDomElements } from '../Tweet/Tweet';
+// import { Tweet } from '../Tweet/Tweet';
 
-class TwitterAPI implements ITwitterAPI {
+export default class TwitterAPI {
   private _webSearchApiKey: string;
 
   constructor() {
@@ -39,23 +37,7 @@ class TwitterAPI implements ITwitterAPI {
     return jsonContent;
   }
 
-  public async getAllNasaTweets(): Promise<TweetList> {
-    const response: Response = await fetch(
-      'https://twitter32.p.rapidapi.com/getTweets?user_id=11348282',
-      {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-key': this._webSearchApiKey,
-          'x-rapidapi-host': 'twitter32.p.rapidapi.com',
-        },
-      }
-    );
-    const checkedResponse: Response = await this._checkResponseData(response);
-    const jsonContent = await this._getJsonContent(checkedResponse);
-    return jsonContent as TweetList;
-  }
-
-  public async getAllSpaceXTweets(): Promise<TweetList> {
+  public async getAllTweets(): Promise<any> {
     const response: Response = await fetch(
       'https://twitter32.p.rapidapi.com/getTweets?user_id=21436960',
       {
@@ -69,58 +51,56 @@ class TwitterAPI implements ITwitterAPI {
     );
     const checkedResponse: Response = await this._checkResponseData(response);
     const jsonContent = await this._getJsonContent(checkedResponse);
-    return jsonContent as TweetList;
+    return jsonContent;
   }
 }
 
-const apiNasaClient = new TwitterAPI();
-const apiSpaceXClient = new TwitterAPI();
+// const apiNasaClient = new TwitterAPI();
+// const apiSpaceXClient = new TwitterAPI();
 
-apiNasaClient.getAllNasaTweets().then((twitterData: any) => {
-  const retrievedTweets = twitterData.data.tweets;
-  for (const tweet in retrievedTweets) {
-    if (
-      retrievedTweets[tweet].favorite_count &&
-      retrievedTweets[tweet].entities.media
-    ) {
-      createTweetDomElements(retrievedTweets[tweet]);
-      console.log(retrievedTweets[tweet]);
-      // console.log('NASA FAVORITE COUNT: ', retrievedTweets[tweet].favoriteCount);
-      // console.log('NASA REPLY COUNT: ', retrievedTweets[tweet].replyCount);
-      // console.log('NASA RETWEET COUNT: ', retrievedTweets[tweet].retweetCount);
-      // console.log('\n');
-    }
-  }
-});
+// apiNasaClient.getAllNasaTweets().then((twitterData: any) => {
+//   const retrievedTweets = twitterData.data.tweets;
+//   for (const tweet in retrievedTweets) {
+//     if (
+//       retrievedTweets[tweet].favorite_count &&
+//       retrievedTweets[tweet].entities.media
+//     ) {
+//       createTweetDomElements(retrievedTweets[tweet]);
+//       console.log(retrievedTweets[tweet]);
+//       // console.log('NASA FAVORITE COUNT: ', retrievedTweets[tweet].favoriteCount);
+//       // console.log('NASA REPLY COUNT: ', retrievedTweets[tweet].replyCount);
+//       // console.log('NASA RETWEET COUNT: ', retrievedTweets[tweet].retweetCount);
+//       // console.log('\n');
+//     }
+//   }
+// });
 
-apiSpaceXClient.getAllSpaceXTweets().then((twitterData: any) => {
-  const retrievedTweets: Tweet[] = twitterData.data.tweets;
-  const tempArr = [];
-  for (const tweet in retrievedTweets) {
-    tempArr.push(retrievedTweets[tweet]);
-  }
+// apiSpaceXClient.getAllSpaceXTweets().then((twitterData: any) => {
+//   const retrievedTweets: Tweet[] = twitterData.data.tweets;
+//   const tempArr = [];
+//   for (const tweet in retrievedTweets) {
+//     tempArr.push(retrievedTweets[tweet]);
+//   }
 
-  // tempArr.slice(0, 5).forEach((item) => {
-  //   console.log(item.favorite_count);
-  //   console.log(item.full_text);
-  //   console.log(item.image_url);
-  //   console.log(item.reply_count);
-  //   console.log(item.retweet_count);
-  // });
-  // if (
-  //   retrievedTweets[tweet].favorite_count &&
-  //   retrievedTweets[tweet].entities.media
-  // ) {
-  //   console.log(retrievedTweets);
-  //   // createTweetDomElements(retrievedTweets[tweet]);
-  //   // console.log('SPACEX FAVORITE COUNT: ', retrievedTweets[tweet].favorite_count);
-  //   // console.log('SPACEX REPLY COUNT: ', retrievedTweets[tweet].reply_count);
-  //   // console.log('SPACEX RETWEET COUNT: ', retrievedTweets[tweet].retweet_count);
-  //   // console.log('\n');
-  // }
-});
-
-export default TwitterAPI;
+//   // tempArr.slice(0, 5).forEach((item) => {
+//   //   console.log(item.favorite_count);
+//   //   console.log(item.full_text);
+//   //   console.log(item.image_url);
+//   //   console.log(item.reply_count);
+//   //   console.log(item.retweet_count);
+//   // });
+//   // if (
+//   //   retrievedTweets[tweet].favorite_count &&
+//   //   retrievedTweets[tweet].entities.media
+//   // ) {
+//   //   console.log(retrievedTweets);
+//   //   // createTweetDomElements(retrievedTweets[tweet]);
+//   //   // console.log('SPACEX FAVORITE COUNT: ', retrievedTweets[tweet].favorite_count);
+//   //   // console.log('SPACEX REPLY COUNT: ', retrievedTweets[tweet].reply_count);
+//   //   // console.log('SPACEX RETWEET COUNT: ', retrievedTweets[tweet].retweet_count);
+//   //   // console.log('\n');
+//   // }
+// });
 
 // NASA
 // fetch('https://twitter32.p.rapidapi.com/getTweets?user_id=11348282', {
@@ -185,3 +165,19 @@ export default TwitterAPI;
 //   .catch((err) => {
 //     console.log(err);
 //   });
+
+// public async getAllNasaTweets(): Promise<any> {
+//   const response: Response = await fetch(
+//     'https://twitter32.p.rapidapi.com/getTweets?user_id=11348282',
+//     {
+//       method: 'GET',
+//       headers: {
+//         'x-rapidapi-key': this._webSearchApiKey,
+//         'x-rapidapi-host': 'twitter32.p.rapidapi.com',
+//       },
+//     }
+//   );
+//   const checkedResponse: Response = await this._checkResponseData(response);
+//   const jsonContent = await this._getJsonContent(checkedResponse);
+//   return jsonContent;
+// }
