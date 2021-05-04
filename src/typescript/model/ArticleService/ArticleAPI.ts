@@ -1,11 +1,3 @@
-// import IArticleAPI from './IArticleAPI.intf';
-// import {
-//   Article,
-//   createNewArticle,
-//   createArticleDomElements,
-// } from '../Article/Article';
-// import ArticleList from '../ArticleList/ArticleList';
-
 export default class ArticleAPI {
   private _webSearchApiKey: string;
 
@@ -59,13 +51,3 @@ export default class ArticleAPI {
     return jsonContent;
   }
 }
-
-// const apiClient = new ArticleAPI();
-
-// apiClient.getAllArticles().then((data: any) => {
-//   const retrievedArticles: Article[] = data.articles.slice(0, 30);
-//   retrievedArticles.forEach((articleData: Article) => {
-//     const newArticle: Article = createNewArticle(articleData);
-//     createArticleDomElements(newArticle);
-//   });
-// });

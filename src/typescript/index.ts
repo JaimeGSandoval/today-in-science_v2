@@ -7,8 +7,6 @@ const articleService: ArticleAPI = new ArticleAPI();
 const twitterService: TwitterAPI = new TwitterAPI();
 const controller: Controller = new Controller(articleService, twitterService);
 controller.start();
-// controller.getAllArticles();
-// controller.getAllTweets();
 
 // function () {
 //   var model = new TaskModel(),
