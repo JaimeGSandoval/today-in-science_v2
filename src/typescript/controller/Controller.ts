@@ -17,21 +17,21 @@ export default class Controller {
     this._twitterService = twitterService;
   }
 
-  public async getAllArticles(): Promise<any> {
-    const result = await this._articleService
+  public async getAllArticles(): Promise<unknown> {
+    let result: Article[];
+    return await this._articleService
       .getAllArticles()
       .then((articleData) => {
-        const retrievedArticles = articleData.articles.slice(0, 29);
-        retrievedArticles.forEach((article: Article) => {
-          console.log(article);
-        });
+        result = articleData.articles.slice(0, 30);
+        console.log('RETRIEVED ARTICLES', result);
+        return result;
       })
       .catch((error) => console.log(error));
 
     return result;
   }
 
-  public async getAllTweets(): Promise<any> {
+  public async getAllTweets(): Promise<unknown> {
     let result: Tweet[];
     const tweetsArray: Tweet[] = [];
     return await this._twitterService.getAllTweets().then((twitterData) => {
@@ -55,3 +55,8 @@ export default class Controller {
     this.getAllTweets();
   }
 }
+
+// const retrievedArticles = articleData.articles.slice(0, 29);
+// retrievedArticles.forEach((article: Article) => {
+//   console.log(article);
+// });
