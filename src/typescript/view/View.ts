@@ -11,7 +11,16 @@ export default class View {
         article.published_date
       );
     });
-    return newArticles;
+
+    return this.createArticleDomElements(newArticles);
+  }
+
+  public createArticleDomElements(articles: Article[]) {
+    articles.forEach((articles) => {
+      const text = document.createElement('h1');
+      text.textContent = `ARTICLE: ${articles.title}`;
+      return document.body.appendChild(text);
+    });
   }
 
   public createTweets(tweets: Tweet[]) {
@@ -24,18 +33,15 @@ export default class View {
         tweet.retweet_count
       );
     });
-    return newTweets;
+
+    return this.createTweetDomElements(newTweets);
   }
 
-  // public createTweetDomElements(tweet: Tweet) {
-  //   const text = document.createElement('h1');
-  //   text.textContent = `TWEET: ${tweet.full_text}`;
-  //   // text.classList.add('spacexText');
-  //   document.body.appendChild(text);
-  // }
-  // public createArticleDomElements(article: Article) {
-  //   const text = document.createElement('h1');
-  //   text.textContent = `ARTICLE: ${article.title}`;
-  //   document.body.appendChild(text);
-  // }
+  public createTweetDomElements(tweets: Tweet[]) {
+    tweets.forEach((tweet) => {
+      const text = document.createElement('h1');
+      text.textContent = `TWEET: ${tweet.full_text}`;
+      return document.body.appendChild(text);
+    });
+  }
 }
