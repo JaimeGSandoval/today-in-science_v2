@@ -43,10 +43,8 @@ export default class Controller {
   public async start() {
     const articles = await this.getAllArticles('Quantum%20Computing');
     const tweets = await this.getAllTweets();
-    console.log('ARTICLES: ', this._view.createArticles(articles));
-    console.log('TWEETS: ', this._view.createTweets(tweets));
-    // this._view.displayArticles(articles);
-    // this._view.displayTweets(tweets);
+    this._view.createArticles(articles);
+    this._view.createTweets(tweets);
   }
 }
 

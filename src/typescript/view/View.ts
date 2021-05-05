@@ -1,5 +1,7 @@
 import { Article } from '../model/ArticleService';
 import { Tweet } from '../model/TwitterService';
+import { createArticleDomElements } from './dom-creation';
+import { createTweetDomElements } from './dom-creation';
 
 export default class View {
   public createArticles(articles: Article[]) {
@@ -12,15 +14,7 @@ export default class View {
       );
     });
 
-    return this.createArticleDomElements(newArticles);
-  }
-
-  public createArticleDomElements(articles: Article[]) {
-    articles.forEach((articles) => {
-      const text = document.createElement('h1');
-      text.textContent = `ARTICLE: ${articles.title}`;
-      return document.body.appendChild(text);
-    });
+    return createArticleDomElements(newArticles);
   }
 
   public createTweets(tweets: Tweet[]) {
@@ -34,14 +28,6 @@ export default class View {
       );
     });
 
-    return this.createTweetDomElements(newTweets);
-  }
-
-  public createTweetDomElements(tweets: Tweet[]) {
-    tweets.forEach((tweet) => {
-      const text = document.createElement('h1');
-      text.textContent = `TWEET: ${tweet.full_text}`;
-      return document.body.appendChild(text);
-    });
+    return createTweetDomElements(newTweets);
   }
 }
