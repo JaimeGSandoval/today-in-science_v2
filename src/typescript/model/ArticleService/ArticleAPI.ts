@@ -1,5 +1,5 @@
 export default class ArticleAPI {
-  private _webSearchApiKey: string;
+  private readonly _webSearchApiKey: string;
 
   constructor() {
     this._webSearchApiKey =
@@ -34,9 +34,9 @@ export default class ArticleAPI {
     return jsonContent;
   }
 
-  public async getAllArticles(): Promise<any> {
+  public async getAllArticles(subject: string): Promise<any> {
     const response: Response = await fetch(
-      'https://google-news1.p.rapidapi.com/search?q=Astronomy&lang=en&pageSize=30',
+      `https://google-news1.p.rapidapi.com/search?q=${subject}&lang=en&pageSize=30`,
       {
         method: 'GET',
         headers: {

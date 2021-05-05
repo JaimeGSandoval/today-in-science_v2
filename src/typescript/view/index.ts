@@ -1,3 +1,5 @@
+export { default as View } from './View';
+
 // export const createNewArticle = (articleData: Article): Article => {
 //   return new Article(
 //     articleData.title,
