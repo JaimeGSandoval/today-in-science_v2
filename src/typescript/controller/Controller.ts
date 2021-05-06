@@ -1,38 +1,50 @@
 import { ArticleAPI, Article } from '../model/ArticleService';
 import { TwitterAPI, Tweet } from '../model/TwitterService';
+import { View } from '../view';
 
 export default class Controller {
   private readonly _articleService: ArticleAPI;
   private readonly _twitterService: TwitterAPI;
+  private readonly _view: View;
 
-  constructor(articleService: ArticleAPI, twitterService: TwitterAPI) {
+  constructor(
+    articleService: ArticleAPI,
+    twitterService: TwitterAPI,
+    view: View
+  ) {
     if (!articleService) {
       throw new Error('The Article Service API is mandatory.');
     }
 
     if (!twitterService) {
-      throw new Error('The Article Service API is mandatory.');
+      throw new Error('The Twitter Service API is mandatory.');
+    }
+
+    if (!view) {
+      throw new Error('View argument is mandatory');
     }
 
     this._articleService = articleService;
     this._twitterService = twitterService;
+    this._view = view;
   }
 
-  public async getAllArticles(): Promise<Article[]> {
-    let retrievedArticles = await this._articleService.getAllArticles();
+  public async getAllArticles(subject: string): Promise<Article[]> {
+    let retrievedArticles = await this._articleService.getAllArticles(subject);
     retrievedArticles = retrievedArticles.articles.slice(0, 30);
     return retrievedArticles as Article[];
   }
 
   public async getAllTweets(): Promise<Tweet[]> {
-    let retrievedTweets = await this._twitterService.getAllTweets();
-    retrievedTweets = convertToArray(retrievedTweets).slice(0, 10);
-    return retrievedTweets as Tweet[];
+    const retrievedTweets = await this._twitterService.getAllTweets();
+    return convertToArray(retrievedTweets) as Tweet[];
   }
 
-  public start() {
-    this.getAllArticles();
-    this.getAllTweets();
+  public async start() {
+    const articles = await this.getAllArticles('Quantum%20Computing');
+    const tweets = await this.getAllTweets();
+    this._view.createArticles(articles);
+    this._view.createTweets(tweets);
   }
 }
 
@@ -44,5 +56,5 @@ const convertToArray = (twitterObject: { data: { tweets: any } }): Tweet[] => {
       return tweet;
     }
   });
-  return result;
+  return result.slice(0, 10);
 };

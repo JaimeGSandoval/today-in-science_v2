@@ -1,5 +1,5 @@
 export default class TwitterAPI {
-  private _webSearchApiKey: string;
+  private readonly _webSearchApiKey: string;
 
   constructor() {
     this._webSearchApiKey =
@@ -34,6 +34,7 @@ export default class TwitterAPI {
     return jsonContent;
   }
 
+  // SpaceX
   public async getAllTweets(): Promise<any> {
     const response: Response = await fetch(
       'https://twitter32.p.rapidapi.com/getTweets?user_id=21436960',

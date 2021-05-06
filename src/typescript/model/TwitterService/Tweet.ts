@@ -1,9 +1,9 @@
 export default class Tweet {
-  public readonly image_url: string;
-  public readonly full_text: string;
-  public readonly favorite_count: number;
-  public readonly reply_count: number;
-  public readonly retweet_count: number;
+  public readonly image_url: string; // <img>
+  public readonly full_text: string; // <p>
+  public readonly favorite_count: number; // <icon> or  <img>& <span>
+  public readonly reply_count: number; // <i> or <img> & <span>
+  public readonly retweet_count: number; // <i> or <img> & <span>
   public readonly entities: any;
 
   constructor(
@@ -20,21 +20,3 @@ export default class Tweet {
     this.retweet_count = retweet_count;
   }
 }
-
-export const createNewTweet = (twitterData: Tweet): Tweet => {
-  return new Tweet(
-    twitterData.image_url,
-    twitterData.full_text,
-    twitterData.favorite_count,
-    twitterData.reply_count,
-    twitterData.retweet_count
-  );
-};
-
-export const createTweetDomElements = (tweet: Tweet) => {
-  const text = document.createElement('h1');
-  text.textContent = 'TWEET: ' + tweet.full_text;
-  text.classList.add('spacexText');
-
-  document.body.appendChild(text);
-};
