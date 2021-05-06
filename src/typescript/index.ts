@@ -12,9 +12,3 @@ const controller: Controller = new Controller(
   view
 );
 controller.start();
-
-// function () {
-//   var model = new TaskModel(),
-//     view = new TaskView(model),
-//     controller = new TaskController(model, view);
-// };

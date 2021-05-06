@@ -1,9 +1,9 @@
 export default class Tweet {
-  public readonly image_url: string;
-  public readonly full_text: string;
-  public readonly favorite_count: number;
-  public readonly reply_count: number;
-  public readonly retweet_count: number;
+  public readonly image_url: string; // <img>
+  public readonly full_text: string; // <p>
+  public readonly favorite_count: number; // <icon> or  <img>& <span>
+  public readonly reply_count: number; // <i> or <img> & <span>
+  public readonly retweet_count: number; // <i> or <img> & <span>
   public readonly entities: any;
 
   constructor(
