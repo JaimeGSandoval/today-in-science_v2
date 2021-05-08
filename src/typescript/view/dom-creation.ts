@@ -12,19 +12,21 @@ export const createArticleDomElements = (articles: Article[]) => {
     const date: string = new Date(article.published_date).toDateString();
 
     const div = document.createElement('div') as HTMLDivElement;
-    const h1 = document.createElement('h1') as HTMLHeadingElement;
+    const h1 = document.createElement('h1');
     h1.textContent = title;
+    const test = h1.textContent.split('-');
+    h1.textContent = test[0];
+    const sourceText = document.createElement('p');
+    sourceText.textContent = test[1];
 
     const url = document.createElement('a') as HTMLAnchorElement;
-    url.innerText = 'Source';
     url.setAttribute('href', link);
 
     const dateStr = document.createElement('p');
     dateStr.textContent = date;
-
-    div.append(h1, url, date);
-
-    return container?.appendChild(div);
+    div.append(h1, sourceText, dateStr);
+    url.appendChild(div);
+    return container?.append(url);
   });
 };
 
