@@ -14,7 +14,8 @@ export default class View {
       );
     });
 
-    return createArticleDomElements(newArticles);
+    createArticleDomElements(newArticles);
+    return;
   }
 
   public createTweets(tweets: Tweet[]) {

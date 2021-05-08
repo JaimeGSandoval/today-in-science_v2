@@ -1,11 +1,11 @@
-import { ArticleAPI, Article } from '../model/ArticleService';
+import { ArticleAPI, Article, storeData } from '../model/ArticleService';
 import { TwitterAPI, Tweet } from '../model/TwitterService';
 import { View } from '../view';
 
 export default class Controller {
   private readonly _articleService: ArticleAPI;
   private readonly _twitterService: TwitterAPI;
-  private readonly _view: View;
+  private _view: View;
 
   constructor(
     articleService: ArticleAPI,
@@ -30,8 +30,28 @@ export default class Controller {
   }
 
   public async getAllArticles(subject: string): Promise<Article[]> {
+    const percent = '%20';
+    if (subject.indexOf(percent) !== -1) {
+      subject = subject.replace('%20', '-');
+    }
+
+    const container = document.getElementById(
+      'article-container'
+    ) as HTMLDivElement;
+
+    if (sessionStorage.getItem(subject)) {
+      container.innerHTML = '';
+      console.log('From session storage');
+      const articles = JSON.parse(sessionStorage.getItem(subject) || '{}');
+      return articles;
+    }
+
+    console.log('From API');
+
     let retrievedArticles = await this._articleService.getAllArticles(subject);
     retrievedArticles = retrievedArticles.articles.slice(0, 30);
+    storeData(subject, retrievedArticles);
+    container.innerHTML = '';
     return retrievedArticles as Article[];
   }
 
@@ -41,10 +61,12 @@ export default class Controller {
   }
 
   public async start() {
-    const articles = await this.getAllArticles('Quantum%20Computing');
-    const tweets = await this.getAllTweets();
-    this._view.createArticles(articles);
-    this._view.createTweets(tweets);
+    const quantumArticles = await this.getAllArticles('quantum%20computing');
+    // const astroArticles = await this.getAllArticles('Astronomy');
+    // const tweets = await this.getAllTweets();
+    this._view.createArticles(quantumArticles);
+    // this._view.createArticles(astroArticles);
+    // this._view.createTweets(tweets);
   }
 }
 

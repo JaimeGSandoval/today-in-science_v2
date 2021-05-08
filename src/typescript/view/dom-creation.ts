@@ -2,10 +2,14 @@ import { Tweet } from '../model/TwitterService';
 import { Article } from '../model/ArticleService';
 
 export const createArticleDomElements = (articles: Article[]) => {
+  const container = document.getElementById(
+    'article-container'
+  ) as HTMLDivElement;
+
   articles.forEach((articles: Article) => {
     const text = document.createElement('h1');
     text.textContent = `ARTICLE: ${articles.title}`;
-    return document.body.appendChild(text);
+    return container?.appendChild(text);
   });
 };
 
