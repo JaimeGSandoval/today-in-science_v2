@@ -5,9 +5,9 @@ export default class Article {
   public readonly published_date: Date;
 
   constructor(title: string, link: string, source: any, published_date: Date) {
-    this.title = title; // <h1>
-    this.link = link; // <a>
-    this.source = source; // <p>
-    this.published_date = published_date; //<span> or <p>
+    this.title = title;
+    this.link = link;
+    this.source = source;
+    this.published_date = published_date;
   }
 }
