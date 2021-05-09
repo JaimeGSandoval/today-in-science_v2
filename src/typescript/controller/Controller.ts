@@ -61,12 +61,12 @@ export default class Controller {
   }
 
   public async start() {
-    const quantumArticles = await this.getAllArticles('quantum%20computing');
+    // const quantumArticles = await this.getAllArticles('quantum%20computing');
     // const astroArticles = await this.getAllArticles('Astronomy');
-    // const tweets = await this.getAllTweets();
-    this._view.createArticles(quantumArticles);
+    const tweets = await this.getAllTweets();
+    // this._view.createArticles(quantumArticles);
     // this._view.createArticles(astroArticles);
-    // this._view.createTweets(tweets);
+    this._view.createTweets(tweets);
   }
 }
 

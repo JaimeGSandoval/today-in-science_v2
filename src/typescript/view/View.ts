@@ -13,6 +13,8 @@ export default class View {
         article.published_date
       );
     });
+    const date = new Date(newArticles[0].published_date);
+    console.log('ARTICLE DATE', date.toDateString());
 
     createArticleDomElements(newArticles);
     return;
