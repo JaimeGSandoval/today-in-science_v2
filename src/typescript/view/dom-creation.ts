@@ -12,22 +12,25 @@ export const createArticleDomElements = (articles: Article[]) => {
     const date: string = new Date(article.published_date).toDateString();
 
     const div = document.createElement('div') as HTMLDivElement;
-    const h1 = document.createElement('h1');
+    const h1 = document.createElement('h1') as HTMLHeadingElement;
     h1.textContent = title;
 
-    const test = h1.textContent.split('-');
+    const test = h1.textContent.split('-') as string[];
     h1.textContent = test[0];
 
-    const sourceText = document.createElement('p');
+    const sourceText = document.createElement('p') as HTMLParagraphElement;
     sourceText.textContent = test[1];
 
     const url = document.createElement('a') as HTMLAnchorElement;
     url.setAttribute('href', link);
 
-    const dateStr = document.createElement('p');
+    const dateStr = document.createElement('p') as HTMLParagraphElement;
     dateStr.textContent = date;
 
-    div.append(h1, sourceText, dateStr);
+    const icon = document.createElement('img') as HTMLImageElement;
+    icon.src = '/src/assets/icons/webp/astronaut.webp';
+
+    div.append(h1, sourceText, dateStr, icon);
     url.appendChild(div);
     return container?.appendChild(url);
   });
@@ -51,19 +54,19 @@ export const createTweetDomElements = (tweets: Tweet[]) => {
 
     const tweetText = fullText.textContent.split('https');
 
-    const temp = tweetText[tweetText.length - 1].slice(1);
+    const tempUrlVar = tweetText[tweetText.length - 1].slice(1);
 
-    const url = document.createElement('a') as HTMLAnchorElement;
-    url.innerText = 'URL';
-    url.setAttribute('href', temp);
+    const twitterPostUrl = document.createElement('a') as HTMLAnchorElement;
+    twitterPostUrl.setAttribute('href', tempUrlVar);
+    twitterPostUrl.innerText = 'URL';
 
-    const replyCount = document.createElement('p');
+    const replyCount = document.createElement('span') as HTMLSpanElement;
     replyCount.textContent = String(tweet.reply_count);
 
-    const retweetCount = document.createElement('p');
+    const retweetCount = document.createElement('span') as HTMLSpanElement;
     retweetCount.textContent = String(tweet.retweet_count);
 
-    const favoriteCount = document.createElement('p');
+    const favoriteCount = document.createElement('span') as HTMLSpanElement;
     favoriteCount.textContent = String(tweet.favorite_count);
 
     container.append(
@@ -71,11 +74,11 @@ export const createTweetDomElements = (tweets: Tweet[]) => {
       tweetText[0],
       replyCount,
       retweetCount,
-      favoriteCount,
-      url
+      favoriteCount
     );
 
-    tweetContainer.appendChild(container);
+    twitterPostUrl.append(container);
+    tweetContainer.appendChild(twitterPostUrl);
   });
 };
 
@@ -89,3 +92,13 @@ export const createTweetDomElements = (tweets: Tweet[]) => {
 //   result.push(word);
 // });
 // tweetText.textContent = result.join(' ');
+
+// tweetText[0].split(' ').forEach((word) => {
+//   const span = document.createElement('span');
+//   span.innerText = word;
+
+//   if (span.innerText.startsWith('@') || span.innerText.startsWith('#')) {
+//     span.style.color = 'blue';
+//     document.body.append(span);
+//   }
+// });
