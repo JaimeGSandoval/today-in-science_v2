@@ -1,6 +1,17 @@
 import { Tweet } from '../model/TwitterService';
 import { Article } from '../model/ArticleService';
 
+const imgContainer = document.getElementById('test-pic') as HTMLImageElement;
+const subjects = document.querySelectorAll('h1');
+console.log(subjects);
+
+subjects.forEach((subject) => {
+  subject.addEventListener('click', function (e) {
+    const target = e.target as HTMLHeadingElement;
+    return (imgContainer!.src = `/src/assets/images/desktop/webp/${target.id}.webp`);
+  });
+});
+
 export const createArticleDomElements = (articles: Article[]) => {
   const container = document.getElementById(
     'article-container'
