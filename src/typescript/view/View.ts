@@ -5,6 +5,11 @@ import { createTweetDomElements } from './dom-creation';
 
 export default class View {
   public createArticles(articles: Article[]) {
+    // console.log(
+    //   articles.published_date.sort(function (a: any, b: any) {
+    //     return a - b;
+    //   })
+    // );
     const newArticles = articles.map((article) => {
       return new Article(
         article.title,
