@@ -49,10 +49,14 @@ export const createTweetDomElements = (tweets: Tweet[]) => {
     tweetImg.style.width = '400px';
     tweetImg.style.height = 'auto';
 
-    const fullText = document.createElement('p') as HTMLParagraphElement;
-    fullText.textContent = tweet.full_text;
+    const test = tweet.full_text;
+    const result = colorizeSelectedText(test);
 
-    const tweetText = fullText.textContent.split('https');
+    const fullText = document.createElement('p') as HTMLParagraphElement;
+    fullText.innerHTML = result;
+
+    const tweetText = fullText.textContent!.split('https');
+    document.body.append(fullText);
 
     const tempUrlVar = tweetText[tweetText.length - 1].slice(1);
 
@@ -71,7 +75,7 @@ export const createTweetDomElements = (tweets: Tweet[]) => {
 
     container.append(
       tweetImg,
-      tweetText[0],
+      fullText,
       replyCount,
       retweetCount,
       favoriteCount
@@ -82,23 +86,15 @@ export const createTweetDomElements = (tweets: Tweet[]) => {
   });
 };
 
-// const result: string[] = [];
-// tweetText.textContent?.split(' ').forEach((word) => {
-//   const temp = document.createElement('span');
-//   temp.textContent = word;
-//   if (word.startsWith('#') || word.startsWith('@')) {
-//     word.style.color = 'blue';
-//   }
-//   result.push(word);
-// });
-// tweetText.textContent = result.join(' ');
-
-// tweetText[0].split(' ').forEach((word) => {
-//   const span = document.createElement('span');
-//   span.innerText = word;
-
-//   if (span.innerText.startsWith('@') || span.innerText.startsWith('#')) {
-//     span.style.color = 'blue';
-//     document.body.append(span);
-//   }
-// });
+function colorizeSelectedText(str: any) {
+  const result = str
+    .split(' ')
+    .map((word: any) => {
+      if (word.startsWith('@') || word.startsWith('#')) {
+        return `<span style='color: blue;'>${word}</span>`;
+      }
+      return word;
+    })
+    .join(' ');
+  return result;
+}
