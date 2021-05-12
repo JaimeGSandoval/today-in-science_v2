@@ -1,14 +1,27 @@
 import { Tweet } from '../model/TwitterService';
 import { Article } from '../model/ArticleService';
 
-const imgContainer = document.getElementById('test-pic') as HTMLImageElement;
-const subjects = document.querySelectorAll('h1');
-console.log(subjects);
+function sourceChange(subject: string) {
+  console.log(subject);
+  const sourceWebpLg = document.getElementById(
+    'source-webp-lg'
+  ) as HTMLSourceElement;
+  const sourceWebpMd = document.getElementById(
+    'source-webp-med'
+  ) as HTMLSourceElement;
+  const sourceWebpImg = document.getElementById(
+    'source-webp-img'
+  ) as HTMLImageElement;
+  sourceWebpLg.srcset = `/src/assets/images/desktop/webp/${subject}.webp 800w`;
+  sourceWebpMd.srcset = `/src/assets/images/tablet/webp/${subject}.webp 600w`;
+  sourceWebpImg.src = `/src/assets/images/mobile/webp/${subject}.webp`;
+}
 
+const subjects = document.querySelectorAll('h1');
 subjects.forEach((subject) => {
   subject.addEventListener('click', function (e) {
     const target = e.target as HTMLHeadingElement;
-    return (imgContainer!.src = `/src/assets/images/desktop/webp/${target.id}.webp`);
+    return sourceChange(target.id);
   });
 });
 
