@@ -36,7 +36,7 @@ export default class Controller {
     }
 
     const container = document.getElementById(
-      'article-container'
+      'article-list-container'
     ) as HTMLDivElement;
 
     if (sessionStorage.getItem(subject)) {

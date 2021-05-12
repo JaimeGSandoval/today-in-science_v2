@@ -3,11 +3,6 @@ import { Tweet } from '../model/TwitterService';
 
 export default class View {
   public createArticles(articles: Article[]) {
-    // console.log(
-    //   articles.published_date.sort(function (a: any, b: any) {
-    //     return a - b;
-    //   })
-    // );
     const newArticles = articles.map((article) => {
       return new Article(
         article.title,
@@ -39,8 +34,8 @@ export default class View {
 }
 
 const createArticleDomElements = (articles: Article[]) => {
-  const container = document.getElementById(
-    'article-container'
+  const articleListContainer = document.getElementById(
+    'article-list-container'
   ) as HTMLDivElement;
 
   articles.forEach((article: Article) => {
@@ -48,28 +43,29 @@ const createArticleDomElements = (articles: Article[]) => {
     const link: string = article.link;
     const date: string = new Date(article.published_date).toDateString();
 
-    const div = document.createElement('div') as HTMLDivElement;
-    const h1 = document.createElement('h1') as HTMLHeadingElement;
-    h1.textContent = title;
+    const articleContainer = document.createElement('div') as HTMLDivElement;
 
-    const test = h1.textContent.split('-') as string[];
-    h1.textContent = test[0];
+    const articleTitle = document.createElement('h1') as HTMLHeadingElement;
+    articleTitle.textContent = title;
 
-    const sourceText = document.createElement('p') as HTMLParagraphElement;
-    sourceText.textContent = test[1];
+    const articleTextArr = articleTitle.textContent.split('-') as string[];
+    articleTitle.textContent = articleTextArr[0];
 
-    const url = document.createElement('a') as HTMLAnchorElement;
-    url.setAttribute('href', link);
+    const articleSource = document.createElement('p') as HTMLParagraphElement;
+    articleSource.textContent = articleTextArr[1];
 
-    const dateStr = document.createElement('p') as HTMLParagraphElement;
-    dateStr.textContent = date;
+    const articleUrl = document.createElement('a') as HTMLAnchorElement;
+    articleUrl.setAttribute('href', link);
+
+    const articleDate = document.createElement('p') as HTMLParagraphElement;
+    articleDate.textContent = date;
 
     const icon = document.createElement('img') as HTMLImageElement;
     icon.src = '/src/assets/icons/webp/astronaut.webp';
 
-    div.append(h1, sourceText, dateStr, icon);
-    url.appendChild(div);
-    return container?.appendChild(url);
+    articleContainer.append(articleTitle, articleSource, articleDate, icon);
+    articleUrl.appendChild(articleContainer);
+    return articleListContainer?.appendChild(articleUrl);
   });
 };
 
@@ -152,8 +148,8 @@ function sourceChange(subject: string) {
   sourceWebpImg.src = `/src/assets/images/mobile/webp/${subject}.webp`;
 }
 
-const subjects = document.querySelectorAll('h1');
-subjects.forEach((subject) => {
+const articleSubjects = document.querySelectorAll('h1');
+articleSubjects.forEach((subject) => {
   subject.addEventListener('click', function (e) {
     const target = e.target as HTMLHeadingElement;
     return sourceChange(target.id);
