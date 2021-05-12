@@ -1,7 +1,5 @@
 import { Article } from '../model/ArticleService';
 import { Tweet } from '../model/TwitterService';
-// import { createArticleDomElements } from './dom-creation';
-// import { createTweetDomElements } from './dom-creation';
 
 export default class View {
   public createArticles(articles: Article[]) {
