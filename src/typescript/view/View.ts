@@ -1,5 +1,6 @@
 import { Article } from '../model/ArticleService';
 import { Tweet } from '../model/TwitterService';
+import { createTitle, createTextArr, createSourceText } from './dom-creation';
 
 export default class View {
   public createArticles(articles: Article[]) {
@@ -11,8 +12,6 @@ export default class View {
         article.published_date
       );
     });
-    const date = new Date(newArticles[0].published_date);
-    console.log('ARTICLE DATE', date.toDateString());
 
     createArticleDomElements(newArticles);
     return;
@@ -45,13 +44,12 @@ const createArticleDomElements = (articles: Article[]) => {
 
     const articleContainer = document.createElement('div') as HTMLDivElement;
 
-    const articleTitle = document.createElement('h1') as HTMLHeadingElement;
-    articleTitle.textContent = title;
+    const articleTextArr = createTextArr(title);
 
-    const articleTextArr = articleTitle.textContent.split('-') as string[];
+    const articleTitle = createTitle(articleTextArr[0]);
     articleTitle.textContent = articleTextArr[0];
 
-    const articleSource = document.createElement('p') as HTMLParagraphElement;
+    const articleSource = createSourceText();
     articleSource.textContent = articleTextArr[1];
 
     const articleUrl = document.createElement('a') as HTMLAnchorElement;
