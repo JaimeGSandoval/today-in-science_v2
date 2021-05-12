@@ -46,8 +46,6 @@ export default class Controller {
       return articles;
     }
 
-    console.log('From API');
-
     let retrievedArticles = await this._articleService.getAllArticles(subject);
     retrievedArticles = retrievedArticles.articles.slice(0, 30);
     storeData(subject, retrievedArticles);
@@ -61,12 +59,10 @@ export default class Controller {
   }
 
   public async start() {
-    // const quantumArticles = await this.getAllArticles('quantum%20computing');
-    // const astroArticles = await this.getAllArticles('Astronomy');
-    // const tweets = await this.getAllTweets();
-    // this._view.createArticles(quantumArticles);
-    // this._view.createArticles(astroArticles);
-    // this._view.createTweets(tweets);
+    const astroArticles = await this.getAllArticles('astronomy');
+    const tweets = await this.getAllTweets();
+    this._view.createArticles(astroArticles);
+    this._view.createTweets(tweets);
   }
 }
 
