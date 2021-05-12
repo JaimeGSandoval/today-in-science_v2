@@ -1,6 +1,14 @@
 import { Article } from '../model/ArticleService';
 import { Tweet } from '../model/TwitterService';
-import { createTitle, createTextArr, createSourceText } from './dom-creation';
+import {
+  createTitle,
+  createTextArr,
+  createSourceText,
+  createUrl,
+  createDateText,
+  createIcon,
+  appendToArticleContainer,
+} from './article-dom-creation';
 
 export default class View {
   public createArticles(articles: Article[]) {
@@ -46,24 +54,26 @@ const createArticleDomElements = (articles: Article[]) => {
 
     const articleTextArr = createTextArr(title);
 
-    const articleTitle = createTitle(articleTextArr[0]);
-    articleTitle.textContent = articleTextArr[0];
+    const articleTitle = createTitle(articleTextArr);
 
-    const articleSource = createSourceText();
-    articleSource.textContent = articleTextArr[1];
+    const articleSource = createSourceText(articleTextArr);
 
-    const articleUrl = document.createElement('a') as HTMLAnchorElement;
-    articleUrl.setAttribute('href', link);
+    const articleUrl = createUrl(link);
 
-    const articleDate = document.createElement('p') as HTMLParagraphElement;
-    articleDate.textContent = date;
+    const articleDate = createDateText(date);
 
-    const icon = document.createElement('img') as HTMLImageElement;
-    icon.src = '/src/assets/icons/webp/astronaut.webp';
+    const icon = createIcon();
 
-    articleContainer.append(articleTitle, articleSource, articleDate, icon);
+    appendToArticleContainer(
+      articleContainer,
+      articleTitle,
+      articleSource,
+      articleDate,
+      icon
+    );
+
     articleUrl.appendChild(articleContainer);
-    return articleListContainer?.appendChild(articleUrl);
+    return articleListContainer.appendChild(articleUrl);
   });
 };
 
