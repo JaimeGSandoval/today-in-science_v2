@@ -1,15 +1,24 @@
 import { Article } from '../model/ArticleService';
 import { Tweet } from '../model/TwitterService';
-import { createArticleDomElements } from './dom-creation';
-import { createTweetDomElements } from './dom-creation';
+import {
+  createTitle,
+  createTextArr,
+  createSourceText,
+  createUrl,
+  createDateText,
+  createIcon,
+} from './article-dom-creation';
+import {
+  createImgUrl,
+  colorizeSelectedText,
+  createText,
+  createTweetTextArr,
+  createTweetUrl,
+  createCount,
+} from './tweet-dom-creation';
 
 export default class View {
   public createArticles(articles: Article[]) {
-    // console.log(
-    //   articles.published_date.sort(function (a: any, b: any) {
-    //     return a - b;
-    //   })
-    // );
     const newArticles = articles.map((article) => {
       return new Article(
         article.title,
@@ -18,8 +27,6 @@ export default class View {
         article.published_date
       );
     });
-    const date = new Date(newArticles[0].published_date);
-    console.log('ARTICLE DATE', date.toDateString());
 
     createArticleDomElements(newArticles);
     return;
@@ -39,3 +46,66 @@ export default class View {
     return createTweetDomElements(newTweets);
   }
 }
+
+const createArticleDomElements = (articles: Article[]) => {
+  const articleListContainer = document.getElementById(
+    'article-list-container'
+  ) as HTMLDivElement;
+
+  articles.forEach((article: Article) => {
+    const title: string = article.title;
+    const link: string = article.link;
+    const date: string = new Date(article.published_date).toDateString();
+
+    const articleContainer = document.createElement('div') as HTMLDivElement;
+    const articleTextArr: string[] = createTextArr(title);
+    const articleTitle = createTitle(articleTextArr) as HTMLParagraphElement;
+    const articleSource = createSourceText(
+      articleTextArr
+    ) as HTMLParagraphElement;
+    const articleUrl = createUrl(link) as HTMLAnchorElement;
+    const articleDate = createDateText(date) as HTMLParagraphElement;
+    const icon = createIcon() as HTMLImageElement;
+
+    articleContainer.append(articleTitle, articleSource, articleDate, icon);
+
+    articleUrl.appendChild(articleContainer);
+    return articleListContainer.appendChild(articleUrl);
+  });
+};
+
+const createTweetDomElements = (tweets: Tweet[]) => {
+  const tweetListContainer = document.getElementById(
+    'tweet-list-container'
+  ) as HTMLDivElement;
+
+  tweets.forEach((tweet: Tweet) => {
+    const tweetsContainer = document.createElement('div') as HTMLDivElement;
+    const imageUrl: string = tweet.image_url;
+    const tweetFullText: string = tweet.full_text;
+    const tweetReplies: number = tweet.reply_count;
+    const tweetRetweets: number = tweet.retweet_count;
+    const tweetFavorites: number = tweet.favorite_count;
+
+    const tweetImg = createImgUrl(imageUrl) as HTMLImageElement;
+    const coloredText: string = colorizeSelectedText(tweetFullText);
+    const tweetText = createText(coloredText) as HTMLParagraphElement;
+    const tweetTextArray: string[] = createTweetTextArr(tweetText);
+    const urlString: string = createTweetUrl(tweetTextArray);
+    const twitterPostUrl = createUrl(urlString) as HTMLAnchorElement;
+    const replyCount = createCount(tweetReplies) as HTMLSpanElement;
+    const retweetCount = createCount(tweetRetweets) as HTMLSpanElement;
+    const favoriteCount = createCount(tweetFavorites) as HTMLSpanElement;
+
+    tweetsContainer.append(
+      tweetImg,
+      tweetText,
+      replyCount,
+      retweetCount,
+      favoriteCount
+    );
+
+    twitterPostUrl.append(tweetsContainer);
+    return tweetListContainer.appendChild(twitterPostUrl);
+  });
+};

@@ -36,7 +36,7 @@ export default class Controller {
     }
 
     const container = document.getElementById(
-      'article-container'
+      'article-list-container'
     ) as HTMLDivElement;
 
     if (sessionStorage.getItem(subject)) {
@@ -45,8 +45,6 @@ export default class Controller {
       const articles = JSON.parse(sessionStorage.getItem(subject) || '{}');
       return articles;
     }
-
-    console.log('From API');
 
     let retrievedArticles = await this._articleService.getAllArticles(subject);
     retrievedArticles = retrievedArticles.articles.slice(0, 30);
@@ -61,11 +59,9 @@ export default class Controller {
   }
 
   public async start() {
-    // const quantumArticles = await this.getAllArticles('quantum%20computing');
-    // const astroArticles = await this.getAllArticles('Astronomy');
+    const astroArticles = await this.getAllArticles('astronomy');
     const tweets = await this.getAllTweets();
-    // this._view.createArticles(quantumArticles);
-    // this._view.createArticles(astroArticles);
+    this._view.createArticles(astroArticles);
     this._view.createTweets(tweets);
   }
 }
