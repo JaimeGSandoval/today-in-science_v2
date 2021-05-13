@@ -33,3 +33,9 @@ export const createTweetTextArr = (tweetText: any) => {
 export const createTweetUrl = (textArr: string[]): string => {
   return textArr[textArr.length - 1].slice(1);
 };
+
+export const createCount = (count: number) => {
+  const span = document.createElement('span');
+  span.textContent = count.toString();
+  return span;
+};

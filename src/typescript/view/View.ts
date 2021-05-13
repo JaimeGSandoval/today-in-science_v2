@@ -7,7 +7,6 @@ import {
   createUrl,
   createDateText,
   createIcon,
-  appendToArticleContainer,
 } from './article-dom-creation';
 import {
   createImgUrl,
@@ -15,6 +14,7 @@ import {
   createText,
   createTweetTextArr,
   createTweetUrl,
+  createCount,
 } from './tweet-dom-creation';
 
 export default class View {
@@ -67,13 +67,7 @@ const createArticleDomElements = (articles: Article[]) => {
     const articleDate = createDateText(date) as HTMLParagraphElement;
     const icon = createIcon() as HTMLImageElement;
 
-    appendToArticleContainer(
-      articleContainer,
-      articleTitle,
-      articleSource,
-      articleDate,
-      icon
-    );
+    articleContainer.append(articleTitle, articleSource, articleDate, icon);
 
     articleUrl.appendChild(articleContainer);
     return articleListContainer.appendChild(articleUrl);
@@ -89,29 +83,19 @@ const createTweetDomElements = (tweets: Tweet[]) => {
     const tweetsContainer = document.createElement('div') as HTMLDivElement;
     const imageUrl: string = tweet.image_url;
     const tweetFullText: string = tweet.full_text;
+    const tweetReplies: number = tweet.reply_count;
+    const tweetRetweets: number = tweet.retweet_count;
+    const tweetFavorites: number = tweet.favorite_count;
 
     const tweetImg = createImgUrl(imageUrl) as HTMLImageElement;
-
     const coloredText: string = colorizeSelectedText(tweetFullText);
-
     const tweetText = createText(coloredText) as HTMLParagraphElement;
-
     const tweetTextArray: string[] = createTweetTextArr(tweetText);
-
     const urlString: string = createTweetUrl(tweetTextArray);
-
-    const twitterPostUrl = document.createElement('a') as HTMLAnchorElement;
-    twitterPostUrl.setAttribute('href', urlString);
-    twitterPostUrl.innerText = 'URL';
-
-    const replyCount = document.createElement('span') as HTMLSpanElement;
-    replyCount.textContent = String(tweet.reply_count);
-
-    const retweetCount = document.createElement('span') as HTMLSpanElement;
-    retweetCount.textContent = String(tweet.retweet_count);
-
-    const favoriteCount = document.createElement('span') as HTMLSpanElement;
-    favoriteCount.textContent = String(tweet.favorite_count);
+    const twitterPostUrl = createUrl(urlString) as HTMLAnchorElement;
+    const replyCount = createCount(tweetReplies) as HTMLSpanElement;
+    const retweetCount = createCount(tweetRetweets) as HTMLSpanElement;
+    const favoriteCount = createCount(tweetFavorites) as HTMLSpanElement;
 
     tweetsContainer.append(
       tweetImg,
@@ -122,30 +106,6 @@ const createTweetDomElements = (tweets: Tweet[]) => {
     );
 
     twitterPostUrl.append(tweetsContainer);
-    tweetListContainer.appendChild(twitterPostUrl);
+    return tweetListContainer.appendChild(twitterPostUrl);
   });
 };
-
-function sourceChange(subject: string) {
-  console.log(subject);
-  const sourceWebpLg = document.getElementById(
-    'source-webp-lg'
-  ) as HTMLSourceElement;
-  const sourceWebpMd = document.getElementById(
-    'source-webp-med'
-  ) as HTMLSourceElement;
-  const sourceWebpImg = document.getElementById(
-    'source-webp-img'
-  ) as HTMLImageElement;
-  sourceWebpLg.srcset = `/src/assets/images/desktop/webp/${subject}.webp 800w`;
-  sourceWebpMd.srcset = `/src/assets/images/tablet/webp/${subject}.webp 600w`;
-  sourceWebpImg.src = `/src/assets/images/mobile/webp/${subject}.webp`;
-}
-
-const articleSubjects = document.querySelectorAll('h1');
-articleSubjects.forEach((subject) => {
-  subject.addEventListener('click', function (e) {
-    const target = e.target as HTMLHeadingElement;
-    return sourceChange(target.id);
-  });
-});
