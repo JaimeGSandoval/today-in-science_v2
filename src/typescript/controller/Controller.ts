@@ -59,10 +59,10 @@ export default class Controller {
   }
 
   public async start() {
-    const astroArticles = await this.getAllArticles('astronomy');
-    this._view.createArticles(astroArticles);
-    // const tweets = await this.getAllTweets();
-    // this._view.createTweets(tweets);
+    // const astroArticles = await this.getAllArticles('astronomy');
+    // this._view.createArticles(astroArticles);
+    const tweets = await this.getAllTweets();
+    this._view.createTweets(tweets);
   }
 }
 

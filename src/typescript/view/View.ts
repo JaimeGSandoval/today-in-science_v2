@@ -9,6 +9,13 @@ import {
   createIcon,
   appendToArticleContainer,
 } from './article-dom-creation';
+import {
+  createImgUrl,
+  colorizeSelectedText,
+  createText,
+  createTweetTextArr,
+  createTweetUrl,
+} from './tweet-dom-creation';
 
 export default class View {
   public createArticles(articles: Article[]) {
@@ -51,18 +58,14 @@ const createArticleDomElements = (articles: Article[]) => {
     const date: string = new Date(article.published_date).toDateString();
 
     const articleContainer = document.createElement('div') as HTMLDivElement;
-
-    const articleTextArr = createTextArr(title);
-
-    const articleTitle = createTitle(articleTextArr);
-
-    const articleSource = createSourceText(articleTextArr);
-
-    const articleUrl = createUrl(link);
-
-    const articleDate = createDateText(date);
-
-    const icon = createIcon();
+    const articleTextArr: string[] = createTextArr(title);
+    const articleTitle = createTitle(articleTextArr) as HTMLParagraphElement;
+    const articleSource = createSourceText(
+      articleTextArr
+    ) as HTMLParagraphElement;
+    const articleUrl = createUrl(link) as HTMLAnchorElement;
+    const articleDate = createDateText(date) as HTMLParagraphElement;
+    const icon = createIcon() as HTMLImageElement;
 
     appendToArticleContainer(
       articleContainer,
@@ -78,31 +81,27 @@ const createArticleDomElements = (articles: Article[]) => {
 };
 
 const createTweetDomElements = (tweets: Tweet[]) => {
-  const tweetContainer = document.getElementById(
-    'tweet-container'
+  const tweetListContainer = document.getElementById(
+    'tweet-list-container'
   ) as HTMLDivElement;
 
   tweets.forEach((tweet: Tweet) => {
-    const container = document.createElement('div') as HTMLDivElement;
+    const tweetsContainer = document.createElement('div') as HTMLDivElement;
+    const imageUrl: string = tweet.image_url;
+    const tweetFullText: string = tweet.full_text;
 
-    const tweetImg = document.createElement('img') as HTMLImageElement;
-    tweetImg.src = tweet.image_url;
-    tweetImg.style.width = '400px';
-    tweetImg.style.height = 'auto';
+    const tweetImg = createImgUrl(imageUrl) as HTMLImageElement;
 
-    const test = tweet.full_text;
-    const result = colorizeSelectedText(test);
+    const coloredText: string = colorizeSelectedText(tweetFullText);
 
-    const fullText = document.createElement('p') as HTMLParagraphElement;
-    fullText.innerHTML = result;
+    const tweetText = createText(coloredText) as HTMLParagraphElement;
 
-    const tweetText = fullText.textContent!.split('https');
-    document.body.append(fullText);
+    const tweetTextArray: string[] = createTweetTextArr(tweetText);
 
-    const tempUrlVar = tweetText[tweetText.length - 1].slice(1);
+    const urlString: string = createTweetUrl(tweetTextArray);
 
     const twitterPostUrl = document.createElement('a') as HTMLAnchorElement;
-    twitterPostUrl.setAttribute('href', tempUrlVar);
+    twitterPostUrl.setAttribute('href', urlString);
     twitterPostUrl.innerText = 'URL';
 
     const replyCount = document.createElement('span') as HTMLSpanElement;
@@ -114,31 +113,18 @@ const createTweetDomElements = (tweets: Tweet[]) => {
     const favoriteCount = document.createElement('span') as HTMLSpanElement;
     favoriteCount.textContent = String(tweet.favorite_count);
 
-    container.append(
+    tweetsContainer.append(
       tweetImg,
-      fullText,
+      tweetText,
       replyCount,
       retweetCount,
       favoriteCount
     );
 
-    twitterPostUrl.append(container);
-    tweetContainer.appendChild(twitterPostUrl);
+    twitterPostUrl.append(tweetsContainer);
+    tweetListContainer.appendChild(twitterPostUrl);
   });
 };
-
-function colorizeSelectedText(str: any) {
-  const result = str
-    .split(' ')
-    .map((word: any) => {
-      if (word.startsWith('@') || word.startsWith('#')) {
-        return `<span style='color: blue;'>${word}</span>`;
-      }
-      return word;
-    })
-    .join(' ');
-  return result;
-}
 
 function sourceChange(subject: string) {
   console.log(subject);
