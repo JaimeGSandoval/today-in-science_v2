@@ -30,11 +30,6 @@ export default class Controller {
   }
 
   public async getAllArticles(subject: string): Promise<Article[]> {
-    const percent = '%20';
-    if (subject.indexOf(percent) !== -1) {
-      subject = subject.replace('%20', '-');
-    }
-
     const container = document.getElementById(
       'article-list-container'
     ) as HTMLDivElement;
@@ -76,3 +71,8 @@ const convertToArray = (twitterObject: { data: { tweets: any } }): Tweet[] => {
   });
   return result.slice(0, 10);
 };
+
+// const percent = '%20';
+// if (subject.indexOf(percent) !== -1) {
+//   subject = subject.replace('%20', '-');
+// }
