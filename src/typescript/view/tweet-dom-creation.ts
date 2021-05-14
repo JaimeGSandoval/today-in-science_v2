@@ -1,5 +1,5 @@
 export const createImgUrl = (url: string): HTMLImageElement => {
-  const imgElement = document.createElement('img');
+  const imgElement = document.createElement('img') as HTMLImageElement;
   imgElement.src = url;
   imgElement.style.width = '400px';
   imgElement.style.height = 'auto';
@@ -7,6 +7,10 @@ export const createImgUrl = (url: string): HTMLImageElement => {
 };
 
 export const colorizeSelectedText = (tweetText: string): string => {
+  if (!tweetText) {
+    throw new Error('String argument is missing. A string must be provided.');
+  }
+
   const result = tweetText
     .split(' ')
     .map((word: any) => {
@@ -20,21 +24,41 @@ export const colorizeSelectedText = (tweetText: string): string => {
 };
 
 export const createText = (tweetText: string): HTMLParagraphElement => {
+  if (!tweetText) {
+    throw new Error('String argument is missing. A string must be provided.');
+  }
+
   const paragraphElement = document.createElement('p');
   paragraphElement.innerHTML = tweetText;
   return paragraphElement;
 };
 
-export const createTweetTextArr = (tweetText: any) => {
-  const textArr = tweetText.textContent.split('https');
+export const createTweetTextArr = (tweetText: HTMLParagraphElement) => {
+  if (!tweetText) {
+    throw new Error('String argument is missing. A string must be provided.');
+  }
+  const text: string | null = tweetText.textContent;
+  const textArr: string[] = text!.split('https');
   return textArr;
 };
 
 export const createTweetUrl = (textArr: string[]): string => {
+  if (!textArr) {
+    throw new Error(
+      'TextArray argument is missing. An array of strings must be provided.'
+    );
+  }
+
   return textArr[textArr.length - 1].slice(1);
 };
 
-export const createCount = (count: number) => {
+export const createCount = (count: number): HTMLSpanElement => {
+  if (!count) {
+    throw new Error(
+      'Count argument is missing. A number for count must be provided.'
+    );
+  }
+
   const span = document.createElement('span');
   span.textContent = count.toString();
   return span;
