@@ -8,6 +8,6 @@ export default class Article {
     this.title = title;
     this.link = link;
     this.source = source;
-    this.published_date = published_date;
+    this.published_date = new Date(published_date);
   }
 }

@@ -43,13 +43,14 @@ export const createUrl = (link: string): HTMLAnchorElement => {
   return url;
 };
 
-export const createDateText = (date: string): HTMLParagraphElement => {
+export const createDateText = (date: Date): HTMLParagraphElement => {
+  const dateString = date.toDateString();
   if (!date) {
     throw new Error('Date string is missing. A date must be provided.');
   }
 
   const paragraphElement = document.createElement('p');
-  paragraphElement.textContent = date;
+  paragraphElement.textContent = dateString;
   return paragraphElement;
 };
 
@@ -65,7 +66,6 @@ function sourceChange(subject: string) {
       'Subject argument is missing. A path to the image source must be provided.'
     );
   }
-  console.log(subject);
 
   const sourceWebpLg = document.getElementById(
     'source-webp-lg'

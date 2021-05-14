@@ -19,7 +19,7 @@ import {
 
 export default class View {
   public createArticles(articles: Article[]) {
-    const newArticles = articles.map((article) => {
+    let newArticles = articles.map((article) => {
       return new Article(
         article.title,
         article.link,
@@ -28,8 +28,11 @@ export default class View {
       );
     });
 
-    createArticleDomElements(newArticles);
-    return;
+    newArticles = newArticles.sort((a, b) => {
+      return b.published_date.getTime() - a.published_date.getTime();
+    });
+
+    return createArticleDomElements(newArticles);
   }
 
   public createTweets(tweets: Tweet[]) {
@@ -55,7 +58,7 @@ const createArticleDomElements = (articles: Article[]) => {
   articles.forEach((article: Article) => {
     const title: string = article.title;
     const link: string = article.link;
-    const date: string = new Date(article.published_date).toDateString();
+    const date: Date = article.published_date;
 
     const articleContainer = document.createElement('div') as HTMLDivElement;
     const articleTextArr: string[] = createTextArr(title);

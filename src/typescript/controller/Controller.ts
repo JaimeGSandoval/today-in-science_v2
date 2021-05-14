@@ -71,8 +71,3 @@ const convertToArray = (twitterObject: { data: { tweets: any } }): Tweet[] => {
   });
   return result.slice(0, 10);
 };
-
-// const percent = '%20';
-// if (subject.indexOf(percent) !== -1) {
-//   subject = subject.replace('%20', '-');
-// }
