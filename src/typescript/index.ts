@@ -28,3 +28,5 @@ function addListeners(arg: any) {
 Object.values(subjects).forEach((subject) => {
   addListeners(subject);
 });
+
+// TEST
