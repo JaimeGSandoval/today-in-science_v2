@@ -23,23 +23,23 @@ export const colorizeSelectedText = (tweetText: string): string => {
   return result;
 };
 
-export const createText = (tweetText: string): HTMLParagraphElement => {
+export const createText = (tweetText: string[]) => {
   if (!tweetText) {
     throw new Error('String argument is missing. A string must be provided.');
   }
 
   const paragraphElement = document.createElement('p');
-  paragraphElement.innerHTML = tweetText;
+  paragraphElement.innerHTML = tweetText[0];
   return paragraphElement;
 };
 
-export const createTweetTextArr = (tweetText: HTMLParagraphElement) => {
+export const createTweetTextArr = (tweetText: any) => {
   if (!tweetText) {
     throw new Error('String argument is missing. A string must be provided.');
   }
-  const text: string | null = tweetText.textContent;
-  const textArr: string[] = text!.split('https');
-  return textArr;
+  // const text: string | null = tweetText.textContent;
+  const array = tweetText.split('https');
+  return array;
 };
 
 export const createTweetUrl = (textArr: string[]): string => {
@@ -48,7 +48,7 @@ export const createTweetUrl = (textArr: string[]): string => {
       'TextArray argument is missing. An array of strings must be provided.'
     );
   }
-
+  console.log(textArr[textArr.length - 1].slice(1));
   return textArr[textArr.length - 1].slice(1);
 };
 

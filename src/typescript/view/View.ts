@@ -32,23 +32,35 @@ export default class View {
       return b.published_date.getTime() - a.published_date.getTime();
     });
 
+    // newArticles = sortItemsByDate(newArticles);
     return createArticleDomElements(newArticles);
   }
 
   public createTweets(tweets: Tweet[]) {
-    const newTweets = tweets.map((tweet) => {
+    let newTweets = tweets.map((tweet) => {
       return new Tweet(
         tweet.entities.media[0].media_url,
         tweet.full_text,
         tweet.favorite_count,
         tweet.reply_count,
-        tweet.retweet_count
+        tweet.retweet_count,
+        tweet.created_at
       );
     });
-
+    // sort here
+    // newTweets = newTweets.sort((a, b) => {
+    //   return b.created_at.getTime() - a.created_at.getTime();
+    // });
+    newTweets = sortItemsByDate(newTweets);
     return createTweetDomElements(newTweets);
   }
 }
+
+const sortItemsByDate = (array: any) => {
+  return (array = array.sort((a: any, b: any) => {
+    return b.created_at - a.created_at;
+  }));
+};
 
 const createArticleDomElements = (articles: Article[]) => {
   const articleListContainer = document.getElementById(
@@ -91,9 +103,14 @@ const createTweetDomElements = (tweets: Tweet[]) => {
     const tweetFavorites: number = tweet.favorite_count;
 
     const tweetImg = createImgUrl(imageUrl) as HTMLImageElement;
+
     const coloredText: string = colorizeSelectedText(tweetFullText);
-    const tweetText = createText(coloredText) as HTMLParagraphElement;
-    const tweetTextArray: string[] = createTweetTextArr(tweetText);
+    console.log('colored', coloredText);
+
+    const tweetTextArray: string[] = createTweetTextArr(coloredText);
+    const tweetText = createText(tweetTextArray);
+    console.log(tweetText);
+
     const urlString: string = createTweetUrl(tweetTextArray);
     const twitterPostUrl = createUrl(urlString) as HTMLAnchorElement;
     const replyCount = createCount(tweetReplies) as HTMLSpanElement;
