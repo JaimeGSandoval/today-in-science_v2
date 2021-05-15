@@ -28,11 +28,7 @@ export default class View {
       );
     });
 
-    newArticles = newArticles.sort((a, b) => {
-      return b.published_date.getTime() - a.published_date.getTime();
-    });
-
-    // newArticles = sortItemsByDate(newArticles);
+    newArticles = sortItemsByDate(newArticles);
     return createArticleDomElements(newArticles);
   }
 
@@ -47,18 +43,18 @@ export default class View {
         tweet.created_at
       );
     });
-    // sort here
-    // newTweets = newTweets.sort((a, b) => {
-    //   return b.created_at.getTime() - a.created_at.getTime();
-    // });
+
     newTweets = sortItemsByDate(newTweets);
+    console.log(newTweets);
     return createTweetDomElements(newTweets);
   }
 }
 
 const sortItemsByDate = (array: any) => {
   return (array = array.sort((a: any, b: any) => {
-    return b.created_at - a.created_at;
+    return a.created_at
+      ? b.created_at - a.created_at
+      : b.published_date - a.published_date;
   }));
 };
 
@@ -103,14 +99,9 @@ const createTweetDomElements = (tweets: Tweet[]) => {
     const tweetFavorites: number = tweet.favorite_count;
 
     const tweetImg = createImgUrl(imageUrl) as HTMLImageElement;
-
     const coloredText: string = colorizeSelectedText(tweetFullText);
-    console.log('colored', coloredText);
-
     const tweetTextArray: string[] = createTweetTextArr(coloredText);
-    const tweetText = createText(tweetTextArray);
-    console.log(tweetText);
-
+    const tweetText = createText(tweetTextArray) as HTMLParagraphElement;
     const urlString: string = createTweetUrl(tweetTextArray);
     const twitterPostUrl = createUrl(urlString) as HTMLAnchorElement;
     const replyCount = createCount(tweetReplies) as HTMLSpanElement;
