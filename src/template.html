@@ -6,10 +6,48 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Today In Science</title>
+  <style>
+    a {
+      color: white
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Testing</h1>
+  <picture id="img-container">
+    <source id="source-webp-lg" srcset="./assets/images/desktop/webp/astronomy.webp 800w" sizes="50vw"
+      media="(min-width: 900px)">
+    <source id="source-webp-med" srcset="./assets/images/tablet/webp/astronomy.webp 600w" sizes="50vw"
+      media="(min-width: 600px)">
+    <img src="./assets/images/mobile/webp/astronomy.webp" height="auto" id="source-webp-img" alt="">
+  </picture>
+
+  <h1 id="astrobiology">Astrobiology</h1>
+  <h1 id="astronomy">Astronomy</h1>
+  <h1 id="cern" data-img='cern'>CERN</h1>
+  <h1 id="exoplanets">Exoplanets</h1>
+  <h1 id="gravity">Gravity</h1>
+  <h1 id="meteors">Meteors</h1>
+  <h1 id="seti">SETI</h1>
+  <h1 id="galaxies">Galaxies</h1>
+
+
+  <h1 id="AI">Artificial Intelligence</h1>
+  <h1 id="black-holes">Black holes</h1>
+  <h1 id="dark-energy">Dark Energy</h1>
+  <h1 id="dark-matter">Dark Matter</h1>
+  <h1 id="quantum-computing">Quantum Computing</h1>
+  <h1 id="quantum-physics">Quantum Physics</h1>
+
+  <img src="./assets/icons/webp/robot.webp" />
+  <img src="./assets/icons/webp/globe.webp" />
+  <img src="./assets/icons/webp/meteor.webp" />
+  <img src="./assets/icons/webp/astronaut.webp" />
+  <img src="./assets/icons/webp/earth-icon.webp" />
+
+
+  <div id="article-list-container"></div>
+  <div id="tweet-list-container"></div>
 </body>
 
 </html>

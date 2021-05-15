@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url('../assets/fonts/roboto.woff2')
+      format('woff2');
+}
+
+body {
+  background-color: gray;
+
+  h1 {
+    font-family: 'Roboto';
+     color: blue;
+  }
+}
+
+.spacexText {
+  color: skyblue;
+}
+
+
+#hero-container {
+  width: 600px;
+  height: 400px;
+  margin: auto;
+  border: 2px solid green;
+  background-size: cover;
+}
