@@ -1,0 +1,20 @@
+.article-url {
+  color: $white;
+  text-decoration: none;
+  font-family: $roboto;
+}
+
+.article-container {
+  margin: 5px;
+  border: 1px solid $white
+}
+
+.article-header-container {
+   padding: 0 5px;
+
+  .article-header {
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 5px 0;
+  }
+}
