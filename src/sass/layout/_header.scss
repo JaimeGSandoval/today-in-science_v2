@@ -19,13 +19,15 @@ nav {
   .hamburger-icon-container {
     background-color: $white;
     display: inline-block;
-    width: 1.2rem;
-    height: 1.3rem;
+    width: 1.5rem;
+    height: 1.5rem;
     padding: 4px;
 
     img {
       width: 100%;
       height: auto;
+      position: relative;
+      bottom: 1px;
     }
 
   }
