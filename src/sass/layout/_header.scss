@@ -1,0 +1,44 @@
+header {
+  background-color: $black;
+  color: $white;
+  font-family: $roboto;
+  text-transform: uppercase;
+
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  .header-text {
+    letter-spacing: 2px;
+  }
+
+  .hamburger-icon-container {
+    background-color: $white;
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.3rem;
+    padding: 4px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+  }
+
+  .earth-icon-container {
+    display: inline-block;
+    width: 2.2rem;
+    height: 2.2rem;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+  }
+}
