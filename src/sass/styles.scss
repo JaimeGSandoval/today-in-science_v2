@@ -1,11 +1,9 @@
-@import 'base/_reset', 'base/vars', 'base/fonts', 'layout/header';
-// @import 'base/_fonts';
-// @import 'layout/header';
-
+@import 'base/_reset', 'base/vars', 'base/fonts';
+@import 'layout/header', 'layout/hero-img', 'layout/article';
 
 
 body {
-  background-color: gray;
+  background-color: #000;
 
   h1 {
     font-family: 'Roboto';

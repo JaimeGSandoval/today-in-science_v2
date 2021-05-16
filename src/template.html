@@ -13,18 +13,49 @@
     <nav>
 
       <div class="hamburger-icon-container">
-        <img src="./assets/icons/webp/bars.webp" alt="" class="hamburger-menu">
+        <picture>
+          <source srcset="./assets/icons/webp/bars.webp">
+          <img src="./assets/icons/png/bars.png" alt="" class="hamburger-menu">
+        </picture>
       </div>
 
       <span class="header-text">today in science</span>
 
       <div class="earth-icon-container">
-        <img src="./assets/icons/webp/earth-icon.webp" alt="">
+        <picture>
+          <source srcset="./assets/icons/webp/earth-icon.webp">
+          <img src="./assets/icons/png/earth-icon.png" alt="">
+        </picture>
       </div>
 
     </nav>
   </header>
 
+  <div class="container">
+
+    <section>
+      <div class="hero-img-container">
+        <picture>
+          <source id="source-webp-lg" srcset="./assets/images/desktop/webp/astronomy.webp 800w" sizes="50vw" media="(min-width: 900px)">
+          <source id="source-webp-med" srcset="./assets/images/tablet/webp/astronomy.webp 600w" sizes="50vw" media="(min-width: 600px)">
+          <source srcset="./assets/images/mobile/webp/astronomy.webp">
+          <img src="./assets/images/mobile/png/astronomy.png" alt="Image for subject matter">
+        </picture>
+      </div>
+    </section>
+
+    <main>
+      <a href="#" id="article-url" class="article-url">
+        <div id="article-container" class="article-container">
+          <div id="article-header-container" class="article-header-container">
+            <span class="article-header article-text">article &nbsp;|&nbsp;</span>
+            <span class="article-header article-subject">astronomy &nbsp;|&nbsp;</span>
+            <span class="article-header article-source">universe today</span>
+          </div>
+        </div>
+      </a>
+    </main>
+  </div>
 
 
   <!-- <picture id="img-container">
