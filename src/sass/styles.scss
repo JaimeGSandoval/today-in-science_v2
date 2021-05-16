@@ -1,11 +1,8 @@
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-display: fallback;
-  src: url('../assets/fonts/roboto.woff2')
-      format('woff2');
-}
+@import 'base/_reset', 'base/vars', 'base/fonts', 'layout/header';
+// @import 'base/_fonts';
+// @import 'layout/header';
+
+
 
 body {
   background-color: gray;
@@ -14,17 +11,4 @@ body {
     font-family: 'Roboto';
      color: blue;
   }
-}
-
-.spacexText {
-  color: skyblue;
-}
-
-
-#hero-container {
-  width: 600px;
-  height: 400px;
-  margin: auto;
-  border: 2px solid green;
-  background-size: cover;
 }
