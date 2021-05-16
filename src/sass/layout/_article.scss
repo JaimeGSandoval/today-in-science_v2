@@ -5,6 +5,7 @@
 }
 
 .article-container {
+  background-color: $articleBackgroundColor;
   margin: 5px;
   border: 1px solid $white
 }
@@ -16,5 +17,13 @@
     text-transform: uppercase;
     display: inline-block;
     padding: 5px 0;
+  }
+}
+
+.article-title-container {
+   padding: 0 5px;
+
+  .article-title {
+    text-transform: capitalize;
   }
 }
