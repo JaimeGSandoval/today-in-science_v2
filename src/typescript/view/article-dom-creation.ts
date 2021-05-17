@@ -118,15 +118,19 @@ function sourceChange(subject: string) {
   const sourceWebpImg = document.getElementById(
     'source-webp-img'
   ) as HTMLImageElement;
+
   sourceWebpLg.srcset = `/src/assets/images/desktop/webp/${subject}.webp 800w`;
   sourceWebpMd.srcset = `/src/assets/images/tablet/webp/${subject}.webp 600w`;
   sourceWebpImg.src = `/src/assets/images/mobile/webp/${subject}.webp`;
 }
 
 const articleSubjects = document.querySelectorAll('h1');
+export let tempSubject: any = 'BANKAI';
+
 articleSubjects.forEach((subject) => {
   subject.addEventListener('click', function (e) {
     const target = e.target as HTMLHeadingElement;
+    tempSubject = target;
     return sourceChange(target.id);
   });
 });

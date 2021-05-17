@@ -6,6 +6,7 @@ import {
   createSourceText,
   createUrl,
   createDateText,
+  tempSubject,
   // createIcon,
 } from './article-dom-creation';
 // import {
@@ -112,7 +113,7 @@ const createArticleDomElements = (articles: Article[]) => {
         <section id="article-container" class="article-container">
           <div id="article-header-container" class="article-header-container">
             <span class="article-header article-text">article &nbsp;|&nbsp;</span>
-            <span class="article-header article-subject">astronomy &nbsp;|&nbsp;</span>
+            <span class="article-header article-subject">${tempSubject} &nbsp;|&nbsp;</span>
             <span class="article-header article-source">${articleSource}</span>
           </div>
 
