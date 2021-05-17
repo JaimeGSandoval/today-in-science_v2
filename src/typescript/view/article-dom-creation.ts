@@ -9,49 +9,38 @@ export const createTextArr = (title: string): string[] => {
   return array;
 };
 
-export const createTitle = (textArray: string[]): HTMLHeadingElement => {
+export const createTitle = (textArray: string[]): string => {
   if (!textArray) {
     throw new Error(
       'TextArray is missing. an array of the subject title and subject url must be provided.'
     );
   }
-
-  const h1Element = document.createElement('h1');
-  h1Element.textContent = textArray[0];
-  return h1Element;
+  return textArray[0];
 };
 
-export const createSourceText = (textArray: string[]): HTMLParagraphElement => {
+export const createSourceText = (textArray: string[]): string => {
   if (!textArray) {
     throw new Error(
       'TextArray is missing. an array of the subject title and subject url must be provided.'
     );
   }
-
-  const paragraphElement = document.createElement('p');
-  paragraphElement.textContent = textArray[1].trim();
-  return paragraphElement;
+  return textArray[1].trim();
 };
 
-export const createUrl = (link: string): HTMLAnchorElement => {
+export const createUrl = (link: string): string => {
   if (!link) {
     throw new Error('Link argument is missing. A url string must be provide.');
   }
-
-  const url = document.createElement('a');
-  url.href = link;
-  return url;
+  return link;
 };
 
-export const createDateText = (date: Date): HTMLParagraphElement => {
+export const createDateText = (date: Date): string => {
   const dateString = date.toDateString();
   if (!date) {
     throw new Error('Date string is missing. A date must be provided.');
   }
 
-  const paragraphElement = document.createElement('p');
-  paragraphElement.textContent = dateString;
-  return paragraphElement;
+  return dateString;
 };
 
 export const createIcon = (): HTMLImageElement => {
@@ -60,7 +49,7 @@ export const createIcon = (): HTMLImageElement => {
   return imgElement;
 };
 
-function sourceChange(subject: string) {
+function sourceChange(subject: string): void {
   if (!subject) {
     throw new Error(
       'Subject argument is missing. A path to the image source must be provided.'
@@ -76,15 +65,19 @@ function sourceChange(subject: string) {
   const sourceWebpImg = document.getElementById(
     'source-webp-img'
   ) as HTMLImageElement;
+
   sourceWebpLg.srcset = `/src/assets/images/desktop/webp/${subject}.webp 800w`;
   sourceWebpMd.srcset = `/src/assets/images/tablet/webp/${subject}.webp 600w`;
   sourceWebpImg.src = `/src/assets/images/mobile/webp/${subject}.webp`;
 }
 
 const articleSubjects = document.querySelectorAll('h1');
+export let tempSubject: any = 'BANKAI';
+
 articleSubjects.forEach((subject) => {
   subject.addEventListener('click', function (e) {
     const target = e.target as HTMLHeadingElement;
+    tempSubject = target;
     return sourceChange(target.id);
   });
 });
