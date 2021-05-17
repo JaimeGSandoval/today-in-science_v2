@@ -125,8 +125,8 @@ const createArticleDomElements = (articles: Article[]) => {
 
             <span class="astronaut-icon-container">
               <picture>
-                <source srcset="./assets/icons/webp/astronaut-icon-blue.webp">
-                <img src="./assets/icons/png/astronaut-icon-blue.png" alt="Astronaut icon">
+                <source srcset="/src/assets/icons/webp/astronaut-icon-blue.webp">
+                <img src="/src/assets/icons/png/astronaut-icon-blue.png" alt="Astronaut icon">
               </picture>
             </span>
           </div>
