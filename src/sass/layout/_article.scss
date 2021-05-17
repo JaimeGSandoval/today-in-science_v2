@@ -14,16 +14,44 @@
    padding: 0 5px;
 
   .article-header {
-    text-transform: uppercase;
+    text-transform: capitalize;
     display: inline-block;
     padding: 5px 0;
+
+    &:first-of-type {
+      text-transform: uppercase;
+    }
+
   }
 }
 
 .article-title-container {
+   display: flex;
    padding: 0 5px;
 
   .article-title {
     text-transform: capitalize;
+    font-size: 1.2rem;
+    font-family: $robotoBold;
+    letter-spacing: 1px;
+  }
+}
+
+.article-date-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .article-date {
+    padding-left: 5px;
+  }
+
+  .astronaut-icon-container {
+    position: relative;
+    right: 5px;
+
+    img {
+      width: 40px;
+    }
   }
 }
