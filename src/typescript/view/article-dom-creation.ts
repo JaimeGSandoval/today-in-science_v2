@@ -1,3 +1,4 @@
+// KEEP
 export const createTextArr = (title: string): string[] => {
   if (!title) {
     throw new Error(
@@ -9,49 +10,90 @@ export const createTextArr = (title: string): string[] => {
   return array;
 };
 
-export const createTitle = (textArray: string[]): HTMLHeadingElement => {
+// export const createTitle = (textArray: string[]): HTMLHeadingElement => {
+//   if (!textArray) {
+//     throw new Error(
+//       'TextArray is missing. an array of the subject title and subject url must be provided.'
+//     );
+//   }
+
+//   const h1Element = document.createElement('h1');
+//   h1Element.textContent = textArray[0];
+//   return h1Element;
+// };
+// n
+
+// NEW
+export const createTitle = (textArray: string[]) => {
   if (!textArray) {
     throw new Error(
       'TextArray is missing. an array of the subject title and subject url must be provided.'
     );
   }
-
-  const h1Element = document.createElement('h1');
-  h1Element.textContent = textArray[0];
-  return h1Element;
+  return textArray[0]; // string
 };
 
-export const createSourceText = (textArray: string[]): HTMLParagraphElement => {
+// export const createSourceText = (textArray: string[]): HTMLParagraphElement => {
+//   if (!textArray) {
+//     throw new Error(
+//       'TextArray is missing. an array of the subject title and subject url must be provided.'
+//     );
+//   }
+
+//   const paragraphElement = document.createElement('p');
+//   paragraphElement.textContent = textArray[1].trim();
+//   return paragraphElement;
+// };
+
+// NEW
+export const createSourceText = (textArray: string[]) => {
   if (!textArray) {
     throw new Error(
       'TextArray is missing. an array of the subject title and subject url must be provided.'
     );
   }
-
-  const paragraphElement = document.createElement('p');
-  paragraphElement.textContent = textArray[1].trim();
-  return paragraphElement;
+  return textArray[1].trim();
 };
 
-export const createUrl = (link: string): HTMLAnchorElement => {
+// CHANGE
+// export const createUrl = (link: string): HTMLAnchorElement => {
+//   if (!link) {
+//     throw new Error('Link argument is missing. A url string must be provide.');
+//   }
+
+//   const url = document.createElement('a');
+//   url.href = link;
+//   return url;
+// };
+
+// NEW
+export const createUrl = (link: string) => {
   if (!link) {
     throw new Error('Link argument is missing. A url string must be provide.');
   }
-
-  const url = document.createElement('a');
-  url.href = link;
-  return url;
+  return link;
 };
 
-export const createDateText = (date: Date): HTMLParagraphElement => {
+// CHANGE
+// export const createDateText = (date: Date): HTMLParagraphElement => {
+//   const dateString = date.toDateString();
+//   if (!date) {
+//     throw new Error('Date string is missing. A date must be provided.');
+//   }
+
+//   const paragraphElement = document.createElement('p');
+//   paragraphElement.textContent = dateString;
+//   return paragraphElement;
+// };
+
+// NEW
+export const createDateText = (date: Date) => {
   const dateString = date.toDateString();
   if (!date) {
     throw new Error('Date string is missing. A date must be provided.');
   }
 
-  const paragraphElement = document.createElement('p');
-  paragraphElement.textContent = dateString;
-  return paragraphElement;
+  return dateString;
 };
 
 export const createIcon = (): HTMLImageElement => {
