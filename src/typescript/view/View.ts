@@ -4,10 +4,9 @@ import {
   createTitle,
   createTextArr,
   createSourceText,
-  createUrl,
+  // createUrl,
   createDateText,
   tempSubject,
-  // createIcon,
 } from './article-dom-creation';
 // import {
 //   createImgUrl,
@@ -60,69 +59,32 @@ const sortItemsByDate = (array: any) => {
 };
 
 const createArticleDomElements = (articles: Article[]) => {
-  // const articleListContainer = document.getElementById(
-  //   'article-list-container'
-  // ) as HTMLDivElement;
-
-  // NEW
-  const mainContainer = document.getElementById('main');
+  const mainContainer = document.getElementById('main') as HTMLElement;
 
   articles.forEach((article: Article) => {
-    const title: string = article.title;
-    const link: string = article.link;
-    const date: Date = article.published_date;
+    const articleTextArr: string[] = createTextArr(article.title);
 
-    // REMOVE
-    // const articleContainer = document.createElement(
-    //   'section'
-    // ) as HTMLDivElement;
-
-    // KEEP
-    const articleTextArr: string[] = createTextArr(title);
-
-    // CHANGE
-    // const articleTitle = createTitle(articleTextArr) as HTMLParagraphElement;
-    const articleTitle = createTitle(articleTextArr);
-
-    // CHANGE
-    // const articleSource = createSourceText(
-    //   articleTextArr
-    // ) as HTMLParagraphElement;
-    const articleSource = createSourceText(articleTextArr); //string
-
-    // CHANGE
-    // const articleUrl = createUrl(link) as HTMLAnchorElement;
-    const articleUrl = createUrl(link); // string
-
-    // CHANGE
-    // const articleDate = createDateText(date) as HTMLParagraphElement;
-    const articleDate = createDateText(date); // string
-
-    //REMOVE
-    // const icon = createIcon() as HTMLImageElement;
-
-    // REMOVE
-    // articleContainer.append(articleTitle, articleSource, articleDate, icon);
-
-    // articleUrl.appendChild(articleContainer);
-
-    // articleListContainer.appendChild(articleUrl);
-
-    const articleTemplate = `<a href="${articleUrl}" id="article-url" class="article-url">
+    const articleTemplate: string = `<a href="${
+      article.link
+    }" id="article-url" class="article-url">
 
         <section id="article-container" class="article-container">
           <div id="article-header-container" class="article-header-container">
             <span class="article-header article-text">article &nbsp;|&nbsp;</span>
             <span class="article-header article-subject">${tempSubject} &nbsp;|&nbsp;</span>
-            <span class="article-header article-source">${articleSource}</span>
+            <span class="article-header article-source">${createSourceText(
+              articleTextArr
+            )}</span>
           </div>
 
           <div id="article-title-container" class="article-title-container">
-            <p class="article-title">${articleTitle}</p>
+            <p class="article-title">${createTitle(articleTextArr)}</p>
           </div>
 
           <div class="article-date-container">
-            <span class="article-date">${articleDate}</span>
+            <span class="article-date">${createDateText(
+              article.published_date
+            )}</span>
 
             <span class="astronaut-icon-container">
               <picture>

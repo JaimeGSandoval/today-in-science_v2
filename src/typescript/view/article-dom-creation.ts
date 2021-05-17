@@ -1,4 +1,3 @@
-// KEEP
 export const createTextArr = (title: string): string[] => {
   if (!title) {
     throw new Error(
@@ -10,43 +9,16 @@ export const createTextArr = (title: string): string[] => {
   return array;
 };
 
-// export const createTitle = (textArray: string[]): HTMLHeadingElement => {
-//   if (!textArray) {
-//     throw new Error(
-//       'TextArray is missing. an array of the subject title and subject url must be provided.'
-//     );
-//   }
-
-//   const h1Element = document.createElement('h1');
-//   h1Element.textContent = textArray[0];
-//   return h1Element;
-// };
-// n
-
-// NEW
-export const createTitle = (textArray: string[]) => {
+export const createTitle = (textArray: string[]): string => {
   if (!textArray) {
     throw new Error(
       'TextArray is missing. an array of the subject title and subject url must be provided.'
     );
   }
-  return textArray[0]; // string
+  return textArray[0];
 };
 
-// export const createSourceText = (textArray: string[]): HTMLParagraphElement => {
-//   if (!textArray) {
-//     throw new Error(
-//       'TextArray is missing. an array of the subject title and subject url must be provided.'
-//     );
-//   }
-
-//   const paragraphElement = document.createElement('p');
-//   paragraphElement.textContent = textArray[1].trim();
-//   return paragraphElement;
-// };
-
-// NEW
-export const createSourceText = (textArray: string[]) => {
+export const createSourceText = (textArray: string[]): string => {
   if (!textArray) {
     throw new Error(
       'TextArray is missing. an array of the subject title and subject url must be provided.'
@@ -55,39 +27,14 @@ export const createSourceText = (textArray: string[]) => {
   return textArray[1].trim();
 };
 
-// CHANGE
-// export const createUrl = (link: string): HTMLAnchorElement => {
-//   if (!link) {
-//     throw new Error('Link argument is missing. A url string must be provide.');
-//   }
-
-//   const url = document.createElement('a');
-//   url.href = link;
-//   return url;
-// };
-
-// NEW
-export const createUrl = (link: string) => {
+export const createUrl = (link: string): string => {
   if (!link) {
     throw new Error('Link argument is missing. A url string must be provide.');
   }
   return link;
 };
 
-// CHANGE
-// export const createDateText = (date: Date): HTMLParagraphElement => {
-//   const dateString = date.toDateString();
-//   if (!date) {
-//     throw new Error('Date string is missing. A date must be provided.');
-//   }
-
-//   const paragraphElement = document.createElement('p');
-//   paragraphElement.textContent = dateString;
-//   return paragraphElement;
-// };
-
-// NEW
-export const createDateText = (date: Date) => {
+export const createDateText = (date: Date): string => {
   const dateString = date.toDateString();
   if (!date) {
     throw new Error('Date string is missing. A date must be provided.');
@@ -102,7 +49,7 @@ export const createIcon = (): HTMLImageElement => {
   return imgElement;
 };
 
-function sourceChange(subject: string) {
+function sourceChange(subject: string): void {
   if (!subject) {
     throw new Error(
       'Subject argument is missing. A path to the image source must be provided.'
