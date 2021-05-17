@@ -68,7 +68,7 @@ const createArticleDomElements = (articles: Article[]) => {
     const link: string = article.link;
     const date: Date = article.published_date;
 
-    const articleContainer = document.createElement('div') as HTMLDivElement; // might not need to create this here
+    const articleContainer = document.createElement('div') as HTMLDivElement; // might not need to create
     const articleTextArr: string[] = createTextArr(title);
     const articleTitle = createTitle(articleTextArr) as HTMLParagraphElement;
     const articleSource = createSourceText(
