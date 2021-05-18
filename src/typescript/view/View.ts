@@ -100,24 +100,6 @@ const createArticleDomElements = (articles: Article[]) => {
   });
 };
 
-const hamburgerMenu = document.getElementById('hamburger-menu-icon');
-hamburgerMenu!.addEventListener('click', () => {
-  document.getElementById('mobile-sidenav-container')!.style.display = 'block';
-});
-
-const closeBtn = document.getElementById('closebtn');
-closeBtn!.addEventListener('click', () => {
-  document.getElementById('mobile-sidenav-container')!.style.display = 'none';
-});
-
-const mobileSideNave = document.getElementById('mobile-sidenav-container');
-mobileSideNave!.addEventListener('click', (e) => {
-  const target = e.target as HTMLElement;
-  if (target!.id === 'mobile-sidenav-container') {
-    document.getElementById(target.id)!.style.display = 'none';
-  }
-});
-
 // const createTweetDomElements = (tweets: Tweet[]) => {
 //   const tweetListContainer = document.getElementById(
 //     'tweet-list-container'
