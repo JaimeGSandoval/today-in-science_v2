@@ -16,9 +16,33 @@ export const controller: Controller = new Controller(
 
 controller.start();
 
+const sidenavDisplay = () => {
+  const sidenav = document.getElementById('mobile-sidenav-container');
+  if (sidenav?.style.display === 'block') {
+    return (sidenav.style.display = 'none');
+  }
+
+  sidenav!.style.display = 'block';
+};
+
+const hamburgerMenu = document.getElementById('hamburger-menu-icon');
+hamburgerMenu!.addEventListener('click', sidenavDisplay);
+
+const closeBtn = document.getElementById('closebtn');
+closeBtn!.addEventListener('click', sidenavDisplay);
+
+const mobileSideNave = document.getElementById('mobile-sidenav-container');
+mobileSideNave!.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement;
+  if (target!.id === 'mobile-sidenav-container') {
+    document.getElementById(target.id)!.style.display = 'none';
+  }
+});
+
 function addListeners(arg: any) {
   const temp = document.getElementById(arg);
   temp?.addEventListener('click', async function (e) {
+    document.getElementById('mobile-sidenav-container')!.style.display = 'none';
     const test = e.target as HTMLHeadingElement;
     const articles = await controller.getAllArticles(test.id);
     return view.createArticles(articles);
@@ -28,5 +52,3 @@ function addListeners(arg: any) {
 Object.values(subjects).forEach((subject) => {
   addListeners(subject);
 });
-
-// TEST

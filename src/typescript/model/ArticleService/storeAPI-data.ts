@@ -18,5 +18,5 @@ export enum subjects {
   METEORS = 'meteors',
   QUANTUM_PHYSICS = 'quantum-physics',
   SETI = 'seti',
-  ARTIFICIAL_INTELLIGENCE = 'artificial-intelligence',
+  ARTIFICIAL_INTELLIGENCE = 'AI',
 }

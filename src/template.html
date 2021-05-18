@@ -9,27 +9,50 @@
 </head>
 
 <body>
+
+  <nav id="mobile-sidenav-container" class="sidenav-overlay">
+
+    <div class="mobile-sidenav">
+      <div class="mobile-header">
+        <span>today in science</span>
+        <a id="closebtn" class="closebtn">&times;</a>
+      </div>
+
+      <a href="#" id="AI" class="sidenav-link">Artificial Intelligence</a>
+      <a href="#" id="astronomy" class="sidenav-link">Astronomy</a>
+      <a href="#" id="astrobiology" class="sidenav-link">Astrobiology</a>
+      <a href="#" id="black-holes" class="sidenav-link">Black holes</a>
+      <a href="#" id="cern" class="sidenav-link">CERN</a>
+      <a href="#" id="dark-energy" class="sidenav-link">Dark Energy</a>
+      <a href="#" id="dark-matter" class="sidenav-link">Dark Matter</a>
+      <a href="#" id="exoplanets" class="sidenav-link">Exoplanets</a>
+      <a href="#" id="galaxies" class="sidenav-link">Galaxies</a>
+      <a href="#" id="gravity" class="sidenav-link">Gravity</a>
+      <a href="#" id="meteors" class="sidenav-link">Meteors</a>
+      <a href="#" id="quantum-computing" class="sidenav-link">Quantum Computing</a>
+      <a href="#" id="quantum-physics" class="sidenav-link">Quantum Physics</a>
+      <a href="#" id="seti" class="sidenav-link">SETI</a>
+
+    </div>
+
+  </nav>
+
   <header>
-    <nav>
+    <div class="hamburger-icon-container">
+      <span id="hamburger-menu-icon" class="hamburger-menu-icon">&#9776;</span>
+    </div>
 
-      <div class="hamburger-icon-container">
-        <picture>
-          <source srcset="./assets/icons/webp/bars.webp">
-          <img src="./assets/icons/png/bars.png" alt="" class="hamburger-menu">
-        </picture>
-      </div>
+    <span class="header-text">today in science</span>
 
-      <span class="header-text">today in science</span>
-
-      <div class="earth-icon-container">
-        <picture>
-          <source srcset="./assets/icons/webp/earth-icon.webp">
-          <img src="./assets/icons/png/earth-icon.png" alt="">
-        </picture>
-      </div>
-
-    </nav>
+    <div class="earth-icon-container">
+      <picture>
+        <source srcset="./assets/icons/webp/earth-icon.webp">
+        <img src="./assets/icons/png/earth-icon.png" alt="">
+      </picture>
+    </div>
   </header>
+
+
 
   <div class="container">
 
@@ -54,22 +77,9 @@
     <img src="./assets/images/mobile/webp/astronomy.webp" height="auto" id="source-webp-img" alt="">
   </picture>
 
-  <h1 id="astrobiology">Astrobiology</h1>
-  <h1 id="astronomy">Astronomy</h1>
-  <h1 id="cern" data-img='cern'>CERN</h1>
-  <h1 id="exoplanets">Exoplanets</h1>
-  <h1 id="gravity">Gravity</h1>
-  <h1 id="meteors">Meteors</h1>
-  <h1 id="seti">SETI</h1>
-  <h1 id="galaxies">Galaxies</h1>
 
 
-  <h1 id="AI">Artificial Intelligence</h1>
-  <h1 id="black-holes">Black holes</h1>
-  <h1 id="dark-energy">Dark Energy</h1>
-  <h1 id="dark-matter">Dark Matter</h1>
-  <h1 id="quantum-computing">Quantum Computing</h1>
-  <h1 id="quantum-physics">Quantum Physics</h1>
+
 
   <img src="./assets/icons/webp/robot.webp" />
   <img src="./assets/icons/webp/globe.webp" />
@@ -78,7 +88,7 @@
   <img src="./assets/icons/webp/earth-icon.webp" /> -->
 
 
-  <div id="article-list-container"></div>
+  <!-- <div id="article-list-container"></div> -->
   <div id="tweet-list-container"></div>
 </body>
 
