@@ -19,6 +19,7 @@ controller.start();
 function addListeners(arg: any) {
   const temp = document.getElementById(arg);
   temp?.addEventListener('click', async function (e) {
+    document.getElementById('mobile-sidenav-container')!.style.display = 'none';
     const test = e.target as HTMLHeadingElement;
     const articles = await controller.getAllArticles(test.id);
     return view.createArticles(articles);

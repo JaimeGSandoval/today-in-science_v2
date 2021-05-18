@@ -30,9 +30,7 @@ export default class Controller {
   }
 
   public async getAllArticles(subject: string): Promise<Article[]> {
-    const container = document.getElementById(
-      'article-list-container'
-    ) as HTMLDivElement;
+    const container = document.getElementById('main') as HTMLDivElement;
 
     if (sessionStorage.getItem(subject)) {
       container.innerHTML = '';
