@@ -34,6 +34,7 @@ closeBtn!.addEventListener('click', sidenavDisplay);
 const mobileSideNave = document.getElementById('mobile-sidenav-container');
 mobileSideNave!.addEventListener('click', (e) => {
   const target = e.target as HTMLElement;
+
   if (target!.id === 'mobile-sidenav-container') {
     document.getElementById(target.id)!.style.display = 'none';
   }
@@ -41,9 +42,11 @@ mobileSideNave!.addEventListener('click', (e) => {
 
 function addListeners(arg: any) {
   const temp = document.getElementById(arg);
+
   temp?.addEventListener('click', async function (e) {
     document.getElementById('mobile-sidenav-container')!.style.display = 'none';
     document.getElementById('loader')!.style.display = 'block';
+
     const test = e.target as HTMLHeadingElement;
     const articles = await controller.getAllArticles(test.id);
     return view.createArticles(articles);
