@@ -39,10 +39,10 @@ export default class Controller {
       return articles;
     }
 
+    container.innerHTML = '';
     let retrievedArticles = await this._articleService.getAllArticles(subject);
     retrievedArticles = retrievedArticles.articles.slice(0, 30);
     storeData(subject, retrievedArticles);
-    container.innerHTML = '';
     return retrievedArticles as Article[];
   }
 
