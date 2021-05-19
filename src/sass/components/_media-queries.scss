@@ -1,0 +1,5 @@
+@mixin mobileLandscape {
+  @media (orientation: landscape) and (max-width: 812px) {
+    @content;
+  }
+}

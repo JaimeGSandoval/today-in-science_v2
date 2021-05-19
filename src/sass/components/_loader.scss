@@ -1,3 +1,5 @@
+@import '../components/media-queries';
+
 .loader-container {
   display: flex;
   justify-content: center;
@@ -15,6 +17,10 @@
   animation: spin 0.6s linear infinite;
   color: $white;
   display: none;
+
+  @include mobileLandscape {
+    display: none;
+  }
 }
 
 @keyframes spin {
