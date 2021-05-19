@@ -40,7 +40,7 @@ mobileSideNave!.addEventListener('click', (e) => {
   }
 });
 
-function addListeners(arg: any) {
+const addListeners = (arg: any) => {
   const temp = document.getElementById(arg);
 
   temp?.addEventListener('click', async function (e) {
@@ -51,7 +51,7 @@ function addListeners(arg: any) {
     const articles = await controller.getAllArticles(test.id);
     return view.createArticles(articles);
   });
-}
+};
 
 Object.values(subjects).forEach((subject) => {
   addListeners(subject);

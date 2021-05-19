@@ -67,7 +67,7 @@ const createArticleDomElements = (articles: Article[]) => {
 
     const articleTemplate: string = `<a href="${
       article.link
-    }" id="article-url" class="article-url">
+    }" id="article-url" class="article-url" target="_blank">
 
         <section id="article-container" class="article-container">
           <div id="article-header-container" class="article-header-container">
