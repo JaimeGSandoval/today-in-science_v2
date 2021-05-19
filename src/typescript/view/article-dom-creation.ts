@@ -49,7 +49,7 @@ export const createIcon = (): HTMLImageElement => {
   return imgElement;
 };
 
-function sourceChange(subject: string): void {
+export const sourceChange = (subject: string): void => {
   if (!subject) {
     throw new Error(
       'Subject argument is missing. A path to the image source must be provided.'
@@ -68,16 +68,16 @@ function sourceChange(subject: string): void {
 
   sourceWebpLg.srcset = `/src/assets/images/desktop/webp/${subject}.webp 800w`;
   sourceWebpMd.srcset = `/src/assets/images/tablet/webp/${subject}.webp 600w`;
-  sourceWebpImg.src = `/src/assets/images/mobile/webp/${subject}.webp`;
-}
+  sourceWebpImg.srcset = `/src/assets/images/mobile/webp/${subject}.webp`;
+};
 
-const articleSubjects = document.querySelectorAll('h1');
-export let tempSubject: any = 'BANKAI';
+const articleSubjects = document.querySelectorAll('.sidenav-link');
+export let tempSubject: any = 'Astronomy';
 
 articleSubjects.forEach((subject) => {
   subject.addEventListener('click', function (e) {
-    const target = e.target as HTMLHeadingElement;
-    tempSubject = target;
+    const target = e.target as HTMLAnchorElement;
+    tempSubject = target.textContent;
     return sourceChange(target.id);
   });
 });
