@@ -61,7 +61,7 @@ const sortItemsByDate = (array: any) => {
 const createArticleDomElements = (articles: Article[]) => {
   const mainContainer = document.getElementById('main') as HTMLElement;
   document.getElementById('loader')!.style.display = 'none';
-  // mainContainer.innerHTML = '';
+
   articles.forEach((article: Article) => {
     const articleTextArr: string[] = createTextArr(article.title);
 
