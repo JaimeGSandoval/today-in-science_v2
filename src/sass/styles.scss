@@ -11,4 +11,78 @@ body {
 .container {
   position: relative;
   top: 3.9rem;
+
+  @include tablet {
+    display: flex;
+
+  }
 }
+
+.test {
+
+  display: none;
+  @include tablet {
+    width: 29%;
+    height: 100vh;
+    display: inline-block;
+    position: fixed;
+
+  }
+}
+
+.test-2 {
+  @include tablet {
+    width: 71%;
+    position: relative;
+    left: 29%;
+  }
+}
+
+.main {
+  @include tablet {
+    overflow: scroll;
+  }
+}
+
+.test-container {
+  display: inline-block;
+}
+
+// .container > * {
+//     min-width: 0px;
+// }
+
+// .main {
+//     display: grid;
+//     grid-template-columns: repeat(12, 1fr);
+//     -webkit-box-pack: end;
+//     justify-content: end;
+// }
+
+// .hero-img-container {
+//     width: 100vw;
+//     max-width: 100%;
+//     display: grid;
+//     grid-template-columns: repeat(12, 1fr);
+
+//     .picture {
+//           grid-column: 1 / 9;
+//       }
+// }
+
+// @media (min-width: 768px) {}
+// .hero-img-container .picture {
+//     grid-column: 1 / 9;
+// }
+
+// @media (min-width: 768px)
+// .article-url {
+//     grid-column: 1 / 9;
+// }
+
+// .article-url {
+//     color: rgb(255, 255, 255);
+//     font-family: Roboto;
+//     text-decoration: none;
+//     grid-column: 1 / span 12;
+// }

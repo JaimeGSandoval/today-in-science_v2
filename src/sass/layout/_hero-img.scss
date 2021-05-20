@@ -13,4 +13,8 @@
   @include mobileLandscape {
       display: none;
   }
+
+  @include tablet {
+    width: 71vw;
+  }
 }
