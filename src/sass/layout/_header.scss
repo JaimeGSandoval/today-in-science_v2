@@ -1,3 +1,5 @@
+@import '../components/media-queries';
+
 header {
   background-color: $black;
   color: $white;
@@ -14,10 +16,20 @@ header {
 
   .header-text {
     letter-spacing: 2px;
+
+    @include tablet {
+      margin: auto;
+      position: relative;
+      left: 2.2rem;
+    }
   }
 
   .hamburger-icon-container {
     padding-left: 10px;
+
+    @include tablet {
+      display: none
+    }
 
     .hamburger-menu-icon {
       font-size: 1.95rem;

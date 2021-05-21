@@ -3,6 +3,7 @@ import { ArticleAPI, subjects } from './model/ArticleService/index';
 import { TwitterAPI } from './model/TwitterService';
 import Controller from './controller/Controller';
 import { View } from './view/';
+// import { tempSubject } from './view/article-dom-creation';
 
 const articleService: ArticleAPI = new ArticleAPI();
 const twitterService: TwitterAPI = new TwitterAPI();
@@ -41,15 +42,18 @@ mobileSideNave!.addEventListener('click', (e) => {
 });
 
 const addListeners = (arg: any) => {
-  const temp = document.getElementById(arg);
+  const subjects = document.querySelectorAll(`[data-subject=${arg}]`);
 
-  temp?.addEventListener('click', async function (e) {
-    document.getElementById('mobile-sidenav-container')!.style.display = 'none';
-    document.getElementById('loader')!.style.display = 'block';
+  subjects!.forEach((item) => {
+    item.addEventListener('click', async function (e: any) {
+      document.getElementById('mobile-sidenav-container')!.style.display =
+        'none';
+      document.getElementById('loader')!.style.display = 'block';
 
-    const test = e.target as HTMLHeadingElement;
-    const articles = await controller.getAllArticles(test.id);
-    return view.createArticles(articles);
+      const subjectClicked = e.target as HTMLElement;
+      const articles = await controller.getAllArticles(subjectClicked.id);
+      return view.createArticles(articles);
+    });
   });
 };
 

@@ -1,0 +1,20 @@
+@import '../components/media-queries';
+
+.tablet-nav {
+  display: none;
+
+  @include tablet {
+    width: 29%;
+    height: 100vh;
+    display: inline-block;
+    position: fixed;
+  }
+}
+
+.main-container {
+  @include tablet {
+    width: 71%;
+    position: relative;
+    left: 29%;
+  }
+}
