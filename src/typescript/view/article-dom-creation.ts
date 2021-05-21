@@ -72,7 +72,7 @@ export const sourceChange = (subject: string): void => {
 };
 
 const articleSubjects = document.querySelectorAll('.sidenav-link');
-export let tempSubject: any = 'Astronomy';
+export let tempSubject: any = 'Artificial Intelligence';
 
 articleSubjects.forEach((subject) => {
   subject.addEventListener('click', function (e) {

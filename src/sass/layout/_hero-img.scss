@@ -10,11 +10,7 @@
     width: 100%;
   }
 
-  @include mobileLandscape {
-      display: none;
-  }
-
   @include tablet {
-    width: 71vw;
+    width: 100%;
   }
 }
