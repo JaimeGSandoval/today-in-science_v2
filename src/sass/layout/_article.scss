@@ -7,7 +7,11 @@
 .article-container {
   background-color: $articleBackgroundColor;
   margin: 5px;
-  border: 1px solid $white
+  border: 1px solid $white;
+
+  @include tablet {
+    margin-left: 0;
+  }
 }
 
 .article-header-container {

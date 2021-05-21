@@ -9,3 +9,10 @@
     @content;
   }
 }
+
+
+@mixin laptop {
+  @media (min-width: 850px) {
+    @content;
+  }
+}

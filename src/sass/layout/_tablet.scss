@@ -8,13 +8,19 @@
     height: 100vh;
     display: inline-block;
     position: fixed;
+        margin-top: 1.4rem;
   }
 }
 
 .main-container {
   @include tablet {
-    width: 71%;
+    width: 75%;
     position: relative;
-    left: 29%;
+    left: 25%;
+  }
+
+  @include laptop {
+    left: 25%;
+    width: 75%;
   }
 }
