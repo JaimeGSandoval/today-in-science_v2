@@ -28,4 +28,9 @@
     left: 22%;
     width: 78%;
   }
+
+  @include desktopSm {
+    left: 25%;
+    width: 49%;
+  }
 }

@@ -12,6 +12,10 @@
   @include tablet {
     margin-left: 0;
   }
+
+  @include desktopSm {
+    margin-right: 0;
+  }
 }
 
 .article-header-container {

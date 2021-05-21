@@ -1,5 +1,5 @@
 @import 'base/_reset', 'base/vars', 'base/fonts';
-@import 'layout/header', 'layout/hero-img', 'layout/article', 'layout/mobile-nav', 'layout/tablet';
+@import 'layout/header', 'layout/hero-img', 'layout/article', 'layout/mobile-nav', 'layout/tablet', 'layout/tweet';
 @import 'components/loader', 'components/error-text', 'components/media-queries';
 
 
@@ -8,15 +8,36 @@ body {
 
 }
 
+.tweet-list-container {
+  width: 26%;
+  height: 800px;
+  border: 1px solid red;
+  position: relative;
+  left: 25%;
+  top: 1.2rem;
+}
+
 .container {
   position: relative;
   top: 3.9rem;
+  max-width: 1245px;
+  margin: auto;
 
   @include tablet {
     display: flex;
     top: 3.5rem;
   }
+
+  @include desktopSm {
+    border-left: 1px solid $white;
+    border-right: 1px solid $white;
+  }
 }
+
+
+
+
+
 
 
 // .test-container {

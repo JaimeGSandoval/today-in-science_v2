@@ -28,6 +28,10 @@ header {
       font-size: 1.6rem;
       padding: 10px 0;
     }
+
+    @include desktopSm{
+      left: 1.2rem
+    }
   }
 
   .hamburger-icon-container {

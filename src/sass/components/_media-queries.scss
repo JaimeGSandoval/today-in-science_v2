@@ -1,15 +1,8 @@
-@mixin mobileLandscape {
-  @media (orientation: landscape) and (max-width: 812px) {
-    @content;
-  }
-}
-
 @mixin tablet {
   @media (min-width: 768px) {
     @content;
   }
 }
-
 
 @mixin laptop {
   @media (min-width: 850px) {
@@ -19,6 +12,12 @@
 
 @mixin laptopLg {
   @media (min-width: 950px) {
+    @content;
+  }
+}
+
+@mixin desktopSm {
+  @media (min-width: 1025px) {
     @content;
   }
 }

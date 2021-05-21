@@ -23,6 +23,17 @@ export const colorizeSelectedText = (tweetText: string): string => {
   return result;
 };
 
+export const createUrl2 = (link: string): HTMLAnchorElement => {
+  if (!link) {
+    throw new Error('Link argument is missing. A url string must be provide.');
+  }
+
+  const temp = document.createElement('a');
+  temp.href = 'link';
+  temp.textContent = 'URL';
+  return temp as HTMLAnchorElement;
+};
+
 export const createText = (tweetText: string[]): HTMLParagraphElement => {
   if (!tweetText) {
     throw new Error('String argument is missing. A string must be provided.');
