@@ -10,15 +10,11 @@
     width: 100%;
   }
 
-  // @include mobileLandscape {
-  //     display: none;
-  // }
-
   @include tablet {
-    width: 99.1%;
+    width: 100%;
   }
 
-  @include laptop {
-    width: 99%;
-  }
+  // @include laptop {
+  //   width: 99%;
+  // }
 }

@@ -8,7 +8,7 @@
     height: 100vh;
     display: inline-block;
     position: fixed;
-        margin-top: 1.4rem;
+    margin-top: 2rem;
   }
 }
 
@@ -22,5 +22,10 @@
   @include laptop {
     left: 25%;
     width: 75%;
+  }
+
+  @include laptopLg {
+    left: 22%;
+    width: 78%;
   }
 }
