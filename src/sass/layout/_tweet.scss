@@ -6,8 +6,11 @@
   top: 1.2rem;
   font-family: $roboto;
   display: none;
-  // height: 100vh;
+  height: 100vh;
   // overflow-y: scroll;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
 
   @include desktopSm {
     display: block;
@@ -23,6 +26,11 @@
      padding: 1rem 0;
      text-transform: capitalize;
    }
+}
+
+.tweet-list-container::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
 }
 
 .tweet-container {
