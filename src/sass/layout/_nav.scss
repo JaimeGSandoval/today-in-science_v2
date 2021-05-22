@@ -1,0 +1,21 @@
+.nav-large {
+  display: none;
+
+  @include tablet {
+    width: 29%;
+    height: 100vh;
+    display: inline-block;
+    position: fixed;
+    margin-top: 2rem;
+  }
+
+  .sidenav-link {
+    @include desktop {
+      font-size: 1.2rem;
+    }
+
+    @include desktopLg {
+      font-size: 1.4rem;
+    }
+  }
+}

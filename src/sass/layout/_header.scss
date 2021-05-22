@@ -29,8 +29,12 @@ header {
       padding: 10px 0;
     }
 
-    @include desktopSm{
+    @include laptopMed{
       left: 1.2rem
+    }
+
+    @include desktopLg {
+      font-size: 1.9rem;
     }
   }
 

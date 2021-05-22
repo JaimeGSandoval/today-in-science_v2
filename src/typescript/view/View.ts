@@ -9,9 +9,7 @@ import {
   tempSubject,
 } from './article-dom-creation';
 import {
-  createImgUrl,
   colorizeSelectedText,
-  createText,
   createTweetTextArr,
   createTweetUrl,
   createCount,
@@ -108,32 +106,60 @@ const createTweetDomElements = (tweets: Tweet[]) => {
   ) as HTMLDivElement;
 
   tweets.forEach((tweet: Tweet) => {
-    const tweetsContainer = document.createElement('div') as HTMLDivElement;
     const imageUrl: string = tweet.image_url;
     const tweetFullText: string = tweet.full_text;
     const tweetReplies: number = tweet.reply_count;
     const tweetRetweets: number = tweet.retweet_count;
     const tweetFavorites: number = tweet.favorite_count;
-
-    const tweetImg = createImgUrl(imageUrl) as HTMLImageElement;
     const coloredText: string = colorizeSelectedText(tweetFullText);
     const tweetTextArray: string[] = createTweetTextArr(coloredText);
-    const tweetText = createText(tweetTextArray) as HTMLParagraphElement;
     const urlString: string = createTweetUrl(tweetTextArray);
-    const twitterPostUrl = createUrl(urlString) as unknown as HTMLAnchorElement;
-    const replyCount = createCount(tweetReplies) as HTMLSpanElement;
-    const retweetCount = createCount(tweetRetweets) as HTMLSpanElement;
-    const favoriteCount = createCount(tweetFavorites) as HTMLSpanElement;
 
-    tweetsContainer.append(
-      tweetImg,
-      tweetText,
-      replyCount,
-      retweetCount,
-      favoriteCount
-    );
+    const tweetTemplate: string = `<a href="${createUrl(
+      urlString
+    )}" class="tweet-url" target="_blank">
+        <div id="tweet-container" class="tweet-container">
 
-    twitterPostUrl.append(tweetsContainer);
-    return tweetListContainer.appendChild(twitterPostUrl);
+          <div class="top-row">
+            <div class="spacex-text-container">
+              <span class="spacex-title-white">SpaceX </span><span class="verified-badge">
+                <picture>
+                  <source srcset="/src/assets/icons/webp/verified-badge.webp">
+                </picture>
+                <img src="/src/assets/icons/png/verified-badge.png" class="badge" alt="Image for subject matter">
+              </span>
+              <span class="spacex-title-gray">@SpaceX</span>
+
+              <div class="tweet-text-container">
+                <p class="tweet-text">${createTextArr(tweetTextArray[0])}</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="tweet-img-container">
+            <picture>
+              <source srcset="${imageUrl}">
+              <img src="${imageUrl}" alt="Image for subject matter">
+            </picture>
+          </div>
+
+          <div class="tweet-data-container">
+            <span class="reply-icon tweet-data-icons">&#128489 ${createCount(
+              tweetReplies
+            )}</span>
+            <span class="retweet-icon tweet-data-icons">&#9850 ${createCount(
+              tweetRetweets
+            )}</span>
+            <span class="favorite-icon tweet-data-icons">&#9825 ${createCount(
+              tweetFavorites
+            )}</span>
+          </div>
+
+        </div>
+
+      </a>`;
+
+    tweetListContainer.innerHTML += tweetTemplate;
   });
 };
