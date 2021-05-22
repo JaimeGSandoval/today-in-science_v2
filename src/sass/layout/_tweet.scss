@@ -1,3 +1,87 @@
 .tweet-list-container {
   color: $white;
+  width: 22%;
+  position: relative;
+  left: 21%;
+  top: 1.2rem;
+  font-family: $roboto;
+  display: none;
+  // height: 100vh;
+  // overflow-y: scroll;
+
+  @include desktopSm {
+    display: block;
+  }
+
+     .tweet-url {
+     text-decoration: none;;
+   }
+
+   .tweet-header-container {
+     border-bottom: 1px solid $white;
+     text-align: center;
+     padding: 1rem 0;
+     text-transform: capitalize;
+   }
+}
+
+.tweet-container {
+  background-color: $black;
+  color: $white;
+  border-bottom: 1px solid $white;
+}
+
+
+.top-row {
+   display: flex;
+   padding-top: 5px;
+
+   .spacex-icon-container {
+     width: 3rem;
+     padding: 5px;
+
+     img {
+       border-radius: 50%;
+       border: 2px solid $white;
+      }
+   }
+
+   .spacex-text-container {
+     padding-left: 5px;
+
+     .spacex-title-white {
+       font-family: $robotoBold;
+     }
+
+     .spacex-title-gray {
+       color: #929292;
+     }
+
+     .badge {
+       width: 20px;
+       height: 20px;
+       position: relative;
+       top: 5px;
+     }
+   }
+}
+
+.tweet-img-container {
+  width: 85%;
+  margin: auto;
+  border-radius: 10px;
+
+  img {
+     width: 100%;
+     border-radius: 10px;
+  }
+}
+
+.tweet-data-container {
+  font-size: .9rem;
+  display: flex;
+  justify-content: space-around;
+  width: 85%;
+  margin: auto;
+  padding-bottom: 10px;
 }
