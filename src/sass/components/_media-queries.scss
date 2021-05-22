@@ -4,20 +4,38 @@
   }
 }
 
-@mixin laptop {
+@mixin tabletLg {
   @media (min-width: 850px) {
     @content;
   }
 }
 
-@mixin laptopLg {
+@mixin laptopSm {
   @media (min-width: 950px) {
     @content;
   }
 }
 
-@mixin desktopSm {
+@mixin laptopMed {
   @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin laptopLg {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1840px) {
+    @content;
+  }
+}
+
+@mixin desktopLg {
+  @media (min-width: 2240px) {
     @content;
   }
 }

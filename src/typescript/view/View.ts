@@ -145,13 +145,13 @@ const createTweetDomElements = (tweets: Tweet[]) => {
           </div>
 
           <div class="tweet-data-container">
-            <span class="reply-icon">&#128489 ${createCount(
+            <span class="reply-icon tweet-data-icons">&#128489 ${createCount(
               tweetReplies
             )}</span>
-            <span class="retweet-icon">&#9850 ${createCount(
+            <span class="retweet-icon tweet-data-icons">&#9850 ${createCount(
               tweetRetweets
             )}</span>
-            <span class="favorite-icon">&#9825 ${createCount(
+            <span class="favorite-icon tweet-data-icons">&#9825 ${createCount(
               tweetFavorites
             )}</span>
           </div>

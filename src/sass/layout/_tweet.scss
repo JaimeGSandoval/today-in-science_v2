@@ -12,7 +12,7 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
 
-  @include desktopSm {
+  @include laptopMed {
     display: block;
   }
 
@@ -31,6 +31,15 @@
 
      img {
        width: 30px;
+     }
+
+     @include desktop {
+       font-size: 1.2rem
+     }
+
+     @include desktopLg {
+       font-size: 1.4rem;
+       padding: 1.5rem 10px;
      }
    }
 }
@@ -68,6 +77,14 @@
        position: relative;
        top: 5px;
      }
+
+     @include desktop {
+       font-size: 1.1rem;
+     }
+
+     @include desktopLg {
+       font-size: 1.3rem;
+     }
    }
 }
 
@@ -88,10 +105,14 @@
   justify-content: space-around;
   width: 85%;
   margin: auto;
-  padding-bottom: 10px;
-}
+  padding: 1rem 0;
 
-// .tweet-list-container {
-//   position: fixed;
-//   left: 74%;
-// }
+  @include desktop {
+    font-size: 1.1rem;
+  }
+
+  @include desktopLg {
+    font-size: 1.3rem;
+  }
+
+}

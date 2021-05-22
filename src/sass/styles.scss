@@ -10,7 +10,6 @@ body {
 .container {
   position: relative;
   top: 3.9rem;
-  max-width: 1245px;
   margin: auto;
 
   @include tablet {
@@ -18,9 +17,18 @@ body {
     top: 3.5rem;
   }
 
-  @include desktopSm {
+  @include laptopMed {
     border-left: 1px solid $white;
     border-right: 1px solid $white;
+    max-width: 1024px;
+  }
+
+  @include laptopLg {
+    max-width: 1245px;
+  }
+
+    @include desktop {
+    max-width: 1600px;
   }
 }
 

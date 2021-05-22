@@ -20,17 +20,17 @@
     left: 25%;
   }
 
-  @include laptop {
+  @include tabletLg {
     left: 25%;
     width: 75%;
   }
 
-  @include laptopLg {
+  @include laptopSm {
     left: 22%;
     width: 78%;
   }
 
-  @include desktopSm {
+  @include laptopMed {
     // left: 25%;
     // width: 49%;
     left: 21%;
