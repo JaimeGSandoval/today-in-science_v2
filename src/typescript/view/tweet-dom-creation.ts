@@ -1,15 +1,3 @@
-// export const createImgUrl = (url: string): HTMLImageElement => {
-//   const imgElement = document.createElement('img') as HTMLImageElement;
-//   imgElement.src = url;
-//   imgElement.style.width = '400px';
-//   imgElement.style.height = 'auto';
-//   return imgElement;
-// };
-
-export const createImgUrl = (url: string) => {
-  return url;
-};
-
 export const colorizeSelectedText = (tweetText: string): string => {
   if (!tweetText) {
     throw new Error('String argument is missing. A string must be provided.');
@@ -27,28 +15,7 @@ export const colorizeSelectedText = (tweetText: string): string => {
   return result;
 };
 
-// export const createUrl2 = (link: string): HTMLAnchorElement => {
-//   if (!link) {
-//     throw new Error('Link argument is missing. A url string must be provide.');
-//   }
-
-//   const temp = document.createElement('a');
-//   temp.href = 'link';
-//   temp.textContent = 'URL';
-//   return temp as HTMLAnchorElement;
-// };
-
-// export const createText = (tweetText: string[]): HTMLParagraphElement => {
-//   if (!tweetText) {
-//     throw new Error('String argument is missing. A string must be provided.');
-//   }
-
-//   const paragraphElement = document.createElement('p');
-//   paragraphElement.innerHTML = tweetText[0];
-//   return paragraphElement;
-// };
-
-export const createText = (tweetText: string[]) => {
+export const createText = (tweetText: string[]): string => {
   if (!tweetText) {
     throw new Error('String argument is missing. A string must be provided.');
   }
@@ -75,19 +42,7 @@ export const createTweetUrl = (textArr: string[]): string => {
   return textArr[textArr.length - 1].slice(1);
 };
 
-// export const createCount = (count: number): HTMLSpanElement => {
-//   if (!count) {
-//     throw new Error(
-//       'Count argument is missing. A number for count must be provided.'
-//     );
-//   }
-
-//   const span = document.createElement('span');
-//   span.textContent = count.toString();
-//   return span;
-// };
-
-export const createCount = (count: number) => {
+export const createCount = (count: number): string => {
   if (!count) {
     throw new Error(
       'Count argument is missing. A number for count must be provided.'

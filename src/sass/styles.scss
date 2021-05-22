@@ -1,5 +1,5 @@
 @import 'base/_reset', 'base/vars', 'base/fonts';
-@import 'layout/header', 'layout/hero-img', 'layout/article', 'layout/mobile-nav', 'layout/tablet', 'layout/tweet';
+@import 'layout/header', 'layout/hero-img', 'layout/article', 'layout/mobile-nav', 'layout/tablet', 'layout/tweet', 'layout/nav';
 @import 'components/loader', 'components/error-text', 'components/media-queries';
 
 
@@ -23,6 +23,7 @@ body {
     border-right: 1px solid $white;
   }
 }
+
 
 
 

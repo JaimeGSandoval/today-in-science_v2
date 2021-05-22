@@ -1,18 +1,19 @@
 @import '../components/media-queries';
 
-.tablet-nav {
-  display: none;
+// .tablet-nav {
+//   display: none;
 
-  @include tablet {
-    width: 29%;
-    height: 100vh;
-    display: inline-block;
-    position: fixed;
-    margin-top: 2rem;
-  }
-}
+//   @include tablet {
+//     width: 29%;
+//     height: 100vh;
+//     display: inline-block;
+//     position: fixed;
+//     margin-top: 2rem;
+//   }
+// }
 
 .main-container {
+
   @include tablet {
     width: 75%;
     position: relative;
