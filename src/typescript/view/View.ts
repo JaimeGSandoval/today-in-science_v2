@@ -108,32 +108,146 @@ const createTweetDomElements = (tweets: Tweet[]) => {
   ) as HTMLDivElement;
 
   tweets.forEach((tweet: Tweet) => {
-    const tweetsContainer = document.createElement('div') as HTMLDivElement;
+    // const tweetsContainer = document.createElement('div') as HTMLDivElement;
     const imageUrl: string = tweet.image_url;
     const tweetFullText: string = tweet.full_text;
     const tweetReplies: number = tweet.reply_count;
     const tweetRetweets: number = tweet.retweet_count;
     const tweetFavorites: number = tweet.favorite_count;
 
-    const tweetImg = createImgUrl(imageUrl) as HTMLImageElement;
+    const tweetImg = createImgUrl(imageUrl); // string
     const coloredText: string = colorizeSelectedText(tweetFullText);
     const tweetTextArray: string[] = createTweetTextArr(coloredText);
-    const tweetText = createText(tweetTextArray) as HTMLParagraphElement;
+    const tweetText = createText(tweetTextArray); // string
     const urlString: string = createTweetUrl(tweetTextArray);
-    const twitterPostUrl = createUrl(urlString) as unknown as HTMLAnchorElement;
-    const replyCount = createCount(tweetReplies) as HTMLSpanElement;
-    const retweetCount = createCount(tweetRetweets) as HTMLSpanElement;
-    const favoriteCount = createCount(tweetFavorites) as HTMLSpanElement;
+    const twitterPostUrl = createUrl(urlString); // string
+    const replyCount = createCount(tweetReplies);
+    const retweetCount = createCount(tweetRetweets);
+    const favoriteCount = createCount(tweetFavorites);
 
-    tweetsContainer.append(
-      tweetImg,
-      tweetText,
-      replyCount,
-      retweetCount,
-      favoriteCount
-    );
+    const tweetTemplate: string = `<a href="${twitterPostUrl}" class="tweet-url" target="_blank">
+        <div id="tweet-container" class="tweet-container">
 
-    twitterPostUrl.append(tweetsContainer);
-    return tweetListContainer.appendChild(twitterPostUrl);
+          <div class="top-row">
+            <div class="spacex-icon-container">
+              <picture>
+                <source srcset="/src/assets/icons/webp/spacex.webp">
+                <img src="/src/assets/icons/png/spacex.png" alt="Image for subject matter">
+              </picture>
+            </div>
+
+            <div class="spacex-text-container">
+              <span class="spacex-title-white">SpaceX </span><span class="verified-badge">
+                <picture>
+                  <source srcset="/src/assets/icons/webp/verified-badge.webp">
+                </picture>
+                <img src="/src/assets/icons/png/verified-badge.png" class="badge" alt="Image for subject matter">
+              </span>
+              <span class="spacex-title-gray">@SpaceX</span>
+
+              <div class="tweet-text-container">
+                <p class="tweet-text">${tweetText}</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="tweet-img-container">
+            <picture>
+              <source srcset="${tweetImg}">
+              <img src="${tweetImg}" alt="Image for subject matter">
+            </picture>
+          </div>
+
+          <div class="tweet-data-container">
+            <span class="reply-icon">&#128489 ${replyCount}</span>
+            <span class="retweet-icon">&#9850 ${retweetCount}</span>
+            <span class="favorite-icon">&#9825 ${favoriteCount}</span>
+          </div>
+
+        </div>
+
+      </a>`;
+
+    // const tweetImg = createImgUrl(imageUrl) as HTMLImageElement;
+    // const coloredText: string = colorizeSelectedText(tweetFullText);
+    // const tweetTextArray: string[] = createTweetTextArr(coloredText);
+    // const tweetText = createText(tweetTextArray) as HTMLParagraphElement;
+    // const urlString: string = createTweetUrl(tweetTextArray);
+    // const twitterPostUrl = createUrl(urlString) as unknown as HTMLAnchorElement;
+    // const replyCount = createCount(tweetReplies) as HTMLSpanElement;
+    // const retweetCount = createCount(tweetRetweets) as HTMLSpanElement;
+    // const favoriteCount = createCount(tweetFavorites) as HTMLSpanElement;
+
+    // const tweetImg = createImgUrl(imageUrl); // string
+    // const coloredText: string = colorizeSelectedText(tweetFullText);
+    // const tweetTextArray: string[] = createTweetTextArr(coloredText);
+    // const tweetText = createText(tweetTextArray); // string
+    // const urlString: string = createTweetUrl(tweetTextArray);
+    // const twitterPostUrl = createUrl(urlString); // string
+    // const replyCount = createCount(tweetReplies);
+    // const retweetCount = createCount(tweetRetweets);
+    // const favoriteCount = createCount(tweetFavorites);
+
+    // tweetsContainer.append(
+    //   tweetImg,
+    //   tweetText,
+    //   replyCount,
+    //   retweetCount,
+    //   favoriteCount
+    // );
+
+    // twitterPostUrl.append(tweetsContainer);
+    // return tweetListContainer.appendChild(twitterPostUrl);
+    tweetListContainer.innerHTML += tweetTemplate;
   });
 };
+
+// `<a href="${twitterPostUrl}" class="tweet-url">
+//         <div id="tweet-container" class="tweet-container">
+
+//           <div class="top-row">
+//             <div class="spacex-icon-container">
+//               <picture>
+//                 <source srcset="./assets/icons/webp/spacex.webp">
+//                 <img src="./assets/icons/png/spacex.png" alt="Image for subject matter">
+//               </picture>
+//             </div>
+
+//             <div class="spacex-text-container">
+//               <span class="spacex-title-white">SpaceX </span><span class="verified-badge">
+//                 <picture>
+//                   <source srcset="./assets/icons/webp/verified-badge.webp">
+//                 </picture>
+//                 <img src="./assets/icons/png/verified-badge.png" class="badge" alt="Image for subject matter">
+//               </span>
+//               <span class="spacex-title-gray">@SpaceX</span>
+
+//               <div class="tweet-text-container">
+//                 <!-- Interpolate Twitter Full Text -->
+//                 <p class="tweet-text">${tweetText}</p>
+//               </div>
+//             </div>
+
+//           </div>
+
+//           <div class="tweet-img-container">
+//             <picture>
+//               <!-- Interpolate Twitter Img Url -->
+//               <source srcset="${tweetImg}">
+//               <img src="${tweetImg}" alt="Image for subject matter">
+//             </picture>
+//           </div>
+
+//           <div class="tweet-data-container">
+//             <!-- Interpolate reply count -->
+//             <span class="reply-icon">&#128489 ${replyCount}</span>
+//             <!-- Interpolate Retweet count -->
+//             <span class="retweet-icon">&#9850 ${retweetCount}</span>
+//             <!-- Interpolate Favorite count -->
+//             <span class="favorite-icon">&#9825 ${favoriteCount}</span>
+//           </div>
+
+//         </div>
+
+//       </a>`;
