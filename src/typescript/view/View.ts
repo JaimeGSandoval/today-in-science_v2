@@ -1,9 +1,9 @@
 import { Article } from '../model/ArticleService';
 import { Tweet } from '../model/TwitterService';
 import {
-  createTitle,
+  // createTitle,
   createTextArr,
-  createSourceText,
+  // createSourceText,
   createUrl,
   createDateText,
   tempSubject,
@@ -26,6 +26,7 @@ export default class View {
       );
     });
 
+    console.log(newArticles[0].source.title);
     newArticles = sortItemsByDate(newArticles);
     return createArticleDomElements(newArticles);
   }
@@ -61,23 +62,26 @@ const createArticleDomElements = (articles: Article[]) => {
   document.getElementById('loader')!.style.display = 'none';
 
   articles.forEach((article: Article) => {
-    const articleTextArr: string[] = createTextArr(article.title);
-    //  <span class="article-header article-text">article &nbsp;|&nbsp;</span>;
+    // const articleTextArr: string[] = createTextArr(article.title);
+    //  <p class="article-title">${createTitle(articleTextArr)}</p>;
+
+    // <span class="article-header article-source">
+    //   ${createSourceText(articleTextArr)}
+    // </span>;
     const articleTemplate: string = `<a href="${
       article.link
     }" id="article-url" class="article-url" target="_blank">
 
         <section id="article-container" class="article-container">
           <div id="article-header-container" class="article-header-container">
-
             <span class="article-header article-subject">${tempSubject} &nbsp;|&nbsp;</span>
-            <span class="article-header article-source">${createSourceText(
-              articleTextArr
-            )}</span>
+            <span class="article-header article-source">${
+              article.source.title
+            }</span>
           </div>
 
           <div id="article-title-container" class="article-title-container">
-            <p class="article-title">${createTitle(articleTextArr)}</p>
+            <p class="article-title">${article.title}</p>
           </div>
 
           <div class="article-date-container">

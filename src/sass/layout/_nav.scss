@@ -17,11 +17,6 @@
 
   }
 
-  @include laptopSm {
-    border-left: 1px solid $white;
-
-  }
-
  @include tablet {
     display: block;
   }
@@ -34,5 +29,12 @@
     @include desktopLg {
       font-size: 1.4rem;
     }
+  }
+}
+
+@media screen and (min-width: 1160px) {
+  .nav-large {
+    border-left: 1px solid $white;
+
   }
 }

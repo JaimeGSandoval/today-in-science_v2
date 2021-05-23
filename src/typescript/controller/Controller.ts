@@ -53,9 +53,9 @@ export default class Controller {
 
   public async start() {
     const AIArticles = await this.getAllArticles('AI');
-    const tweets = await this.getAllTweets();
+    // const tweets = await this.getAllTweets();
     this._view.createArticles(AIArticles);
-    this._view.createTweets(tweets);
+    // this._view.createTweets(tweets);
   }
 }
 

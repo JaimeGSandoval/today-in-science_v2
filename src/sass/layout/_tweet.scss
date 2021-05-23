@@ -1,7 +1,5 @@
 .tweet-list-container {
   color: $white;
-  // position: relative;
-  // top: 1.2rem;
   font-family: $roboto;
   display: none;
   border-bottom: 1px solid $white;
@@ -9,9 +7,8 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   grid-column: 10 / 13;
-  margin-top: 4rem;
+  margin-top: 3rem;
   margin-bottom: 4rem;
-  border-right: 2px solid $white;
   position: sticky;
 
 
@@ -19,13 +16,13 @@
     display: block;
   }
 
-     .tweet-url {
-     text-decoration: none;;
-   }
+  .tweet-url {
+    text-decoration: none;;
+  }
 
-   .tweet-header-container {
-     border-bottom: 1px solid $white;
-     text-align: center;
+  .tweet-header-container {
+    border-bottom: 1px solid $white;
+    text-align: center;
      padding: 1.5rem 0 1rem;
      text-transform: capitalize;
      display: flex;
@@ -37,18 +34,18 @@
        position: relative;
        top: 4px;
        right: 7px;
-     }
+      }
 
-     @include desktop {
+      @include desktop {
        font-size: 1.2rem
-     }
+      }
 
      @include desktopLg {
        font-size: 1.4rem;
        padding: 1.5rem 10px;
      }
    }
-}
+  }
 
 .tweet-list-container::-webkit-scrollbar { /* WebKit */
     width: 0;
@@ -63,7 +60,7 @@
 
 
 .top-row {
-   display: flex;
+  display: flex;
    padding-top: 5px;
 
    .spacex-text-container {
@@ -71,11 +68,11 @@
 
      .spacex-title-white {
        font-family: $robotoBold;
-     }
+      }
 
-     .spacex-title-gray {
+      .spacex-title-gray {
        color: #929292;
-     }
+      }
 
      .badge {
        width: 20px;
@@ -90,9 +87,9 @@
 
      @include desktopLg {
        font-size: 1.3rem;
-     }
+      }
    }
-}
+  }
 
 .tweet-img-container {
   width: 85%;
@@ -121,4 +118,11 @@
     font-size: 1.3rem;
   }
 
+}
+
+@media screen and (min-width: 1160px) {
+  .tweet-list-container {
+    border-right: 1px solid $white;
+
+  }
 }
