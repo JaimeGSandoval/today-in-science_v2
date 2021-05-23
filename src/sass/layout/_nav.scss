@@ -1,12 +1,29 @@
 .nav-large {
   display: none;
+  grid-column: 2 / 4;
+  position: fixed;
+  height: 100vh;
 
-  @include tablet {
-    width: 29%;
-    height: 100vh;
-    display: inline-block;
-    position: fixed;
-    margin-top: 2rem;
+  nav {
+    margin-top: 5.5rem;
+
+    .sidenav-link {
+      margin-left: 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+  }
+
+  @include laptopSm {
+    border-left: 1px solid $white;
+
+  }
+
+ @include tablet {
+    display: block;
   }
 
   .sidenav-link {

@@ -1,36 +1,58 @@
 @import 'base/_reset', 'base/vars', 'base/fonts';
-@import 'layout/header', 'layout/hero-img', 'layout/article', 'layout/mobile-nav', 'layout/tablet', 'layout/tweet', 'layout/nav';
+@import 'layout/header', 'layout/hero-img', 'layout/article', 'layout/mobile-nav', 'layout/main', 'layout/tweet', 'layout/nav';
 @import 'components/loader', 'components/error-text', 'components/media-queries';
 
 
 body {
   background-color: $black;
+  max-height: 100vh;
+}
+
+.container > * {
+    min-width: 0px;
 }
 
 .container {
   position: relative;
-  top: 3.9rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  height: 100vh;
+  max-width: 1160px;
   margin: auto;
-
-  @include tablet {
-    display: flex;
-    top: 3.5rem;
-  }
-
-  @include laptopMed {
-    border-left: 1px solid $white;
-    border-right: 1px solid $white;
-    max-width: 1024px;
-  }
-
-  @include laptopLg {
-    max-width: 1245px;
-  }
-
-    @include desktop {
-    max-width: 1600px;
-  }
+  overflow: hidden;
 }
+
+
+
+
+// .container {
+//   // position: relative;
+//   top: 3.9rem;
+//   margin: auto;
+//   display: grid;
+//   grid-template-columns: repeat(12, 1frs);
+
+//   @include tablet {
+//     grid-column: 1 / 3;
+//     // display: flex;
+//     // display: grid;
+//     top: 3.5rem;
+//   }
+
+//   @include laptopMed {
+//     border-left: 1px solid $white;
+//     border-right: 1px solid $white;
+//     max-width: 1160px;
+//   }
+
+//   @include laptopLg {
+//     max-width: 1245px;
+//   }
+
+//     @include desktop {
+//     max-width: 1600px;
+//   }
+// }
 
 
 

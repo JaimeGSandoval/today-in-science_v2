@@ -47,7 +47,7 @@ export default class ArticleAPI {
   public async getAllArticles(subject: string): Promise<any> {
     console.log(subject);
     const response: Response = await fetch(
-      `https://google-news1.p.rapidapi.com/search?q=${subject}&lang=en&pageSize=30`,
+      `https://google-news1.p.rapidapi.com/search?q=${subject}%20science&lang=en&pageSize=30`,
       {
         method: 'GET',
         headers: {
