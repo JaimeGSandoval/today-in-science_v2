@@ -26,9 +26,9 @@
     display: inline-block;
     padding: 5px 0;
 
-    &:first-of-type {
-      text-transform: uppercase;
-    }
+    // &:first-of-type {
+    //   text-transform: uppercase;
+    // }
 
     @include tablet {
       font-size: 1.2rem;
@@ -43,7 +43,7 @@
 
   .article-title {
     text-transform: capitalize;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: $robotoBold;
     letter-spacing: 1px;
 

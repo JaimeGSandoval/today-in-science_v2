@@ -62,14 +62,14 @@ const createArticleDomElements = (articles: Article[]) => {
 
   articles.forEach((article: Article) => {
     const articleTextArr: string[] = createTextArr(article.title);
-
+    //  <span class="article-header article-text">article &nbsp;|&nbsp;</span>;
     const articleTemplate: string = `<a href="${
       article.link
     }" id="article-url" class="article-url" target="_blank">
 
         <section id="article-container" class="article-container">
           <div id="article-header-container" class="article-header-container">
-            <span class="article-header article-text">article &nbsp;|&nbsp;</span>
+
             <span class="article-header article-subject">${tempSubject} &nbsp;|&nbsp;</span>
             <span class="article-header article-source">${createSourceText(
               articleTextArr
