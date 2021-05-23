@@ -1,7 +1,5 @@
 .tweet-list-container {
   color: $white;
-  // position: relative;
-  // top: 1.2rem;
   font-family: $roboto;
   display: none;
   border-bottom: 1px solid $white;
@@ -9,7 +7,7 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   grid-column: 10 / 13;
-  margin-top: 4rem;
+  margin-top: 3rem;
   margin-bottom: 4rem;
   position: sticky;
 

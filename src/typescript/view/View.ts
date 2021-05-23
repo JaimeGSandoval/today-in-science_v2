@@ -1,9 +1,9 @@
 import { Article } from '../model/ArticleService';
 import { Tweet } from '../model/TwitterService';
 import {
-  createTitle,
+  // createTitle,
   createTextArr,
-  createSourceText,
+  // createSourceText,
   createUrl,
   createDateText,
   tempSubject,
@@ -62,7 +62,7 @@ const createArticleDomElements = (articles: Article[]) => {
   document.getElementById('loader')!.style.display = 'none';
 
   articles.forEach((article: Article) => {
-    const articleTextArr: string[] = createTextArr(article.title);
+    // const articleTextArr: string[] = createTextArr(article.title);
     //  <p class="article-title">${createTitle(articleTextArr)}</p>;
 
     // <span class="article-header article-source">
