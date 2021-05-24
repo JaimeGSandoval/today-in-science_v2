@@ -8,10 +8,8 @@
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   grid-column: 10 / 13;
   margin-top: 3rem;
-  // margin-bottom: 4rem;
   padding-bottom: 3.1rem;
-  position: sticky;
-
+  position: relative;
 
   @include laptopMed {
     display: block;
@@ -22,19 +20,24 @@
   }
 
   .tweet-header-container {
+    // width: 289px;
     border-bottom: 1px solid $white;
-    text-align: center;
-     padding: 1.5rem 0 1rem;
-     text-transform: capitalize;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+    padding: 1.2rem 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // position: fixed;
+    // width: inherit;
+    z-index: 5;
+    background: black;
+    border-right: 1px solid white;
+    top: 56px;
 
      img {
        width: 30px;
        position: relative;
-       top: 4px;
-       right: 7px;
+      //  top: 4px;
+      //  right: 7px;
       }
 
       @include desktop {
@@ -43,7 +46,7 @@
 
      @include desktopLg {
        font-size: 1.4rem;
-       padding: 1.5rem 10px;
+      //  padding: 1.5rem 10px;
      }
    }
   }

@@ -17,11 +17,17 @@ body {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   height: 100vh;
-  max-width: 1160px;
+  // max-width: 1160px;
+  max-width: 1024px;
   margin: auto;
   overflow: hidden;
 
   @include desktopLg {
     max-width: 1500px;
   }
+}
+
+
+.space {
+  height: 73px;
 }

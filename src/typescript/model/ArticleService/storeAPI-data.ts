@@ -13,7 +13,7 @@ export enum subjects {
   DARKENERGY = 'dark-energy',
   DARKMATTER = 'dark-matter',
   EXOPLANETS = 'exoplanets',
-  GALAXIES = 'galaxies',
+  GALAXIES = 'galaxies-science',
   GRAVITY = 'gravity',
   METEORS = 'meteors',
   QUANTUM_PHYSICS = 'quantum-physics',

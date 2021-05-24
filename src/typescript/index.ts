@@ -60,3 +60,12 @@ const addListeners = (arg: any) => {
 Object.values(subjects).forEach((subject) => {
   addListeners(subject);
 });
+
+//  function adjustWidth() {
+//    var parentwidth = $('.parent').width();
+//    $('.child').width(parentwidth);
+//  }
+
+// const parent = document.querySelector('.tweet-header-container')?.clientWidth;
+// const child = document.querySelector('.header-text-fixed') as HTMLDivElement;
+// child!.style.width = parent;
