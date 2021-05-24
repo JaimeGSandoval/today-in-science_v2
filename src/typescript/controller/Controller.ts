@@ -34,6 +34,8 @@ export default class Controller {
 
     if (sessionStorage.getItem(subject)) {
       container.innerHTML = '';
+      // window.scrollTo(0, 0);
+      container.scrollTo(0, 0);
       console.log('From session storage');
       const articles = JSON.parse(sessionStorage.getItem(subject) || '{}');
       return articles;
