@@ -10,9 +10,9 @@
 
 <body>
 
-  <nav id="mobile-sidenav-container" class="sidenav-overlay">
+  <div id="mobile-sidenav-container" class="sidenav-overlay">
 
-    <div class="mobile-sidenav">
+    <nav class="mobile-sidenav">
       <div class="mobile-header">
         <span>today in science</span>
         <a id="closebtn" class="closebtn">&times;</a>
@@ -33,9 +33,9 @@
       <a href="#" id="quantum-physics" class="sidenav-link" data-subject="quantum-physics">Quantum Physics</a>
       <a href="#" id="seti" class="sidenav-link" data-subject="seti">SETI</a>
 
-    </div>
+    </nav>
 
-  </nav>
+  </div>
 
   <header>
     <div class="header-container">
@@ -46,20 +46,16 @@
       <span>
         <span class="header-text">today in science</span>
         <span class="nav-header-description">A resource for the most recent news in science</span>
-
       </span>
 
       <div class="earth-icon-container">
         <picture>
           <source srcset="./assets/icons/webp/earth-icon.webp">
-          <img src="./assets/icons/png/earth-icon.png" alt="">
+          <img src="./assets/icons/png/earth-icon.png" alt="Earth icon">
         </picture>
       </div>
 
   </header>
-  </div>
-
-
 
   <div class="container">
 
@@ -83,41 +79,36 @@
       </nav>
     </div>
 
-    <div class="main-container">
+    <section class="main-container">
 
-      <section class="test-container">
-        <div class="hero-img-container">
-          <picture>
-            <source id="source-webp-lg" srcset="./assets/images/desktop/webp/AI.webp 800w" sizes="50vw" media="(min-width: 900px)">
-            <source id="source-webp-med" srcset="./assets/images/tablet/webp/AI.webp 600w" sizes="50vw" media="(min-width: 600px)">
-            <source id="source-webp-img" srcset="./assets/images/mobile/webp/AI.webp">
-            <img src="./assets/images/mobile/png/AI.png" alt="Image for subject matter">
-          </picture>
-        </div>
-      </section>
+      <div class="hero-img-container">
+        <picture>
+          <source id="source-webp-lg" srcset="./assets/images/desktop/webp/AI.webp 800w" sizes="50vw" media="(min-width: 900px)">
+          <source id="source-webp-med" srcset="./assets/images/tablet/webp/AI.webp 600w" sizes="50vw" media="(min-width: 600px)">
+          <source id="source-webp-img" srcset="./assets/images/mobile/webp/AI.webp">
+          <img src="./assets/images/mobile/png/AI.png" alt="Mobile navigation icon">
+        </picture>
+      </div>
 
       <h1 class="articles-h1">Articles</h1>
       <div class="loader-container">
         <div id="loader" class="loader"></div>
       </div>
 
-      <main id="main" class="main">
-      </main>
+      <main id="main" class="main"></main>
       <div class="main-spacer"></div>
 
-    </div>
+    </section>
 
     <aside id="tweet-list-container" class="tweet-list-container">
 
       <div class="tweet-header-container">
         <picture>
-          <source class="" srcset="./assets/icons/webp/twitter-logo.webp">
-          <img src="./assets/icons/png/twitter-logo.png" alt="Image for subject matter">
+          <source srcset="./assets/icons/webp/twitter-logo.webp">
+          <img src="./assets/icons/png/twitter-logo.png" alt="Twitter icon">
         </picture>
         <div class="header-text-fixed">Latest Tweets From SpaceX</div>
       </div>
-
-
       <div class="space"></div>
 
     </aside>
