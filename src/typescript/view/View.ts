@@ -1,9 +1,7 @@
 import { Article } from '../model/ArticleService';
 import { Tweet } from '../model/TwitterService';
 import {
-  // createTitle,
   createTextArr,
-  // createSourceText,
   createUrl,
   createDateText,
   tempSubject,
@@ -26,7 +24,6 @@ export default class View {
       );
     });
 
-    console.log(newArticles[0].source.title);
     newArticles = sortItemsByDate(newArticles);
     return createArticleDomElements(newArticles);
   }
@@ -44,7 +41,6 @@ export default class View {
     });
 
     newTweets = sortItemsByDate(newTweets);
-    console.log(newTweets);
     return createTweetDomElements(newTweets);
   }
 }
@@ -62,12 +58,6 @@ const createArticleDomElements = (articles: Article[]) => {
   document.getElementById('loader')!.style.display = 'none';
 
   articles.forEach((article: Article) => {
-    // const articleTextArr: string[] = createTextArr(article.title);
-    //  <p class="article-title">${createTitle(articleTextArr)}</p>;
-
-    // <span class="article-header article-source">
-    //   ${createSourceText(articleTextArr)}
-    // </span>;
     const articleTemplate: string = `<a href="${
       article.link
     }" id="article-url" class="article-url" target="_blank">

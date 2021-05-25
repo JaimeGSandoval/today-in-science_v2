@@ -3,7 +3,6 @@ import { ArticleAPI, subjects } from './model/ArticleService/index';
 import { TwitterAPI } from './model/TwitterService';
 import Controller from './controller/Controller';
 import { View } from './view/';
-// import { tempSubject } from './view/article-dom-creation';
 
 const articleService: ArticleAPI = new ArticleAPI();
 const twitterService: TwitterAPI = new TwitterAPI();
@@ -60,12 +59,3 @@ const addListeners = (arg: any) => {
 Object.values(subjects).forEach((subject) => {
   addListeners(subject);
 });
-
-//  function adjustWidth() {
-//    var parentwidth = $('.parent').width();
-//    $('.child').width(parentwidth);
-//  }
-
-// const parent = document.querySelector('.tweet-header-container')?.clientWidth;
-// const child = document.querySelector('.header-text-fixed') as HTMLDivElement;
-// child!.style.width = parent;

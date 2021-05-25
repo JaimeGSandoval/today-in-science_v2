@@ -35,7 +35,6 @@ export default class Controller {
     if (sessionStorage.getItem(subject)) {
       container.innerHTML = '';
       container.scrollTo(0, 0);
-      console.log('From session storage');
       const articles = JSON.parse(sessionStorage.getItem(subject) || '{}');
       return articles;
     }
@@ -58,7 +57,6 @@ export default class Controller {
 
     const jsMediaQuery = window.matchMedia('(min-width: 1024px)');
     if (jsMediaQuery.matches) {
-      console.log('BANKAI');
       const tweets = await this.getAllTweets();
       this._view.createTweets(tweets);
     }
