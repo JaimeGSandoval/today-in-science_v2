@@ -9,24 +9,6 @@ export const createTextArr = (title: string): string[] => {
   return array;
 };
 
-export const createTitle = (textArray: string[]): string => {
-  if (!textArray) {
-    throw new Error(
-      'TextArray is missing. an array of the subject title and subject url must be provided.'
-    );
-  }
-  return textArray[0];
-};
-
-export const createSourceText = (textArray: string[]): string => {
-  if (!textArray) {
-    throw new Error(
-      'TextArray is missing. an array of the subject title and subject url must be provided.'
-    );
-  }
-  return textArray[1].trim();
-};
-
 export const createUrl = (link: string): string => {
   if (!link) {
     throw new Error('Link argument is missing. A url string must be provide.');

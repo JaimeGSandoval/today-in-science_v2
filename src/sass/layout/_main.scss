@@ -1,12 +1,12 @@
 @import '../components/media-queries';
 
 .main-container {
-  margin-top: 3rem;
   grid-column: 1 / 13;
   height: 100vh;
+  margin-top: 3rem;
+  overflow-y: scroll;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  overflow-y: scroll;
 
   @include tablet {
     grid-column: 4 / 13;
@@ -23,12 +23,12 @@
 }
 
 .articles-h1 {
-  color: $white;
+  margin-left: 5px;
+  padding: 5px 0;
   font-family: $roboto;
   font-weight: 400;
-  margin-left: 5px;
   font-size: 1.5rem;
-  padding: 5px 0;
+  color: $white;
 
   @include tablet {
     padding: 8px 0;

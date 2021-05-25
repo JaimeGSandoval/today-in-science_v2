@@ -14,18 +14,18 @@
 }
 
 header {
-  background-color: $black;
-  color: $white;
-  font-family: $roboto;
-  text-transform: uppercase;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   padding: 10px 0;
   position: fixed;
-  width: 100%;
   top: 0;
   z-index: 2;
+  background-color: $black;
+  font-family: $roboto;
+  color: $white;
+  text-transform: uppercase;
 
   .nav-header-description {
     display: none;

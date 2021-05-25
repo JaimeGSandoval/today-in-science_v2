@@ -1,7 +1,7 @@
 .article-url {
+  font-family: $roboto;
   color: $white;
   text-decoration: none;
-  font-family: $roboto;
 }
 
 .article-container {
@@ -30,10 +30,6 @@
     display: inline-block;
     padding: 5px 0;
 
-    // &:first-of-type {
-    //   text-transform: uppercase;
-    // }
-
     @include tablet {
       font-size: 1.2rem;
     }
@@ -46,9 +42,9 @@
    padding: 0 5px;
 
   .article-title {
-    text-transform: capitalize;
-    font-size: 1.2rem;
     font-family: $robotoBold;
+    font-size: 1.2rem;
+    text-transform: capitalize;
     letter-spacing: 1px;
 
     @include desktop {
@@ -79,10 +75,10 @@
     right: 5px;
 
     img {
-      width: 40px;
+      width: 2.5rem;
 
       @include desktopLg {
-        width: 50px;
+        width: 3.15rem;
       }
     }
   }

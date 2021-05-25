@@ -1,13 +1,13 @@
 @import "../components/media-queries";
 
 .sidenav-overlay {
+  display: none;
   position: fixed;
   top: 0;
   width: 100%;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.3);
   z-index: 3;
-  display: none;
 
   @include tablet {
     display: none;
@@ -17,11 +17,11 @@
 .mobile-sidenav {
   position: fixed;
   top: 0;
-  height: 100vh;
-  z-index: 5;
   width: 18.6rem;
+  height: 100vh;
   background-color: $black;
   border-right: 1px solid $white;
+  z-index: 5;
 
   @include tablet {
     display: none;
@@ -29,27 +29,27 @@
 
   .sidenav-link {
     display: block;
-    text-decoration: none;
-    color: $white;
-    font-family: $roboto;
     padding: 0.5rem;
+    font-family: $roboto;
+    color: $white;
+    text-decoration: none;
   }
 }
 
 .mobile-header {
-  color: $white;
-  text-transform: uppercase;
-  font-family: $roboto;
-  border-bottom: 1px solid $white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.7rem;
+  border-bottom: 1px solid $white;
+  font-family: $roboto;
+  color: $white;
+  text-transform: uppercase;
 
   a {
-    color: $white;
-    font-size: 2rem;
     padding: 0;
+    font-size: 2rem;
+    color: $white;
     text-decoration: none;
   }
 }
@@ -57,8 +57,8 @@
 
 .sidenav-link {
   display: block;
-  text-decoration: none;
-  color: $white;
-  font-family: $roboto;
   padding: 0.5rem;
+  font-family: $roboto;
+  color: $white;
+  text-decoration: none;
 }
