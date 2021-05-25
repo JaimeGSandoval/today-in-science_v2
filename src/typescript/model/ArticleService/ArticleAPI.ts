@@ -44,6 +44,7 @@ export default class ArticleAPI {
     return jsonContent;
   }
 
+  // physics
   public async getAllArticles(subject: string): Promise<any> {
     console.log(subject);
     const response: Response = await fetch(

@@ -28,4 +28,25 @@
   font-weight: 400;
   margin-left: 5px;
   font-size: 1.5rem;
+  padding: 5px 0;
+
+  @include tablet {
+    padding: 8px 0;
+  }
+
+  @include laptopSm {
+    font-size: 1.8rem;
+  }
+
+  @include desktop {
+    font-size: 2rem;
+  }
+
+  @include desktopLg {
+    font-size: 2.5rem;
+  }
+}
+
+.main-spacer {
+  height: 2.85rem;
 }
