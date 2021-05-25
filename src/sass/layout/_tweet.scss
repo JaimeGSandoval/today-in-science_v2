@@ -8,12 +8,18 @@
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   grid-column: 10 / 13;
   margin-top: 3rem;
-  margin-bottom: 4rem;
-  position: sticky;
+  padding-bottom: 3.1rem;
+  position: relative;
+  border-right: 1px solid white;
 
 
   @include laptopMed {
     display: block;
+    // border-right: 2px solid $white;
+  }
+
+  @include desktopLg {
+    border-right: 1px solid $white;
   }
 
   .tweet-url {
@@ -21,19 +27,26 @@
   }
 
   .tweet-header-container {
+    position: fixed;
+    z-index: 5;
+
     border-bottom: 1px solid $white;
-    text-align: center;
-     padding: 1.5rem 0 1rem;
-     text-transform: capitalize;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+    padding: 1.2rem 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $black;
+    // border-right: 1px solid $white;
+    top: 56px;
 
      img {
        width: 30px;
        position: relative;
-       top: 4px;
-       right: 7px;
+       left: 5px;
+
+       @include desktopLg {
+         left: 11px;
+       }
       }
 
       @include desktop {
@@ -42,7 +55,20 @@
 
      @include desktopLg {
        font-size: 1.4rem;
-       padding: 1.5rem 10px;
+       top: 62px;
+      //  padding: 1.5rem 10px;
+     }
+
+
+     .header-text-fixed {
+       padding-left: 25px;
+       position: relative;
+       right: 15px;
+
+       @include desktopLg {
+        padding-left: 66px;
+        right: 44px;
+       }
      }
    }
   }
@@ -53,7 +79,7 @@
 }
 
 .tweet-container {
-  background-color: $black;
+  // background-color: $black;
   color: $white;
   border-bottom: 1px solid $white;
 }
@@ -118,11 +144,4 @@
     font-size: 1.3rem;
   }
 
-}
-
-@media screen and (min-width: 1160px) {
-  .tweet-list-container {
-    border-right: 1px solid $white;
-
-  }
 }

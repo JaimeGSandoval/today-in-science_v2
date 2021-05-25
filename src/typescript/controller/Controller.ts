@@ -34,7 +34,6 @@ export default class Controller {
 
     if (sessionStorage.getItem(subject)) {
       container.innerHTML = '';
-      // window.scrollTo(0, 0);
       container.scrollTo(0, 0);
       console.log('From session storage');
       const articles = JSON.parse(sessionStorage.getItem(subject) || '{}');
@@ -55,9 +54,14 @@ export default class Controller {
 
   public async start() {
     const AIArticles = await this.getAllArticles('AI');
-    // const tweets = await this.getAllTweets();
     this._view.createArticles(AIArticles);
-    // this._view.createTweets(tweets);
+
+    const jsMediaQuery = window.matchMedia('(min-width: 1024px)');
+    if (jsMediaQuery.matches) {
+      console.log('BANKAI');
+      const tweets = await this.getAllTweets();
+      this._view.createTweets(tweets);
+    }
   }
 }
 
