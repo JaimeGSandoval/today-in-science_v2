@@ -1,3 +1,10 @@
+.mobile-sidenav {
+  @include landscape {
+    overflow-y: scroll;
+  }
+}
+
+
 .nav-large {
   display: none;
   grid-column: 2 / 4;
