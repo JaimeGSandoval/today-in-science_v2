@@ -1,29 +1,23 @@
 .tweet-list-container {
+  display: none;
+  grid-column: 10 / 13;
   color: $white;
   font-family: $roboto;
-  display: none;
   border-bottom: 1px solid $white;
+  border-right: 1px solid $white;
   overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  grid-column: 10 / 13;
   margin-top: 3rem;
   padding-bottom: 3.1rem;
   position: relative;
-  border-right: 1px solid white;
-
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
 
   @include laptopMed {
     display: block;
-    // border-right: 2px solid $white;
-  }
-
-  @include desktopLg {
-    border-right: 1px solid $white;
   }
 
   .tweet-url {
-    text-decoration: none;;
+    text-decoration: none;
   }
 
   .tweet-header-container {
@@ -36,7 +30,7 @@
     justify-content: center;
     align-items: center;
     background: $black;
-    top: 56px;
+    top: 3.5rem;
 
      img {
        width: 30px;
@@ -54,8 +48,7 @@
 
      @include desktopLg {
        font-size: 1.4rem;
-       top: 62px;
-      //  padding: 1.5rem 10px;
+       top: 3.85rem;
      }
 
 
@@ -65,8 +58,8 @@
        right: 15px;
 
        @include desktopLg {
-        padding-left: 66px;
-        right: 44px;
+        padding-left: 4.1rem;
+        right: 2.7rem;
        }
      }
    }
@@ -78,7 +71,6 @@
 }
 
 .tweet-container {
-  // background-color: $black;
   color: $white;
   border-bottom: 1px solid $white;
 }
@@ -86,7 +78,7 @@
 
 .top-row {
   display: flex;
-   padding-top: 5px;
+  padding-top: 5px;
 
    .spacex-text-container {
      padding: 13px;

@@ -30,11 +30,10 @@ body {
   }
 }
 
-.space {
-  height: 57px;
+.twitter-spacer {
   height: 3.5rem;
 
   @include desktopLg {
-    height: 95px;
+    height: 4.5rem;
   }
 }
