@@ -69,9 +69,9 @@
   .article-date {
     padding-left: 5px;
 
-    @include tablet {
-      font-size: 1.2rem;
-    }
+   @include desktopLg {
+     font-size: 1.2rem;
+   }
   }
 
   .astronaut-icon-container {
@@ -80,6 +80,10 @@
 
     img {
       width: 40px;
+
+      @include desktopLg {
+        width: 50px;
+      }
     }
   }
 }
