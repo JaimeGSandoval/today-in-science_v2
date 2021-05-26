@@ -5,8 +5,8 @@
   height: 100vh;
   margin-top: 3rem;
   overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  // scrollbar-width: none; /* Firefox */
+  // -ms-overflow-style: none;  /* Internet Explorer 10+ */
 
   @include tablet {
     grid-column: 4 / 13;
@@ -21,7 +21,7 @@
     // width: 0;
     // height: 0;
     display: none;
-    background-color: #444;
+    background-color: $scrollBarBg;
 
     @include laptopMed {
       display: block;
@@ -29,8 +29,8 @@
 }
 
 .main-container::-webkit-scrollbar-thumb {
-  background: #222;
-  border: 1px solid white;
+  background: $scrollBarThumb;
+  border: 1px solid $white;
 }
 
 .articles-h1 {

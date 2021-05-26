@@ -73,3 +73,12 @@ const convertToArray = (twitterObject: { data: { tweets: any } }): Tweet[] => {
   });
   return result.slice(0, 10);
 };
+
+const resetViewport = (): void => {
+  const main = document.querySelector('.main-container');
+  main?.scrollTo(0, 0);
+};
+
+document
+  .getElementById('logo-container')
+  ?.addEventListener('click', resetViewport);
