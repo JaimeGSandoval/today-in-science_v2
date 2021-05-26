@@ -65,8 +65,14 @@
   }
 
 .tweet-list-container::-webkit-scrollbar { /* WebKit */
-    width: 0;
-    height: 0;
+    // width: 0;
+    // height: 0;
+    background-color:#444;
+}
+
+.tweet-list-container::-webkit-scrollbar-thumb {
+  background: #222;
+  border: 1px solid white;
 }
 
 .tweet-container {

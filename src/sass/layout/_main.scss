@@ -18,8 +18,19 @@
 }
 
 .main-container::-webkit-scrollbar { /* WebKit */
-    width: 0;
-    height: 0;
+    // width: 0;
+    // height: 0;
+    display: none;
+    background-color: #444;
+
+    @include laptopMed {
+      display: block;
+    }
+}
+
+.main-container::-webkit-scrollbar-thumb {
+  background: #222;
+  border: 1px solid white;
 }
 
 .articles-h1 {
