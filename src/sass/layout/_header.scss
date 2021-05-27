@@ -27,6 +27,10 @@ header {
   color: $white;
   text-transform: uppercase;
 
+  #logo-container {
+    cursor: pointer;
+  }
+
   .nav-header-description {
     display: none;
     margin-left: 2.8rem;
