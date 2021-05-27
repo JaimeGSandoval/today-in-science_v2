@@ -1,17 +1,13 @@
 import { Article } from '../model/ArticleService';
 import { Tweet } from '../model/TwitterService';
 import {
-  createTitle,
   createTextArr,
-  createSourceText,
   createUrl,
   createDateText,
-  createIcon,
+  tempSubject,
 } from './article-dom-creation';
 import {
-  createImgUrl,
   colorizeSelectedText,
-  createText,
   createTweetTextArr,
   createTweetUrl,
   createCount,
@@ -45,7 +41,6 @@ export default class View {
     });
 
     newTweets = sortItemsByDate(newTweets);
-    console.log(newTweets);
     return createTweetDomElements(newTweets);
   }
 }
@@ -59,29 +54,43 @@ const sortItemsByDate = (array: any) => {
 };
 
 const createArticleDomElements = (articles: Article[]) => {
-  const articleListContainer = document.getElementById(
-    'article-list-container'
-  ) as HTMLDivElement;
+  const mainContainer = document.getElementById('main') as HTMLElement;
+  document.getElementById('loader')!.style.display = 'none';
 
   articles.forEach((article: Article) => {
-    const title: string = article.title;
-    const link: string = article.link;
-    const date: Date = article.published_date;
+    const articleTemplate: string = `<a href="${
+      article.link
+    }" id="article-url" class="article-url" target="_blank">
 
-    const articleContainer = document.createElement('div') as HTMLDivElement;
-    const articleTextArr: string[] = createTextArr(title);
-    const articleTitle = createTitle(articleTextArr) as HTMLParagraphElement;
-    const articleSource = createSourceText(
-      articleTextArr
-    ) as HTMLParagraphElement;
-    const articleUrl = createUrl(link) as HTMLAnchorElement;
-    const articleDate = createDateText(date) as HTMLParagraphElement;
-    const icon = createIcon() as HTMLImageElement;
+        <section id="article-container" class="article-container">
+          <div id="article-header-container" class="article-header-container">
+            <span class="article-header article-subject">${tempSubject} &nbsp;|&nbsp;</span>
+            <span class="article-header article-source">${
+              article.source.title
+            }</span>
+          </div>
 
-    articleContainer.append(articleTitle, articleSource, articleDate, icon);
+          <div id="article-title-container" class="article-title-container">
+            <p class="article-title">${article.title}</p>
+          </div>
 
-    articleUrl.appendChild(articleContainer);
-    return articleListContainer.appendChild(articleUrl);
+          <div class="article-date-container">
+            <span class="article-date">${createDateText(
+              article.published_date
+            )}</span>
+
+            <span class="astronaut-icon-container">
+              <picture>
+                <source srcset="/src/assets/icons/webp/astronaut-icon-blue.webp">
+                <img src="/src/assets/icons/png/astronaut-icon-blue.png" alt="Astronaut icon">
+              </picture>
+            </span>
+          </div>
+        </section>
+
+      </a>`;
+
+    mainContainer!.innerHTML += articleTemplate;
   });
 };
 
@@ -91,32 +100,60 @@ const createTweetDomElements = (tweets: Tweet[]) => {
   ) as HTMLDivElement;
 
   tweets.forEach((tweet: Tweet) => {
-    const tweetsContainer = document.createElement('div') as HTMLDivElement;
     const imageUrl: string = tweet.image_url;
     const tweetFullText: string = tweet.full_text;
     const tweetReplies: number = tweet.reply_count;
     const tweetRetweets: number = tweet.retweet_count;
     const tweetFavorites: number = tweet.favorite_count;
-
-    const tweetImg = createImgUrl(imageUrl) as HTMLImageElement;
     const coloredText: string = colorizeSelectedText(tweetFullText);
     const tweetTextArray: string[] = createTweetTextArr(coloredText);
-    const tweetText = createText(tweetTextArray) as HTMLParagraphElement;
     const urlString: string = createTweetUrl(tweetTextArray);
-    const twitterPostUrl = createUrl(urlString) as HTMLAnchorElement;
-    const replyCount = createCount(tweetReplies) as HTMLSpanElement;
-    const retweetCount = createCount(tweetRetweets) as HTMLSpanElement;
-    const favoriteCount = createCount(tweetFavorites) as HTMLSpanElement;
 
-    tweetsContainer.append(
-      tweetImg,
-      tweetText,
-      replyCount,
-      retweetCount,
-      favoriteCount
-    );
+    const tweetTemplate: string = `<a href="${createUrl(
+      urlString
+    )}" class="tweet-url" target="_blank">
+        <div id="tweet-container" class="tweet-container">
 
-    twitterPostUrl.append(tweetsContainer);
-    return tweetListContainer.appendChild(twitterPostUrl);
+          <div class="top-row">
+            <div class="spacex-text-container">
+              <span class="spacex-title-white">SpaceX </span><span class="verified-badge">
+                <picture>
+                  <source srcset="/src/assets/icons/webp/verified-badge.webp">
+                </picture>
+                <img src="/src/assets/icons/png/verified-badge.png" class="badge" alt="Image for subject matter">
+              </span>
+              <span class="spacex-title-gray">@SpaceX</span>
+
+              <div class="tweet-text-container">
+                <p class="tweet-text">${createTextArr(tweetTextArray[0])}</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="tweet-img-container">
+            <picture>
+              <source srcset="${imageUrl}">
+              <img src="${imageUrl}" alt="Image for subject matter">
+            </picture>
+          </div>
+
+          <div class="tweet-data-container">
+            <span class="reply-icon tweet-data-icons">&#128489 ${createCount(
+              tweetReplies
+            )}</span>
+            <span class="retweet-icon tweet-data-icons">&#9850 ${createCount(
+              tweetRetweets
+            )}</span>
+            <span class="favorite-icon tweet-data-icons">&#9825 ${createCount(
+              tweetFavorites
+            )}</span>
+          </div>
+
+        </div>
+
+      </a>`;
+
+    tweetListContainer.innerHTML += tweetTemplate;
   });
 };

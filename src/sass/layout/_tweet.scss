@@ -1,0 +1,139 @@
+.tweet-list-container {
+  display: none;
+  grid-column: 10 / 13;
+  color: $white;
+  font-family: $roboto;
+  border-bottom: 1px solid $white;
+  border-right: 1px solid $white;
+  overflow-y: scroll;
+  margin-top: 3rem;
+  padding-bottom: 3.1rem;
+  position: relative;
+
+  @include laptopMed {
+    display: block;
+  }
+
+  .tweet-url {
+    text-decoration: none;
+  }
+
+  .tweet-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 3.5rem;
+    padding: .5rem 0;
+    z-index: 5;
+    border-bottom: 1px solid $white;
+    background: $black;
+
+     img {
+       width: 30px;
+       position: relative;
+       left: 5px;
+
+       @include desktopLg {
+         left: 11px;
+       }
+      }
+
+      @include desktop {
+       font-size: 1.2rem
+      }
+
+     @include desktopLg {
+       font-size: 1.4rem;
+       top: 3.85rem;
+     }
+
+
+     .header-text-fixed {
+       padding-left: 25px;
+       position: relative;
+       right: 15px;
+
+       @include desktopLg {
+        padding-left: 4.1rem;
+        right: 2.7rem;
+       }
+     }
+   }
+  }
+
+.tweet-list-container::-webkit-scrollbar { /* WebKit */
+    background-color:$scrollBarBg;
+}
+
+.tweet-list-container::-webkit-scrollbar-thumb {
+  background: $scrollBarThumb;
+  border: 1px solid $white;
+}
+
+.tweet-container {
+  color: $white;
+  border-bottom: 1px solid $white;
+}
+
+
+.top-row {
+  display: flex;
+  padding-top: 5px;
+
+   .spacex-text-container {
+     padding: 13px;
+
+     .spacex-title-white {
+       font-family: $robotoBold;
+      }
+
+      .spacex-title-gray {
+       color: #929292;
+      }
+
+     .badge {
+       width: 20px;
+       height: 20px;
+       position: relative;
+       top: 5px;
+     }
+
+     @include desktop {
+       font-size: 1.1rem;
+     }
+
+     @include desktopLg {
+       font-size: 1.3rem;
+      }
+   }
+  }
+
+.tweet-img-container {
+  width: 85%;
+  margin: auto;
+  border-radius: 10px;
+
+  img {
+     width: 100%;
+     border-radius: 10px;
+  }
+}
+
+.tweet-data-container {
+  font-size: .9rem;
+  display: flex;
+  justify-content: space-around;
+  width: 85%;
+  margin: auto;
+  padding: 1rem 0;
+
+  @include desktop {
+    font-size: 1.1rem;
+  }
+
+  @include desktopLg {
+    font-size: 1.3rem;
+  }
+
+}

@@ -1,0 +1,65 @@
+@import '../components/media-queries';
+
+.main-container {
+  grid-column: 1 / 13;
+  height: 100vh;
+  margin-top: 4rem;
+  overflow-y: scroll;
+
+  @include tablet {
+    grid-column: 4 / 13;
+    margin-top: 3rem;
+
+  }
+
+  @include laptopMed {
+    grid-column: 4 / 10;
+  }
+}
+
+.main-container::-webkit-scrollbar { /* WebKit */
+    display: none;
+    background-color: $scrollBarBg;
+
+    @include laptopMed {
+      display: block;
+    }
+}
+
+.main-container::-webkit-scrollbar-thumb {
+  background: $scrollBarThumb;
+  border: 1px solid $white;
+}
+
+.articles-h1 {
+  margin-left: 5px;
+  padding: 5px 0;
+  font-family: $roboto;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: $white;
+
+  @include tablet {
+    padding: 8px 0;
+  }
+
+  @include laptopSm {
+    font-size: 1.8rem;
+  }
+
+  @include desktop {
+    font-size: 2rem;
+  }
+
+  @include desktopLg {
+    font-size: 2.5rem;
+  }
+}
+
+.main-spacer {
+  height: 4rem;
+
+  @include tablet {
+    height: 2.85rem;
+  }
+}

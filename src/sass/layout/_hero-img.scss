@@ -1,0 +1,16 @@
+@import '../components/media-queries';
+
+.hero-img-container {
+  width: 100vw;
+  max-width: 100%;
+  height: auto;
+
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  @include tablet {
+    width: 100%;
+  }
+}

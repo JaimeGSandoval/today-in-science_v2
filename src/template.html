@@ -6,48 +6,114 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Today In Science</title>
-  <style>
-    a {
-      color: white
-    }
-  </style>
 </head>
 
 <body>
-  <picture id="img-container">
-    <source id="source-webp-lg" srcset="./assets/images/desktop/webp/astronomy.webp 800w" sizes="50vw"
-      media="(min-width: 900px)">
-    <source id="source-webp-med" srcset="./assets/images/tablet/webp/astronomy.webp 600w" sizes="50vw"
-      media="(min-width: 600px)">
-    <img src="./assets/images/mobile/webp/astronomy.webp" height="auto" id="source-webp-img" alt="">
-  </picture>
 
-  <h1 id="astrobiology">Astrobiology</h1>
-  <h1 id="astronomy">Astronomy</h1>
-  <h1 id="cern" data-img='cern'>CERN</h1>
-  <h1 id="exoplanets">Exoplanets</h1>
-  <h1 id="gravity">Gravity</h1>
-  <h1 id="meteors">Meteors</h1>
-  <h1 id="seti">SETI</h1>
-  <h1 id="galaxies">Galaxies</h1>
+  <div id="mobile-sidenav-container" class="sidenav-overlay">
 
+    <nav class="mobile-sidenav">
+      <div class="mobile-header">
+        <span>today in science</span>
+        <a id="closebtn" class="closebtn">&times;</a>
+      </div>
 
-  <h1 id="AI">Artificial Intelligence</h1>
-  <h1 id="black-holes">Black holes</h1>
-  <h1 id="dark-energy">Dark Energy</h1>
-  <h1 id="dark-matter">Dark Matter</h1>
-  <h1 id="quantum-computing">Quantum Computing</h1>
-  <h1 id="quantum-physics">Quantum Physics</h1>
+      <a href="#" id="AI" class="sidenav-link" data-subject="AI">Artificial Intelligence</a>
+      <a href="#" id="astronomy" class="sidenav-link" data-subject="astronomy">Astronomy</a>
+      <a href="#" id="astrobiology" class="sidenav-link" data-subject="astrobiology">Astrobiology</a>
+      <a href="#" id="black-holes" class="sidenav-link" data-subject="black-holes">Black holes</a>
+      <a href="#" id="cern-lhc" class="sidenav-link" data-subject="cern-lhc">CERN</a>
+      <a href="#" id="dark-energy" class="sidenav-link" data-subject="dark-energy">Dark Energy</a>
+      <a href="#" id="dark-matter" class="sidenav-link" data-subject="dark-matter">Dark Matter</a>
+      <a href="#" id="exoplanets" class="sidenav-link" data-subject="exoplanets">Exoplanets</a>
+      <a href="#" id="galaxies-science" class="sidenav-link" data-subject="galaxies-science">Galaxies</a>
+      <a href="#" id="gravity-science" class="sidenav-link" data-subject="gravity-science">Gravity</a>
+      <a href="#" id="meteors-science" class="sidenav-link" data-subject="meteors-science">Meteors</a>
+      <a href="#" id="quantum-computing" class="sidenav-link" data-subject="quantum-computing">Quantum Computing</a>
+      <a href="#" id="quantum-physics" class="sidenav-link" data-subject="quantum-physics">Quantum Physics</a>
+      <a href="#" id="seti" class="sidenav-link" data-subject="seti">SETI</a>
 
-  <img src="./assets/icons/webp/robot.webp" />
-  <img src="./assets/icons/webp/globe.webp" />
-  <img src="./assets/icons/webp/meteor.webp" />
-  <img src="./assets/icons/webp/astronaut.webp" />
-  <img src="./assets/icons/webp/earth-icon.webp" />
+    </nav>
 
+  </div>
 
-  <div id="article-list-container"></div>
-  <div id="tweet-list-container"></div>
+  <header>
+    <div class="header-container">
+      <div class="hamburger-icon-container">
+        <span id="hamburger-menu-icon" class="hamburger-menu-icon">&#9776;</span>
+      </div>
+
+      <span id="logo-container">
+        <span class="header-text">today in science</span>
+        <span class="nav-header-description">A resource for the most recent news in science</span>
+      </span>
+
+      <div class="earth-icon-container">
+        <picture>
+          <source srcset="./assets/icons/webp/earth-icon.webp">
+          <img src="./assets/icons/png/earth-icon.png" alt="Earth icon">
+        </picture>
+      </div>
+
+  </header>
+
+  <div class="container">
+
+    <div class="nav-large">
+      <nav>
+        <a href="#hamburger-menu-icon" id="AI" class="sidenav-link" data-subject="AI">Artificial Intelligence</a>
+        <a href="#" id="astronomy" class="sidenav-link" data-subject="astronomy">Astronomy</a>
+        <a href="#" id="astrobiology" class="sidenav-link" data-subject="astrobiology">Astrobiology</a>
+        <a href="#" id="black-holes" class="sidenav-link" data-subject="black-holes">Black holes</a>
+        <a href="#" id="cern-lhc" class="sidenav-link" data-subject="cern-lhc">CERN</a>
+        <a href="#" id="dark-energy" class="sidenav-link" data-subject="dark-energy">Dark Energy</a>
+        <a href="#" id="dark-matter" class="sidenav-link" data-subject="dark-matter">Dark Matter</a>
+        <a href="#" id="exoplanets" class="sidenav-link" data-subject="exoplanets">Exoplanets</a>
+        <a href="#" id="galaxies-science" class="sidenav-link" data-subject="galaxies-science">Galaxies</a>
+        <a href="#" id="gravity-science" class="sidenav-link" data-subject="gravity-science">Gravity</a>
+        <a href="#" id="meteors-science" class="sidenav-link" data-subject="meteors-science">Meteors</a>
+        <a href="#" id="quantum-computing" class="sidenav-link" data-subject="quantum-computing">Quantum Computing</a>
+        <a href="#" id="quantum-physics" class="sidenav-link" data-subject="quantum-physics">Quantum Physics</a>
+        <a href="#" id="seti" class="sidenav-link" data-subject="seti">SETI</a>
+
+      </nav>
+    </div>
+
+    <section class="main-container">
+
+      <div class="hero-img-container">
+        <picture>
+          <source id="source-webp-lg" srcset="./assets/images/desktop/webp/AI.webp 800w" sizes="50vw" media="(min-width: 900px)">
+          <source id="source-webp-med" srcset="./assets/images/tablet/webp/AI.webp 600w" sizes="50vw" media="(min-width: 600px)">
+          <source id="source-webp-img" srcset="./assets/images/mobile/webp/AI.webp">
+          <img src="./assets/images/mobile/png/AI.png" alt="Mobile navigation icon">
+        </picture>
+      </div>
+
+      <h1 class="articles-h1">Articles</h1>
+      <div class="loader-container">
+        <div id="loader" class="loader"></div>
+      </div>
+
+      <main id="main" class="main"></main>
+      <div class="main-spacer"></div>
+
+    </section>
+
+    <aside id="tweet-list-container" class="tweet-list-container">
+
+      <div class="tweet-header-container">
+        <picture>
+          <source srcset="./assets/icons/webp/twitter-logo.webp">
+          <img src="./assets/icons/png/twitter-logo.png" alt="Twitter icon">
+        </picture>
+        <div class="header-text-fixed">Latest Tweets From SpaceX</div>
+      </div>
+      <div class="twitter-spacer"></div>
+
+    </aside>
+  </div>
+
 </body>
 
 </html>

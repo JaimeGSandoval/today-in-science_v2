@@ -1,11 +1,3 @@
-export const createImgUrl = (url: string): HTMLImageElement => {
-  const imgElement = document.createElement('img') as HTMLImageElement;
-  imgElement.src = url;
-  imgElement.style.width = '400px';
-  imgElement.style.height = 'auto';
-  return imgElement;
-};
-
 export const colorizeSelectedText = (tweetText: string): string => {
   if (!tweetText) {
     throw new Error('String argument is missing. A string must be provided.');
@@ -15,7 +7,7 @@ export const colorizeSelectedText = (tweetText: string): string => {
     .split(' ')
     .map((word: any) => {
       if (word.startsWith('@') || word.startsWith('#')) {
-        return `<span style='color: blue;'>${word}</span>`;
+        return `<span style='color: #1DA1F2;'>${word}</span>`;
       }
       return word;
     })
@@ -23,14 +15,12 @@ export const colorizeSelectedText = (tweetText: string): string => {
   return result;
 };
 
-export const createText = (tweetText: string[]): HTMLParagraphElement => {
+export const createText = (tweetText: string[]): string => {
   if (!tweetText) {
     throw new Error('String argument is missing. A string must be provided.');
   }
 
-  const paragraphElement = document.createElement('p');
-  paragraphElement.innerHTML = tweetText[0];
-  return paragraphElement;
+  return tweetText[0];
 };
 
 export const createTweetTextArr = (tweetText: string): string[] => {
@@ -52,14 +42,11 @@ export const createTweetUrl = (textArr: string[]): string => {
   return textArr[textArr.length - 1].slice(1);
 };
 
-export const createCount = (count: number): HTMLSpanElement => {
+export const createCount = (count: number): string => {
   if (!count) {
     throw new Error(
       'Count argument is missing. A number for count must be provided.'
     );
   }
-
-  const span = document.createElement('span');
-  span.textContent = count.toString();
-  return span;
+  return count.toString();
 };

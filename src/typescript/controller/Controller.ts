@@ -30,21 +30,19 @@ export default class Controller {
   }
 
   public async getAllArticles(subject: string): Promise<Article[]> {
-    const container = document.getElementById(
-      'article-list-container'
-    ) as HTMLDivElement;
+    const container = document.getElementById('main') as HTMLDivElement;
 
     if (sessionStorage.getItem(subject)) {
       container.innerHTML = '';
-      console.log('From session storage');
+      container.scrollTo(0, 0);
       const articles = JSON.parse(sessionStorage.getItem(subject) || '{}');
       return articles;
     }
 
+    container.innerHTML = '';
     let retrievedArticles = await this._articleService.getAllArticles(subject);
     retrievedArticles = retrievedArticles.articles.slice(0, 30);
     storeData(subject, retrievedArticles);
-    container.innerHTML = '';
     return retrievedArticles as Article[];
   }
 
@@ -54,10 +52,14 @@ export default class Controller {
   }
 
   public async start() {
-    const astroArticles = await this.getAllArticles('astronomy');
-    const tweets = await this.getAllTweets();
-    this._view.createArticles(astroArticles);
-    this._view.createTweets(tweets);
+    const AIArticles = await this.getAllArticles('AI');
+    this._view.createArticles(AIArticles);
+
+    const jsMediaQuery = window.matchMedia('(min-width: 1024px)');
+    if (jsMediaQuery.matches) {
+      const tweets = await this.getAllTweets();
+      this._view.createTweets(tweets);
+    }
   }
 }
 
@@ -71,3 +73,12 @@ const convertToArray = (twitterObject: { data: { tweets: any } }): Tweet[] => {
   });
   return result.slice(0, 10);
 };
+
+const resetViewport = (): void => {
+  const main = document.querySelector('.main-container');
+  main?.scrollTo(0, 0);
+};
+
+document
+  .getElementById('logo-container')
+  ?.addEventListener('click', resetViewport);

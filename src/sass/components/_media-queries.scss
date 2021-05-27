@@ -1,0 +1,47 @@
+@mixin landscape {
+  @media (orientation: landscape){
+     @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tabletLg {
+  @media (min-width: 850px) {
+    @content;
+  }
+}
+
+@mixin laptopSm {
+  @media (min-width: 950px) {
+    @content;
+  }
+}
+
+@mixin laptopMed {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin laptopLg {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1840px) {
+    @content;
+  }
+}
+
+@mixin desktopLg {
+  @media (min-width: 2240px) {
+    @content;
+  }
+}
