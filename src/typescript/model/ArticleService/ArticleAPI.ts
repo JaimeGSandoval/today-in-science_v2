@@ -6,6 +6,15 @@ export default class ArticleAPI {
       '6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862';
   }
 
+  private _handleErrorMessage() {
+    const articleContainer = document.getElementById('main');
+    const errorText = document.createElement('p');
+    errorText.textContent =
+      'An error has occurred retrieving data. Please try again.';
+    errorText.classList.add('error-text');
+    articleContainer?.appendChild(errorText);
+  }
+
   private async _checkResponseData(response: Response): Promise<Response> {
     if (!response) {
       throw new Error('A response must be provided!');
@@ -13,6 +22,7 @@ export default class ArticleAPI {
     if (response.status >= 200 && response.status < 300) {
       return Promise.resolve(response);
     } else {
+      this._handleErrorMessage();
       return Promise.reject(new Error(response.statusText));
     }
   }
@@ -35,7 +45,6 @@ export default class ArticleAPI {
   }
 
   public async getAllArticles(subject: string): Promise<any> {
-    console.log(subject);
     const response: Response = await fetch(
       `https://google-news1.p.rapidapi.com/search?q=${subject}&lang=en&pageSize=30`,
       {

@@ -1,0 +1,85 @@
+.article-url {
+  font-family: $roboto;
+  color: $white;
+  text-decoration: none;
+}
+
+.article-container {
+  background-color: $articleBackgroundColor;
+  margin: 5px;
+  border: 1px solid $white;
+
+  @include tablet {
+    margin-left: 0;
+  }
+
+  @include laptopMed {
+    margin-right: 0;
+  }
+}
+
+.article-header-container {
+   padding: 0 5px;
+
+   .article-source {
+     color: rgb(151, 151, 151);
+   }
+
+  .article-header {
+    text-transform: capitalize;
+    display: inline-block;
+    padding: 5px 0;
+
+    @include tablet {
+      font-size: 1.2rem;
+    }
+
+  }
+}
+
+.article-title-container {
+   display: flex;
+   padding: 0 5px;
+
+  .article-title {
+    font-family: $robotoBold;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+
+    @include desktop {
+      font-size: 1.7rem;
+    }
+
+    @include desktopLg {
+      font-size: 1.9rem;
+    }
+  }
+}
+
+.article-date-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .article-date {
+    padding-left: 5px;
+
+   @include desktopLg {
+     font-size: 1.2rem;
+   }
+  }
+
+  .astronaut-icon-container {
+    position: relative;
+    right: 5px;
+
+    img {
+      width: 2.5rem;
+
+      @include desktopLg {
+        width: 3.15rem;
+      }
+    }
+  }
+}

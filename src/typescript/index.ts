@@ -1,4 +1,5 @@
 import '../sass/styles.scss';
+import './controller/nav-control';
 import { ArticleAPI, subjects } from './model/ArticleService/index';
 import { TwitterAPI } from './model/TwitterService';
 import Controller from './controller/Controller';
@@ -14,19 +15,24 @@ export const controller: Controller = new Controller(
   view
 );
 
-controller.start();
+const addListeners = (arg: any) => {
+  const subjects = document.querySelectorAll(`[data-subject=${arg}]`);
 
-function addListeners(arg: any) {
-  const temp = document.getElementById(arg);
-  temp?.addEventListener('click', async function (e) {
-    const test = e.target as HTMLHeadingElement;
-    const articles = await controller.getAllArticles(test.id);
-    return view.createArticles(articles);
+  subjects!.forEach((item) => {
+    item.addEventListener('click', async function (e: any) {
+      document.getElementById('mobile-sidenav-container')!.style.display =
+        'none';
+      document.getElementById('loader')!.style.display = 'block';
+
+      const subjectClicked = e.target as HTMLElement;
+      const articles = await controller.getAllArticles(subjectClicked.id);
+      return view.createArticles(articles);
+    });
   });
-}
+};
 
 Object.values(subjects).forEach((subject) => {
   addListeners(subject);
 });
 
-// TEST
+controller.start();

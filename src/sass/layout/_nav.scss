@@ -1,0 +1,40 @@
+.mobile-sidenav {
+    overflow-y: scroll;
+}
+
+.nav-large {
+  display: none;
+  grid-column: 2 / 4;
+  position: fixed;
+  height: 100vh;
+
+  nav {
+    margin-top: 4.5rem;
+
+    .sidenav-link {
+      margin-left: 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+ @include tablet {
+    display: block;
+  }
+
+  @include laptopMed {
+    border-left: 1px solid $white;
+  }
+
+  .sidenav-link {
+    @include desktop {
+      font-size: 1.2rem;
+    }
+
+    @include desktopLg {
+      font-size: 1.4rem;
+    }
+  }
+}

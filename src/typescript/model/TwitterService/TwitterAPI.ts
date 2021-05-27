@@ -34,8 +34,6 @@ export default class TwitterAPI {
     return jsonContent;
   }
 
-  // SpaceX
-  // 34743251
   public async getAllTweets(): Promise<any> {
     const response: Response = await fetch(
       'https://twitter32.p.rapidapi.com/getTweets?user_id=34743251',

@@ -1,30 +1,39 @@
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-display: fallback;
-  src: url('../assets/fonts/roboto.woff2')
-      format('woff2');
-}
+@import 'base/_reset', 'base/vars', 'base/fonts';
+@import 'layout/header', 'layout/hero-img', 'layout/article', 'layout/mobile-nav', 'layout/main', 'layout/tweet', 'layout/nav';
+@import 'components/loader', 'components/error-text', 'components/media-queries';
+
 
 body {
-  background-color: gray;
+  background-color: $black;
+  max-height: 100vh;
+}
 
-  h1 {
-    font-family: 'Roboto';
-     color: blue;
+.container > * {
+    min-width: 0px;
+}
+
+.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  height: 100vh;
+  max-width: 1024px;
+  margin: auto;
+  overflow: hidden;
+
+  @include desktop {
+    max-width: 1186px;
+  }
+
+  @include desktopLg {
+    max-width: 1500px;
   }
 }
 
-.spacexText {
-  color: skyblue;
-}
+.twitter-spacer {
+  height: 3.5rem;
 
-
-#hero-container {
-  width: 600px;
-  height: 400px;
-  margin: auto;
-  border: 2px solid green;
-  background-size: cover;
+  @include desktopLg {
+    height: 4.5rem;
+  }
 }
