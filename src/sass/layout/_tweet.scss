@@ -9,8 +9,6 @@
   margin-top: 3rem;
   padding-bottom: 3.1rem;
   position: relative;
-  // scrollbar-width: none; /* Firefox */
-  // -ms-overflow-style: none;  /* Internet Explorer 10+ */
 
   @include laptopMed {
     display: block;
@@ -65,8 +63,6 @@
   }
 
 .tweet-list-container::-webkit-scrollbar { /* WebKit */
-    // width: 0;
-    // height: 0;
     background-color:$scrollBarBg;
 }
 
