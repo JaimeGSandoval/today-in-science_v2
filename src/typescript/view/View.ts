@@ -135,7 +135,7 @@ const createTweetDomElements = (tweets: Tweet[]) => {
           <div class="tweet-img-container">
             <picture>
               <source srcset="${imageUrl}">
-              <img src="${imageUrl}" alt="Image for subject matter">
+              <img src="${imageUrl}" style="width: 202.28; height: 113.78;" alt="Image for subject matter">
             </picture>
           </div>
 
