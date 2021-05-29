@@ -44,7 +44,7 @@ export default class ArticleAPI {
     return jsonContent;
   }
 
-  public async getAllArticles(subject: string): Promise<any> {
+  public async getAllArticles(subject: string | undefined): Promise<any> {
     const response: Response = await fetch(
       `https://google-news1.p.rapidapi.com/search?q=${subject}&lang=en&pageSize=30`,
       {

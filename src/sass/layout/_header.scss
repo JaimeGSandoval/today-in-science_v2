@@ -1,12 +1,6 @@
 @import '../components/media-queries';
 
 .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
 
   @include desktopLg {
     max-width: 1550px;
@@ -14,28 +8,8 @@
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 10px 0;
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  background-color: $black;
-  font-family: $roboto;
-  color: $white;
-  text-transform: uppercase;
-
-  #logo-container {
-    cursor: pointer;
-  }
 
   .nav-header-description {
-    display: none;
-    margin-left: 2.8rem;
-    font-size: 1rem;
-    text-transform: capitalize;
 
     @include tablet {
       display: inline-block;
@@ -52,7 +26,6 @@ header {
     }
 
   .header-text {
-    letter-spacing: 2px;
 
     @include tablet {
       position: relative;
@@ -71,27 +44,9 @@ header {
   }
 
   .hamburger-icon-container {
-    padding-left: 10px;
 
     @include tablet {
       display: none
-    }
-
-    .hamburger-menu-icon {
-      font-size: 1.95rem;
-    }
-
-  }
-
-  .earth-icon-container {
-    display: inline-block;
-    width: 2.2rem;
-    height: 2.2rem;
-    padding-right: 10px;
-
-    img {
-      width: 100%;
-      height: auto;
     }
   }
 }

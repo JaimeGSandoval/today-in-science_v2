@@ -31,7 +31,7 @@ export const createIcon = (): HTMLImageElement => {
   return imgElement;
 };
 
-export const sourceChange = (subject: string): void => {
+export const sourceChange = (subject: any): void => {
   if (!subject) {
     throw new Error(
       'Subject argument is missing. A path to the image source must be provided.'
@@ -60,6 +60,7 @@ articleSubjects.forEach((subject) => {
   subject.addEventListener('click', function (e) {
     const target = e.target as HTMLAnchorElement;
     tempSubject = target.textContent;
-    return sourceChange(target.id);
+    console.log(target.dataset.subject);
+    return sourceChange(target.dataset.subject);
   });
 });
