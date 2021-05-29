@@ -44,13 +44,9 @@ export const sourceChange = (subject: any): void => {
   const sourceWebpMd = document.getElementById(
     'source-webp-med'
   ) as HTMLSourceElement;
-  const sourceWebpImg = document.getElementById(
-    'source-webp-img'
-  ) as HTMLImageElement;
 
   sourceWebpLg.srcset = `/src/assets/images/desktop/webp/${subject}.webp 800w`;
-  sourceWebpMd.srcset = `/src/assets/images/tablet/webp/${subject}.webp 600w`;
-  sourceWebpImg.srcset = `/src/assets/images/mobile/webp/${subject}.webp`;
+  sourceWebpMd.srcset = `/src/assets/images/tablet/webp/${subject}.webp`;
 };
 
 const articleSubjects = document.querySelectorAll('.sidenav-link');
@@ -60,7 +56,6 @@ articleSubjects.forEach((subject) => {
   subject.addEventListener('click', function (e) {
     const target = e.target as HTMLAnchorElement;
     tempSubject = target.textContent;
-    console.log(target.dataset.subject);
     return sourceChange(target.dataset.subject);
   });
 });
