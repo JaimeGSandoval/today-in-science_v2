@@ -3,23 +3,7 @@
 @import 'components/loader', 'components/error-text', 'components/media-queries';
 
 
-body {
-  background-color: $black;
-  max-height: 100vh;
-}
-
-.container > * {
-    min-width: 0px;
-}
-
 .container {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  height: 100vh;
-  max-width: 1024px;
-  margin: auto;
-  overflow: hidden;
 
   @include desktop {
     max-width: 1186px;

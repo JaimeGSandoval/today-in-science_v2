@@ -25,7 +25,9 @@ const addListeners = (arg: any) => {
       document.getElementById('loader')!.style.display = 'block';
 
       const subjectClicked = e.target as HTMLElement;
-      const articles = await controller.getAllArticles(subjectClicked.id);
+      const articles = await controller.getAllArticles(
+        subjectClicked.dataset.subject!
+      );
       return view.createArticles(articles);
     });
   });
