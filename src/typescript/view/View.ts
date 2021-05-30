@@ -57,7 +57,6 @@ const createArticleDomElements = (articles: Article[]) => {
   const mainContainer = document.getElementById('main') as HTMLElement;
   document.getElementById('loader')!.style.display = 'none';
 
-  // id = 'article-url';
   articles.forEach((article: Article) => {
     const articleTemplate: string = `<a href="${
       article.link
