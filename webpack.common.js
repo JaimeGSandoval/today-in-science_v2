@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -12,6 +13,11 @@ module.exports = {
       template: './src/template.html',
       favicon: './src/assets/icons/favicon.ico',
       inject: 'body',
+    }),
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      include: 'allAssets',
+      fileBlacklist: [/\.(js|png|jpe?g|css|webp|ico)/],
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].bundle.css',

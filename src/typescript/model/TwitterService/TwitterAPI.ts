@@ -43,6 +43,7 @@ export default class TwitterAPI {
           'x-rapidapi-key':
             '6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862',
           'x-rapidapi-host': 'twitter32.p.rapidapi.com',
+          'Content-Security-Policy': 'upgrade-insecure-requests',
         },
       }
     );
