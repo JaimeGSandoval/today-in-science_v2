@@ -1,15 +1,4 @@
 .tweet-list-container {
-  display: none;
-  grid-column: 10 / 13;
-  color: $white;
-  font-family: $roboto;
-  border-bottom: 1px solid $white;
-  border-right: 1px solid $white;
-  overflow-y: scroll;
-  margin-top: 3rem;
-  padding-bottom: 3.1rem;
-  position: relative;
-
   @include laptopMed {
     display: block;
   }

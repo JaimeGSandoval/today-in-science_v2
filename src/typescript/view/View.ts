@@ -60,7 +60,7 @@ const createArticleDomElements = (articles: Article[]) => {
   articles.forEach((article: Article) => {
     const articleTemplate: string = `<a href="${
       article.link
-    }" id="article-url" class="article-url" target="_blank">
+    }"  class="article-url" rel="noopener" rel="noreferrer" target="_blank">
 
         <section id="article-container" class="article-container">
           <div id="article-header-container" class="article-header-container">
@@ -81,8 +81,8 @@ const createArticleDomElements = (articles: Article[]) => {
 
             <span class="astronaut-icon-container">
               <picture>
-                <source srcset="/src/assets/icons/webp/astronaut-icon-blue.webp">
-                <img src="/src/assets/icons/png/astronaut-icon-blue.png" alt="Astronaut icon">
+                <source srcset="/src/assets/icons/webp/astronaut-80.webp">
+                <img src="/src/assets/icons/png/astronaut-80.png" width="40" height="40" alt="Astronaut icon">
               </picture>
             </span>
           </div>
@@ -111,7 +111,7 @@ const createTweetDomElements = (tweets: Tweet[]) => {
 
     const tweetTemplate: string = `<a href="${createUrl(
       urlString
-    )}" class="tweet-url" target="_blank">
+    )}" class="tweet-url" target="_blank" rel="noopener" rel="noreferrer">
         <div id="tweet-container" class="tweet-container">
 
           <div class="top-row">
@@ -134,7 +134,7 @@ const createTweetDomElements = (tweets: Tweet[]) => {
           <div class="tweet-img-container">
             <picture>
               <source srcset="${imageUrl}">
-              <img src="${imageUrl}" alt="Image for subject matter">
+              <img src="${imageUrl}" style="width: 202.28; height: 113.78;" alt="Image for subject matter">
             </picture>
           </div>
 
