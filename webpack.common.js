@@ -2,6 +2,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -21,6 +22,12 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].bundle.css',
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/assets/images', to: 'images' },
+        // { from: 'other', to: 'public' },
+      ],
     }),
   ],
 
@@ -87,9 +94,9 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
         type: 'asset/resource',
-        generator: {
-          filename: 'images/[hash][ext][query]',
-        },
+        // generator: {
+        //   filename: 'images/[hash][ext][query]',
+        // },
       },
       {
         test: /\.html$/,
