@@ -2,6 +2,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -11,7 +12,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/template.html',
-      favicon: './src/assets/icons/favicon.ico',
+      favicon: './src/favicon.ico',
       inject: 'body',
     }),
     new PreloadWebpackPlugin({
@@ -21,6 +22,12 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].bundle.css',
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: './src/assets/images', to: 'assets/images' },
+        { from: './src/assets/icons', to: 'assets/icons' },
+      ],
     }),
   ],
 
@@ -78,22 +85,19 @@ module.exports = {
           loader: 'url-loader',
           options: {
             name: '[name].[hash].[ext]',
-            outputPath: 'fonts', // Folder fonts go into
-            publicPath: './../fonts', // Makes the path to find the fonts folder. Has to be the same value used for outputPath
+            outputPath: 'assets/fonts', // Folder fonts go into
+            publicPath: './../assets/fonts', // Makes the path to find the fonts folder
             limit: 10000,
           },
         },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'images/[hash][ext][query]',
-        },
-      },
-      {
         test: /\.html$/,
-        use: ['html-loader'],
+        loader: 'html-loader',
+        options: {
+          // Disables attributes processing
+          sources: false,
+        },
       },
     ],
   },
