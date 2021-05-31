@@ -57,6 +57,8 @@ const createArticleDomElements = (articles: Article[]) => {
   const mainContainer = document.getElementById('main') as HTMLElement;
   document.getElementById('loader')!.style.display = 'none';
 
+  // image url when using webpack.dev.conf
+  // /src/assets/icons/webp/astronaut-80.webp
   articles.forEach((article: Article) => {
     const articleTemplate: string = `<a href="${
       article.link
@@ -81,8 +83,8 @@ const createArticleDomElements = (articles: Article[]) => {
 
             <span class="astronaut-icon-container">
               <picture>
-                <source srcset="/src/assets/icons/webp/astronaut-80.webp">
-                <img src="/src/assets/icons/png/astronaut-80.png" width="40" height="40" alt="Astronaut icon">
+                <source srcset="assets/icons/webp/astronaut-80.webp">
+                <img src="assets/icons/png/astronaut-80.png" width="40" height="40" alt="Astronaut icon">
               </picture>
             </span>
           </div>
@@ -109,6 +111,8 @@ const createTweetDomElements = (tweets: Tweet[]) => {
     const tweetTextArray: string[] = createTweetTextArr(coloredText);
     const urlString: string = createTweetUrl(tweetTextArray);
 
+    // image url when using webpack.dev.conf
+    // /src/assets/icons/webp/verified-badge.webp;
     const tweetTemplate: string = `<a href="${createUrl(
       urlString
     )}" class="tweet-url" target="_blank" rel="noopener" rel="noreferrer">
@@ -118,9 +122,9 @@ const createTweetDomElements = (tweets: Tweet[]) => {
             <div class="spacex-text-container">
               <span class="spacex-title-white">SpaceX </span><span class="verified-badge">
                 <picture>
-                  <source srcset="/src/assets/icons/webp/verified-badge.webp">
+                  <source srcset="assets/icons/webp/verified-badge.webp">
                 </picture>
-                <img src="/src/assets/icons/png/verified-badge.png" class="badge" alt="Image for subject matter">
+                <img src="assets/icons/png/verified-badge.png" class="badge" alt="Image for subject matter">
               </span>
               <span class="spacex-title-gray">@SpaceX</span>
 

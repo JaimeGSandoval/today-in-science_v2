@@ -12,7 +12,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/template.html',
-      favicon: './src/assets/icons/favicon.ico',
+      favicon: './src/favicon.ico',
       inject: 'body',
     }),
     new PreloadWebpackPlugin({
@@ -25,8 +25,8 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'src/assets/images', to: 'images' },
-        // { from: 'other', to: 'public' },
+        { from: './src/assets/images', to: 'assets/images' },
+        { from: './src/assets/icons', to: 'assets/icons' },
       ],
     }),
   ],
@@ -85,22 +85,29 @@ module.exports = {
           loader: 'url-loader',
           options: {
             name: '[name].[hash].[ext]',
-            outputPath: 'fonts', // Folder fonts go into
-            publicPath: './../fonts', // Makes the path to find the fonts folder. Has to be the same value used for outputPath
+            outputPath: 'assets/fonts', // Folder fonts go into
+            // using webpack.dev.conf use ./../fonts
+            publicPath: './../assets/fonts', // Makes the path to find the fonts folder. Has to be the same value used for outputPath
             limit: 10000,
           },
         },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        test: /\.(png|jpg|webp)$/i,
         type: 'asset/resource',
-        // generator: {
-        //   filename: 'images/[hash][ext][query]',
-        // },
+        generator: {
+          // for cache busting
+          // filename: 'images/[hash][ext][query]',
+          filename: 'assets/images/[name][ext]',
+        },
       },
       {
         test: /\.html$/,
-        use: ['html-loader'],
+        loader: 'html-loader',
+        options: {
+          // Disables attributes processing
+          sources: false,
+        },
       },
     ],
   },
