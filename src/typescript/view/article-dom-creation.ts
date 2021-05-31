@@ -45,8 +45,6 @@ export const sourceChange = (subject: any): void => {
     'source-webp-med'
   ) as HTMLSourceElement;
 
-  // image url when using webpack.dev.conf
-  // /src/assets/images/desktop/webp/${subject}.webp
   sourceWebpLg.srcset = `assets/images/desktop/webp/${subject}.webp 800w`;
   sourceWebpMd.srcset = `assets/images/tablet/webp/${subject}.webp`;
 };

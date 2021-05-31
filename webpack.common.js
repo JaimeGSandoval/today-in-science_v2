@@ -86,19 +86,9 @@ module.exports = {
           options: {
             name: '[name].[hash].[ext]',
             outputPath: 'assets/fonts', // Folder fonts go into
-            // using webpack.dev.conf use ./../fonts
-            publicPath: './../assets/fonts', // Makes the path to find the fonts folder. Has to be the same value used for outputPath
+            publicPath: './../assets/fonts', // Makes the path to find the fonts folder
             limit: 10000,
           },
-        },
-      },
-      {
-        test: /\.(png|jpg|webp)$/i,
-        type: 'asset/resource',
-        generator: {
-          // for cache busting
-          // filename: 'images/[hash][ext][query]',
-          filename: 'assets/images/[name][ext]',
         },
       },
       {

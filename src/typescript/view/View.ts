@@ -57,8 +57,6 @@ const createArticleDomElements = (articles: Article[]) => {
   const mainContainer = document.getElementById('main') as HTMLElement;
   document.getElementById('loader')!.style.display = 'none';
 
-  // image url when using webpack.dev.conf
-  // /src/assets/icons/webp/astronaut-80.webp
   articles.forEach((article: Article) => {
     const articleTemplate: string = `<a href="${
       article.link
@@ -111,8 +109,6 @@ const createTweetDomElements = (tweets: Tweet[]) => {
     const tweetTextArray: string[] = createTweetTextArr(coloredText);
     const urlString: string = createTweetUrl(tweetTextArray);
 
-    // image url when using webpack.dev.conf
-    // /src/assets/icons/webp/verified-badge.webp;
     const tweetTemplate: string = `<a href="${createUrl(
       urlString
     )}" class="tweet-url" target="_blank" rel="noopener" rel="noreferrer">
