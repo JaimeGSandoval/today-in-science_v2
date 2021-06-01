@@ -114,7 +114,7 @@
 
     .article-container {
       background-color: #000;
-      margin: 5px;
+      margin: 8px 6px;
       border: 1px solid #fff;
     }
 
@@ -167,10 +167,6 @@
       right: 5px;
     }
 
-    .article-date-container .astronaut-icon-container img {
-      width: 2.5rem;
-    }
-
     .sidenav-overlay {
       display: none;
       position: fixed;
@@ -179,6 +175,17 @@
       height: 100vh;
       background-color: rgba(255, 255, 255, .3);
       z-index: 3;
+    }
+
+    .mobile-sidenav {
+      position: fixed;
+      top: 0;
+      width: 18.6rem;
+      height: 100vh;
+      background-color: #000;
+      border-right: 1px solid #fff;
+      z-index: 5;
+      overflow-y: scroll;
     }
 
     .main-container {
@@ -222,6 +229,10 @@
       margin-top: 3rem;
       padding-bottom: 3.1rem;
       position: relative;
+    }
+
+    .tweet-text {
+      font-size: 0.9rem;
     }
 
     .nav-large {
@@ -353,7 +364,7 @@
         <picture>
           <source id="source-webp-lg" srcset="./assets/images/desktop/webp/AI.webp 800w" sizes="50vw" media="(min-width: 900px)">
           <source id="source-webp-med" srcset="./assets/images/tablet/webp/AI.webp">
-          <img src="./assets/images/tablet/png/AI.png" style="width: 319; height: 199;" alt="Mobile navigation icon">
+          <img id="source-img-fallback" src="./assets/images/tablet/png/AI.png" style="width: 319; height: 199;" alt="Mobile navigation icon">
         </picture>
       </div>
 
