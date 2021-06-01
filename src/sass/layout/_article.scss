@@ -52,8 +52,8 @@
     .astro-icon {
 
       @include laptopSm {
-        width: 2.18rem;
-        height: 2.18rem;
+        width: 2rem;
+        height: 2rem;
       }
 
       @include desktopLg {
