@@ -63,6 +63,16 @@
 .tweet-container {
   color: $white;
   border-bottom: 1px solid $white;
+
+  .tweet-text {
+    @include desktop {
+      font-size: 1.1rem;
+    }
+
+    @include desktopLg {
+      font-size: 1.3rem;
+    }
+  }
 }
 
 
