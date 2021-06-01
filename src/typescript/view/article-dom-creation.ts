@@ -45,8 +45,8 @@ export const sourceChange = (subject: any): void => {
     'source-webp-med'
   ) as HTMLSourceElement;
 
-  sourceWebpLg.srcset = `assets/images/desktop/webp/${subject}.webp 800w`;
-  sourceWebpMd.srcset = `assets/images/tablet/webp/${subject}.webp`;
+  sourceWebpLg.srcset = `/src/assets/images/desktop/webp/${subject}.webp 800w`;
+  sourceWebpMd.srcset = `/src/assets/images/tablet/webp/${subject}.webp`;
 };
 
 const articleSubjects = document.querySelectorAll('.sidenav-link');

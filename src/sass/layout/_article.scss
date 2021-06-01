@@ -49,10 +49,16 @@
 
   .astronaut-icon-container {
 
-    img {
+    .astro-icon {
+
+      @include laptopSm {
+        width: 2.18rem;
+        height: 2.18rem;
+      }
 
       @include desktopLg {
-        width: 3.15rem;
+        width: 3rem;
+        height: 3rem;
       }
     }
   }
