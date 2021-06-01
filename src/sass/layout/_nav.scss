@@ -3,19 +3,7 @@
 }
 
 .nav-large {
-
-   @include tablet {
-     @include landscape {
-       overflow-y: scroll;
-     }
-   }
-
-      @include laptopSm {
-     @include landscape {
-       overflow-y: initial;
-     }
-   }
-
+    overflow-y: scroll;
 
   nav {
     margin-top: 4.5rem;
@@ -46,4 +34,9 @@
       font-size: 1.4rem;
     }
   }
+}
+
+.nav-large::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
