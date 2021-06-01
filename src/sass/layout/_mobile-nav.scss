@@ -8,14 +8,6 @@
 }
 
 .mobile-sidenav {
-  position: fixed;
-  top: 0;
-  width: 18.6rem;
-  height: 100vh;
-  background-color: $black;
-  border-right: 1px solid $white;
-  z-index: 5;
-
   @include tablet {
     display: none;
   }

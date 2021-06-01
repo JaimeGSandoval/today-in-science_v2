@@ -82,7 +82,7 @@ const createArticleDomElements = (articles: Article[]) => {
             <span class="astronaut-icon-container">
               <picture>
                 <source srcset="assets/icons/webp/astronaut-80.webp">
-                <img src="assets/icons/png/astronaut-80.png" width="40" height="40" alt="Astronaut icon">
+                <img src="assets/icons/png/astronaut-80.png" class="astro-icon" width="30" height="30" alt="Astronaut icon">
               </picture>
             </span>
           </div>
