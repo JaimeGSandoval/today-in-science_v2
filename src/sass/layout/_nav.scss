@@ -4,12 +4,21 @@
 
 .nav-large {
 
-  @include landscape {
-    overflow-y: scroll;
-  }
+   @include tablet {
+     @include landscape {
+       overflow-y: scroll;
+     }
+   }
+
+      @include laptopSm {
+     @include landscape {
+       overflow-y: initial;
+     }
+   }
+
+
   nav {
     margin-top: 4.5rem;
-
 
     .sidenav-link {
       margin-left: 10px;
