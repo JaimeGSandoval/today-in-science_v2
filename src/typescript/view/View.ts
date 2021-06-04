@@ -109,6 +109,8 @@ const createTweetDomElements = (tweets: Tweet[]) => {
     const tweetTextArray: string[] = createTweetTextArr(coloredText);
     const urlString: string = createTweetUrl(tweetTextArray);
 
+    // Development image url
+    // <source srcset="/src/assets/icons/webp/verified-badge.webp">
     const tweetTemplate: string = `<a href="${createUrl(
       urlString
     )}" class="tweet-url" target="_blank" rel="noopener" rel="noreferrer">
