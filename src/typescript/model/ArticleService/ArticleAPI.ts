@@ -1,3 +1,20 @@
+// fetch(
+//   'https://google-news1.p.rapidapi.com/search?q=Covid&country=US&lang=en&source=cnn.com&limit=50&media=true&when=30d',
+//   {
+//     method: 'GET',
+//     headers: {
+//       'x-rapidapi-key': '6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862',
+//       'x-rapidapi-host': 'google-news1.p.rapidapi.com',
+//     },
+//   }
+// )
+//   .then((response) => {
+//     console.log(response);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
+
 export default class ArticleAPI {
   private readonly _webSearchApiKey: string;
 
@@ -46,7 +63,7 @@ export default class ArticleAPI {
 
   public async getAllArticles(subject: string | undefined): Promise<any> {
     const response: Response = await fetch(
-      `https://google-news1.p.rapidapi.com/search?q=${subject}&lang=en&pageSize=30`,
+      `https://google-news1.p.rapidapi.com/search?q=${subject}&country=US&lang=en&limit=30`,
       {
         method: 'GET',
         headers: {
