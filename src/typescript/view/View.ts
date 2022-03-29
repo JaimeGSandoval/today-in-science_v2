@@ -29,18 +29,18 @@ export default class View {
   }
 
   public createTweets(tweets: Tweet[]) {
-    let newTweets = tweets.map((tweet) => {
+    // console.log(tweets);
+    const newTweets = tweets.map((tweet) => {
       return new Tweet(
-        tweet.entities.media[0].media_url,
+        tweet.image_url,
         tweet.full_text,
         tweet.favorite_count,
         tweet.reply_count,
-        tweet.retweet_count,
-        tweet.created_at
+        tweet.retweet_count
       );
     });
 
-    newTweets = sortItemsByDate(newTweets);
+    // newTweets = sortItemsByDate(newTweets);
     return createTweetDomElements(newTweets);
   }
 }

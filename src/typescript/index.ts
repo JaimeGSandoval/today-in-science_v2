@@ -1,9 +1,9 @@
-import '../sass/styles.scss';
-import './controller/nav-control';
 import { ArticleAPI, subjects } from './model/ArticleService/index';
 import { TwitterAPI } from './model/TwitterService';
 import Controller from './controller/Controller';
 import { View } from './view/';
+import '../sass/styles.scss';
+import './controller/nav-control';
 
 const articleService: ArticleAPI = new ArticleAPI();
 const twitterService: TwitterAPI = new TwitterAPI();
@@ -15,7 +15,7 @@ export const controller: Controller = new Controller(
   view
 );
 
-const addListeners = (arg: any) => {
+const addListeners = (arg: string) => {
   const subjects = document.querySelectorAll(`[data-subject=${arg}]`);
 
   subjects!.forEach((item) => {
@@ -28,6 +28,7 @@ const addListeners = (arg: any) => {
       const articles = await controller.getAllArticles(
         subjectClicked.dataset.subject!
       );
+
       return view.createArticles(articles);
     });
   });
