@@ -1,15 +1,15 @@
 import { Article } from '../model/ArticleService';
 import { Tweet } from '../model/TwitterService';
 import {
-  createTextArr,
-  createUrl,
+  // createTextArr,
+  // createUrl,
   createDateText,
   tempSubject,
 } from './article-dom-creation';
 import {
   colorizeSelectedText,
-  createTweetTextArr,
-  createTweetUrl,
+  // createTweetTextArr,
+  // createTweetUrl,
   createCount,
 } from './tweet-dom-creation';
 
@@ -29,14 +29,14 @@ export default class View {
   }
 
   public createTweets(tweets: Tweet[]) {
-    // console.log(tweets);
     const newTweets = tweets.map((tweet) => {
       return new Tweet(
         tweet.image_url,
         tweet.full_text,
         tweet.favorite_count,
         tweet.reply_count,
-        tweet.retweet_count
+        tweet.retweet_count,
+        tweet.tweet_url
       );
     });
 
@@ -105,13 +105,12 @@ const createTweetDomElements = (tweets: Tweet[]) => {
     const tweetReplies: number = tweet.reply_count;
     const tweetRetweets: number = tweet.retweet_count;
     const tweetFavorites: number = tweet.favorite_count;
-    const coloredText: string = colorizeSelectedText(tweetFullText);
-    const tweetTextArray: string[] = createTweetTextArr(coloredText);
-    const urlString: string = createTweetUrl(tweetTextArray);
+    const tweetUrl: string = tweet.tweet_url;
+    const coloredDescription: string = colorizeSelectedText(tweetFullText);
+    // const tweetTextArray: string[] = createTweetTextArr(coloredText);
+    // const urlString: string = createTweetUrl(tweetTextArray);
 
-    const tweetTemplate: string = `<a href="${createUrl(
-      urlString
-    )}" class="tweet-url" target="_blank" rel="noopener" rel="noreferrer">
+    const tweetTemplate: string = `<a href="https${tweetUrl}" class="tweet-url" target="_blank" rel="noopener" rel="noreferrer">
         <div id="tweet-container" class="tweet-container">
 
           <div class="top-row">
@@ -125,7 +124,7 @@ const createTweetDomElements = (tweets: Tweet[]) => {
               <span class="spacex-title-gray">@SpaceX</span>
 
               <div class="tweet-text-container">
-                <p class="tweet-text">${createTextArr(tweetTextArray[0])}</p>
+                <p class="tweet-text">${coloredDescription}</p>
               </div>
             </div>
 
@@ -134,7 +133,7 @@ const createTweetDomElements = (tweets: Tweet[]) => {
           <div class="tweet-img-container">
             <picture>
               <source srcset="${imageUrl}">
-              <img src="${imageUrl}" style="width: 202.28; height: 113.78;" alt="Image for subject matter">
+              <img src="${imageUrl}" style="width: 100%;" alt="Image for subject matter">
             </picture>
           </div>
 

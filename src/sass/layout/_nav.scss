@@ -1,9 +1,9 @@
 .mobile-sidenav {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 .nav-large {
-    overflow-y: scroll;
+  overflow-y: scroll;
 
   nav {
     margin-top: 4.5rem;
@@ -15,9 +15,13 @@
         text-decoration: underline;
       }
     }
+
+    @include desktopLg {
+      margin-top: 5rem;
+    }
   }
 
- @include tablet {
+  @include tablet {
     display: block;
   }
 
@@ -37,6 +41,6 @@
 }
 
 .nav-large::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+  width: 0;
+  height: 0;
 }

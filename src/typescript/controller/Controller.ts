@@ -1,6 +1,5 @@
 import { ArticleAPI, Article, storeData } from '../model/ArticleService';
 import { TwitterAPI, Tweet } from '../model/TwitterService';
-// import { TwitterAPI } from '../model/TwitterService';
 import { View } from '../view';
 
 export default class Controller {
@@ -31,7 +30,7 @@ export default class Controller {
   }
 
   public async getAllArticles(subject: string): Promise<Article[]> {
-    const container = document.getElementById('main') as HTMLDivElement;
+    const container = document.getElementById('main') as HTMLElement;
 
     if (sessionStorage.getItem(subject)) {
       container.innerHTML = '';
@@ -48,18 +47,7 @@ export default class Controller {
   }
 
   // Start Tweets ******************
-
-  // OG
-  // public async getAllTweets(): Promise<Tweet[]> {
-  //   const retrievedTweets = await this._twitterService.getAllTweets();
-
-  //   // do data filtering here w/ retrieved tweets?
-
-  //   return convertToArray(retrievedTweets) as Tweet[];
-  // }
-
   public async getAllTweets(): Promise<Tweet[]> {
-    const itemContentData: any[] = [];
     const tweetArray: Tweet[] = [];
 
     type NestedTweet = {
@@ -75,6 +63,15 @@ export default class Controller {
         };
       };
     };
+
+    type Result = {
+      result: any;
+      legacy: any;
+    };
+
+    // type ContentData = Result[];
+
+    const itemContentData: Result[] = [];
 
     try {
       const fetchedData: ResponseObj =
@@ -106,26 +103,22 @@ export default class Controller {
           extended_entities,
         } = tweet.legacy;
 
+        const url = full_text.split('https');
+
         const tweetObj: Tweet = {
+          image_url: extended_entities.media[0].media_url_https,
+          full_text: full_text.split('https')[0],
           favorite_count,
           reply_count,
           retweet_count,
-          full_text: full_text.split('https')[0],
-          image_url: extended_entities.media[0].media_url_https,
+          tweet_url: url[url.length - 1],
         };
 
         tweetArray.push(tweetObj);
-        // console.log(tweet.legacy.extended_entities.media[0].media_url_https);
-        // console.log('fav count', tweet.legacy.favorite_count);
-        // console.log('reply count', tweet.legacy.reply_count);
-        // console.log('retweet count', tweet.legacy.retweet_count);
-        // console.log('full text', tweet.legacy.full_text.split('https')[0]);
-        // console.log('BREAK');
       }
     });
 
     return tweetArray;
-    // return convertToArray(retrievedTweets);
   }
 
   public async start() {
@@ -141,42 +134,13 @@ export default class Controller {
   }
 }
 
-// OG
-// const convertToArray = (twitterObject: { data: { tweets: any } }): Tweet[] => {
-//   let result: Tweet[] = [];
-
-//   // legacy here?
-
-//   const tweets: Tweet[] = Object.values(twitterObject.data.tweets);
-//   result = tweets.filter((tweet) => {
-//     if (tweet.favorite_count && tweet.entities.media) {
-//       return tweet;
-//     }
-//   });
-//   return result.slice(0, 10);
-// };
-
-// const convertToArray = (twitterObject: { data: { tweets: any } }) => {
-//   let result = [];
-
-//   // legacy here?
-
-//   const tweets: any[] = Object.values(twitterObject.data.tweets);
-//   result = tweets.filter((tweet) => {
-//     if (tweet.favorite_count && tweet.entities.media) {
-//       return tweet;
-//     }
-//   });
-//   return result.slice(0, 10);
-// };
-
 // End Tweets *********************8
 
 const resetViewport = (): void => {
-  const main = document.querySelector('.main-container');
-  main?.scrollTo(0, 0);
+  const main = document.querySelector('.main-container') as HTMLElement;
+  main.scrollTo(0, 0);
 };
 
 document
-  .getElementById('logo-container')
-  ?.addEventListener('click', resetViewport);
+  .getElementById('logo-container')!
+  .addEventListener('click', resetViewport);

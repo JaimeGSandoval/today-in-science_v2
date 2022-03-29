@@ -4,6 +4,7 @@ export default class Tweet {
   public readonly favorite_count: number;
   public readonly reply_count: number;
   public readonly retweet_count: number;
+  public readonly tweet_url: string;
   // public readonly entities: any;
   // public readonly created_at: Date;
 
@@ -12,7 +13,8 @@ export default class Tweet {
     full_text: string,
     favorite_count: number,
     reply_count: number,
-    retweet_count: number
+    retweet_count: number,
+    tweet_url: string
     // created_at: Date
   ) {
     this.image_url = image_url;
@@ -20,6 +22,7 @@ export default class Tweet {
     this.favorite_count = favorite_count;
     this.reply_count = reply_count;
     this.retweet_count = retweet_count;
+    this.tweet_url = tweet_url;
     // this.created_at = new Date(created_at);
   }
 }

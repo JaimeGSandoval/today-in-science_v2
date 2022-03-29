@@ -12,34 +12,8 @@ export const colorizeSelectedText = (tweetText: string): string => {
       return word;
     })
     .join(' ');
+
   return result;
-};
-
-export const createText = (tweetText: string[]): string => {
-  if (!tweetText) {
-    throw new Error('String argument is missing. A string must be provided.');
-  }
-
-  return tweetText[0];
-};
-
-export const createTweetTextArr = (tweetText: string): string[] => {
-  if (!tweetText) {
-    throw new Error('String argument is missing. A string must be provided.');
-  }
-
-  const array = tweetText.split('https');
-  return array;
-};
-
-export const createTweetUrl = (textArr: string[]): string => {
-  if (!textArr) {
-    throw new Error(
-      'TextArray argument is missing. An array of strings must be provided.'
-    );
-  }
-
-  return textArr[textArr.length - 1].slice(1);
 };
 
 export const createCount = (count: number): string => {
@@ -50,3 +24,31 @@ export const createCount = (count: number): string => {
   }
   return count.toString();
 };
+
+// export const createText = (tweetText: string[]): string => {
+//   if (!tweetText) {
+//     throw new Error('String argument is missing. A string must be provided.');
+//   }
+
+//   return tweetText[0];
+// };
+
+// export const createTweetTextArr = (tweetText: string): string[] => {
+//   if (!tweetText) {
+//     throw new Error('String argument is missing. A string must be provided.');
+//   }
+
+//   const array = tweetText.split('https');
+//   console.log(array);
+//   return array;
+// };
+
+// export const createTweetUrl = (textArr: string[]): string => {
+//   if (!textArr) {
+//     throw new Error(
+//       'TextArray argument is missing. An array of strings must be provided.'
+//     );
+//   }
+
+//   return textArr[textArr.length - 1].slice(1);
+// };

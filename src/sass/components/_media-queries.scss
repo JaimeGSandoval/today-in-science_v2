@@ -1,6 +1,6 @@
 @mixin landscape {
-  @media (orientation: landscape){
-     @content;
+  @media (orientation: landscape) {
+    @content;
   }
 }
 
@@ -28,6 +28,12 @@
   }
 }
 
+@mixin laptopMedLg {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
 @mixin laptopLg {
   @media (min-width: 1440px) {
     @content;
@@ -41,7 +47,7 @@
 }
 
 @mixin desktopLg {
-  @media (min-width: 2240px) {
+  @media (min-width: 2000px) {
     @content;
   }
 }
