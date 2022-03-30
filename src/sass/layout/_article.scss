@@ -1,11 +1,10 @@
 .article-container {
-
   @include tablet {
     margin-left: 0;
   }
 
   @include laptopMed {
-    margin-right: 0;
+    margin-right: 0.6rem;
   }
 
   @include desktop {
@@ -18,47 +17,38 @@
 }
 
 .article-header-container {
-
-   .article-source {
-     color: rgb(151, 151, 151);
-   }
+  .article-source {
+    color: rgb(151, 151, 151);
+  }
 
   .article-header {
-
     @include tablet {
       font-size: 1.2rem;
     }
 
+    @include desktopLg {
+      font-size: 1.5rem;
+    }
   }
 }
 
 .article-title-container {
-
   .article-title {
-
     @include desktop {
       font-size: 1.7rem;
-    }
-
-    @include desktopLg {
-      font-size: 1.9rem;
     }
   }
 }
 
 .article-date-container {
-
   .article-date {
-
-   @include desktopLg {
-     font-size: 1.2rem;
-   }
+    @include desktopLg {
+      font-size: 1.2rem;
+    }
   }
 
   .astronaut-icon-container {
-
     .astro-icon {
-
       @include laptopSm {
         width: 2rem;
         height: 2rem;

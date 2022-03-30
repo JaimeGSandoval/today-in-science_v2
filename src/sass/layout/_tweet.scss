@@ -13,46 +13,54 @@
     align-items: center;
     position: fixed;
     top: 3.5rem;
-    padding: .5rem 0;
+    padding: 0.5rem 0;
     z-index: 5;
     border-bottom: 1px solid $white;
     background: $black;
+    width: 14.9rem;
 
-     img {
-       width: 30px;
-       position: relative;
-       left: 5px;
+    img {
+      width: 30px;
+      width: 1.5rem;
+      position: relative;
+      left: 5px;
+      top: 0.2rem;
 
-       @include desktopLg {
-         left: 11px;
-       }
+      @include desktopLg {
+        left: 11px;
       }
+    }
 
-      @include desktop {
-       font-size: 1.2rem
-      }
+    @include laptopMedLg {
+      width: 17.3rem;
+    }
 
-     @include desktopLg {
-       font-size: 1.4rem;
-       top: 3.85rem;
-     }
+    @include desktop {
+      font-size: 1.2rem;
+    }
 
+    @include desktopLg {
+      font-size: 1.4rem;
+      top: 4.6rem;
+      width: 22.3rem;
+    }
 
-     .header-text-fixed {
-       padding-left: 25px;
-       position: relative;
-       right: 15px;
+    .header-text-fixed {
+      padding-left: 25px;
+      position: relative;
+      right: 0.7rem;
 
-       @include desktopLg {
+      @include desktopLg {
         padding-left: 4.1rem;
         right: 2.7rem;
-       }
-     }
-   }
+      }
+    }
   }
+}
 
-.tweet-list-container::-webkit-scrollbar { /* WebKit */
-    background-color:$scrollBarBg;
+.tweet-list-container::-webkit-scrollbar {
+  /* WebKit */
+  background-color: $scrollBarBg;
 }
 
 .tweet-list-container::-webkit-scrollbar-thumb {
@@ -65,6 +73,42 @@
   border-bottom: 1px solid $white;
 
   .tweet-text {
+    font-size: 1rem;
+    line-height: 1.7rem;
+
+    @include desktop {
+      font-size: 1.1rem;
+    }
+
+    @include desktopLg {
+      font-size: 1.3rem;
+      line-height: 2.1rem;
+    }
+  }
+}
+
+.top-row {
+  display: flex;
+  padding-top: 5px;
+
+  .spacex-text-container {
+    padding: 13px;
+
+    .spacex-title-white {
+      font-family: $robotoBold;
+    }
+
+    .spacex-title-gray {
+      color: #929292;
+    }
+
+    .badge {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      top: 5px;
+    }
+
     @include desktop {
       font-size: 1.1rem;
     }
@@ -75,52 +119,18 @@
   }
 }
 
-
-.top-row {
-  display: flex;
-  padding-top: 5px;
-
-   .spacex-text-container {
-     padding: 13px;
-
-     .spacex-title-white {
-       font-family: $robotoBold;
-      }
-
-      .spacex-title-gray {
-       color: #929292;
-      }
-
-     .badge {
-       width: 20px;
-       height: 20px;
-       position: relative;
-       top: 5px;
-     }
-
-     @include desktop {
-       font-size: 1.1rem;
-     }
-
-     @include desktopLg {
-       font-size: 1.3rem;
-      }
-   }
-  }
-
 .tweet-img-container {
   width: 85%;
   margin: auto;
   border-radius: 10px;
 
   img {
-     width: 100%;
-     border-radius: 10px;
+    border-radius: 10px;
   }
 }
 
 .tweet-data-container {
-  font-size: .9rem;
+  font-size: 0.9rem;
   display: flex;
   justify-content: space-around;
   width: 85%;
@@ -132,7 +142,16 @@
   }
 
   @include desktopLg {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
+}
 
+.twitter-loader-container {
+  position: relative;
+  top: 2rem;
+  display: none;
+
+  @include laptopMed {
+    display: flex;
+  }
 }

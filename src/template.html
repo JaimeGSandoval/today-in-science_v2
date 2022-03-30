@@ -128,7 +128,7 @@
 
     .article-container {
       background-color: #000;
-      margin: 8px 6px;
+      margin: 1.2rem .6rem;
       border: 1px solid #fff;
     }
 
@@ -158,6 +158,7 @@
       font-size: 1.2rem;
       text-transform: capitalize;
       letter-spacing: 1px;
+      line-height: 1.8rem;
     }
 
     .article-date-container {
@@ -220,7 +221,7 @@
     }
 
     .articles-h1 {
-      margin-left: 5px;
+      margin-left: .6rem;
       padding: 5px 0;
       font-family: Roboto, Arial, Helvetica, sans-serif;
       font-weight: 400;
@@ -256,7 +257,8 @@
       height: 100vh;
     }
 
-    .loader-container {
+    .article-loader-container,
+    .twitter-loader-container {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -265,14 +267,13 @@
       justify-content: center;
     }
 
-    .loader {
-      display: none;
+    .article-loader,
+    .twitter-loader {
       width: 3rem;
       height: 3rem;
-      margin-top: 10%;
       border-radius: 50%;
-      border: 7px solid #f3f3f3;
-      border-top: 7px solid #3498db;
+      border: 7px solid #444;
+      border-top: 7px solid #fff;
       background-color: #000;
       -webkit-animation: spin .6s linear infinite;
       animation: spin .6s linear infinite;
@@ -293,7 +294,6 @@
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       height: 100vh;
-      max-width: 1024px;
       margin: auto;
       overflow: hidden;
     }
@@ -383,8 +383,8 @@
       </div>
 
       <h1 class="articles-h1">Articles</h1>
-      <div class="loader-container">
-        <div id="loader" class="loader"></div>
+      <div class="article-loader-container">
+        <div id="article-loader" class="article-loader"></div>
       </div>
 
       <main id="main" class="main"></main>
@@ -399,9 +399,12 @@
           <source srcset="./assets/icons/webp/twitter-logo.webp">
           <img src="./assets/icons/png/twitter-logo.png" alt="Twitter icon">
         </picture>
-        <div class="header-text-fixed">Latest Tweets From SpaceX</div>
+        <div class="header-text-fixed">Tweets From SpaceX</div>
       </div>
       <div class="twitter-spacer"></div>
+      <div class="twitter-loader-container">
+        <div id="twittere-loader" class="twitter-loader"></div>
+      </div>
 
     </aside>
   </div>

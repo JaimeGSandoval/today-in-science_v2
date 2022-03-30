@@ -1,32 +1,31 @@
 @import '../components/media-queries';
 
 .header-container {
-
   @include desktopLg {
     max-width: 1550px;
   }
 }
 
 header {
-
   .nav-header-description {
-
     @include tablet {
       display: inline-block;
-
     }
 
     @include laptopMed {
       margin-left: 1.8rem;
     }
+
+    @include desktopLg {
+      font-size: 1.4rem;
+    }
   }
 
-    @include tablet {
-     border-bottom: 1px solid $white;
-    }
+  @include tablet {
+    border-bottom: 1px solid $white;
+  }
 
   .header-text {
-
     @include tablet {
       position: relative;
       left: 2.2rem;
@@ -34,8 +33,8 @@ header {
       padding: 10px 0;
     }
 
-    @include laptopMed{
-      left: 1.2rem
+    @include laptopMed {
+      left: 1.2rem;
     }
 
     @include desktopLg {
@@ -44,9 +43,12 @@ header {
   }
 
   .hamburger-icon-container {
-
     @include tablet {
-      display: none
+      display: none;
     }
+  }
+
+  @include desktopLg {
+    padding: 1rem 0;
   }
 }

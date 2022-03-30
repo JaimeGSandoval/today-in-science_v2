@@ -1,31 +1,28 @@
 @import '../components/media-queries';
 
 .main-container {
-
   @include tablet {
     grid-column: 4 / 13;
     margin-top: 3rem;
-
   }
 
   @include laptopMed {
-    grid-column: 4 / 10;
+    grid-column: 3 / 10;
+  }
+
+  @include desktopLg {
+    margin-top: 4rem;
   }
 }
 
-.main-container::-webkit-scrollbar { /* WebKit */
-
-    @include laptopMed {
-      display: block;
-    }
+.main-container::-webkit-scrollbar {
+  @include laptopMed {
+    display: block;
+  }
 }
-
 
 .articles-h1 {
-
-  @include tablet {
-    padding: 8px 0;
-  }
+  padding: 9px 0 0;
 
   @include laptopSm {
     font-size: 1.8rem;
@@ -41,7 +38,6 @@
 }
 
 .main-spacer {
-
   @include tablet {
     height: 2.85rem;
   }
