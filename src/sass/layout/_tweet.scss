@@ -145,3 +145,13 @@
     font-size: 1.2rem;
   }
 }
+
+.twitter-loader-container {
+  position: relative;
+  top: 2rem;
+  display: none;
+
+  @include laptopMed {
+    display: flex;
+  }
+}

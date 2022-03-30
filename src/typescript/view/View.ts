@@ -55,7 +55,10 @@ const sortItemsByDate = (array: any) => {
 
 const createArticleDomElements = (articles: Article[]) => {
   const mainContainer = document.getElementById('main') as HTMLElement;
-  document.getElementById('loader')!.style.display = 'none';
+  const articleLoaderContainer = document.querySelector(
+    '.article-loader-container'
+  ) as HTMLDivElement;
+  articleLoaderContainer.style.display = 'none';
 
   articles.forEach((article: Article) => {
     const articleTemplate: string = `<a href="${
@@ -98,6 +101,10 @@ const createTweetDomElements = (tweets: Tweet[]) => {
   const tweetListContainer = document.getElementById(
     'tweet-list-container'
   ) as HTMLDivElement;
+  const twitterLoaderContainer = document.querySelector(
+    '.twitter-loader-container'
+  ) as HTMLDivElement;
+  twitterLoaderContainer.style.display = 'none';
 
   tweets.forEach((tweet: Tweet) => {
     const imageUrl: string = tweet.image_url;

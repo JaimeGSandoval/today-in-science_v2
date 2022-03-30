@@ -22,7 +22,10 @@ const addListeners = (arg: string) => {
     item.addEventListener('click', async function (e: any) {
       document.getElementById('mobile-sidenav-container')!.style.display =
         'none';
-      document.getElementById('loader')!.style.display = 'block';
+      const articleLoaderContainer = document.querySelector(
+        '.article-loader-container'
+      ) as HTMLDivElement;
+      articleLoaderContainer.style.display = 'flex';
 
       const subjectClicked = e.target as HTMLElement;
       const articles = await controller.getAllArticles(
