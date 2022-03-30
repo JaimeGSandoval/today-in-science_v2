@@ -4,7 +4,7 @@
   }
 
   @include laptopMed {
-    margin-right: 0;
+    margin-right: 0.6rem;
   }
 
   @include desktop {
@@ -37,10 +37,6 @@
     @include desktop {
       font-size: 1.7rem;
     }
-
-    // @include desktopLg {
-    //   font-size: 1.7rem;
-    // }
   }
 }
 

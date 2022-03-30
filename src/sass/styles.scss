@@ -7,16 +7,12 @@
   max-width: 58rem;
 
   @include laptopMed {
-    max-width: 63rem;
+    max-width: 1024px;
   }
 
   @include laptopMedLg {
     max-width: 1180px;
   }
-
-  // @include desktop {
-  //   max-width: 1186px;
-  // }
 
   @include desktopLg {
     max-width: 1500px;

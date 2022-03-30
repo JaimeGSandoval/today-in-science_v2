@@ -1,17 +1,7 @@
 import { Article } from '../model/ArticleService';
 import { Tweet } from '../model/TwitterService';
-import {
-  // createTextArr,
-  // createUrl,
-  createDateText,
-  tempSubject,
-} from './article-dom-creation';
-import {
-  colorizeSelectedText,
-  // createTweetTextArr,
-  // createTweetUrl,
-  createCount,
-} from './tweet-dom-creation';
+import { createDateText, tempSubject } from './article-utils';
+import { colorizeSelectedText, createCount } from './twitter-utils';
 
 export default class View {
   public createArticles(articles: Article[]) {
@@ -40,7 +30,6 @@ export default class View {
       );
     });
 
-    // newTweets = sortItemsByDate(newTweets);
     return createTweetDomElements(newTweets);
   }
 }
@@ -114,8 +103,6 @@ const createTweetDomElements = (tweets: Tweet[]) => {
     const tweetFavorites: number = tweet.favorite_count;
     const tweetUrl: string = tweet.tweet_url;
     const coloredDescription: string = colorizeSelectedText(tweetFullText);
-    // const tweetTextArray: string[] = createTweetTextArr(coloredText);
-    // const urlString: string = createTweetUrl(tweetTextArray);
 
     const tweetTemplate: string = `<a href="https${tweetUrl}" class="tweet-url" target="_blank" rel="noopener" rel="noreferrer">
         <div id="tweet-container" class="tweet-container">

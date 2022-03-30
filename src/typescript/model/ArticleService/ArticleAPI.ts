@@ -1,20 +1,3 @@
-// fetch(
-//   'https://google-news1.p.rapidapi.com/search?q=Covid&country=US&lang=en&source=cnn.com&limit=50&media=true&when=30d',
-//   {
-//     method: 'GET',
-//     headers: {
-//       'x-rapidapi-key': '6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862',
-//       'x-rapidapi-host': 'google-news1.p.rapidapi.com',
-//     },
-//   }
-// )
-//   .then((response) => {
-//     console.log(response);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
-
 export default class ArticleAPI {
   private readonly _webSearchApiKey: string;
 
@@ -52,11 +35,13 @@ export default class ArticleAPI {
 
     try {
       jsonContent = await response.json();
-    } catch (error) {
-      console.error('Failed to parse the response as JSON: ', error);
-      throw new Error(
-        `Could not parse the response body as JSON. Error: ${error.message}`
-      );
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error('Failed to parse the response as JSON: ', error);
+        throw new Error(
+          `Could not parse the response body as JSON. Error: ${error.message}`
+        );
+      }
     }
     return jsonContent;
   }

@@ -1,7 +1,6 @@
-@import "../components/media-queries";
+@import '../components/media-queries';
 
 .sidenav-overlay {
-
   @include tablet {
     display: none;
   }
@@ -14,7 +13,7 @@
 
   .sidenav-link {
     display: block;
-    padding: 0.5rem;
+    padding: 0.5rem 0.9rem;
     font-family: $roboto;
     color: $white;
     text-decoration: none;
@@ -38,7 +37,6 @@
     text-decoration: none;
   }
 }
-
 
 .sidenav-link {
   display: block;

@@ -46,7 +46,6 @@ export default class Controller {
     return retrievedArticles as Article[];
   }
 
-  // Start Tweets ******************
   public async getAllTweets(): Promise<Tweet[]> {
     const tweetArray: Tweet[] = [];
 
@@ -68,8 +67,6 @@ export default class Controller {
       result: any;
       legacy: any;
     };
-
-    // type ContentData = Result[];
 
     const itemContentData: Result[] = [];
 
@@ -133,8 +130,6 @@ export default class Controller {
     }
   }
 }
-
-// End Tweets *********************8
 
 const resetViewport = (): void => {
   const main = document.querySelector('.main-container') as HTMLElement;

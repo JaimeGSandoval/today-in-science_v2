@@ -19,7 +19,7 @@ const addListeners = (arg: string) => {
   const subjects = document.querySelectorAll(`[data-subject=${arg}]`);
 
   subjects!.forEach((item) => {
-    item.addEventListener('click', async function (e: any) {
+    item.addEventListener('click', async function (e: Event) {
       document.getElementById('mobile-sidenav-container')!.style.display =
         'none';
       const articleLoaderContainer = document.querySelector(
