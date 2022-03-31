@@ -50,7 +50,7 @@ export const sourceChange = (subject: any): void => {
 
   sourceWebpLg.srcset = `assets/images/desktop/webp/${subject}.webp 800w`;
   sourceWebpMd.srcset = `assets/images/tablet/webp/${subject}.webp`;
-  sourceImgFallBack.src = `assets/images/tablet/png/${subject}.webp`;
+  sourceImgFallBack.src = `assets/images/tablet/png/${subject}.png`;
 };
 
 const articleSubjects = document.querySelectorAll('.sidenav-link');
