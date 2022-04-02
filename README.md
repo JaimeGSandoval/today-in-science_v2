@@ -20,9 +20,9 @@ Try the live demo at https://todayinscience.jaimesandoval.net/
 
 ## Features
 
-- User can select from 14 different fields of science
+- User can select from 14 fields of science
 - User can view 30 recent articles based on a field of science they select
-- User is taken to the source of the article clicking on it
+- User is taken to the source of the article by clicking on it
 - User can view recent tweets from SpaceX
 - User is taken to Twitter to view a SpaceX tweet when it's clicked on
 
@@ -51,4 +51,4 @@ npm install
 npm start
 ```
 
-4. Once started you can view the application by opening http://localhost:8080 in your browser
+4. Once started, you can view the application by opening http://localhost:8080 in your browser
