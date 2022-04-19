@@ -10,19 +10,6 @@ module.exports = {
   },
 
   plugins: [
-    new CopyPlugin({
-      patterns: [
-        {
-          from: 'src/assets/images/desktop',
-          to: 'images/desktop',
-        },
-        {
-          from: 'src/assets/images/tablet',
-          to: 'images/tablet',
-        },
-        { from: 'src/assets/icons', to: 'icons' },
-      ],
-    }),
     new HtmlWebpackPlugin({
       template: './src/template.html',
       favicon: './src/favicon.ico',
