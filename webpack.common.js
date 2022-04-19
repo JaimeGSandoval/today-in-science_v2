@@ -31,7 +31,7 @@ module.exports = {
     new PreloadWebpackPlugin({
       rel: 'preload',
       include: 'allAssets',
-      fileBlacklist: [/\.(js|png|jpe?g|css|webp|ico)/],
+      fileBlacklist: [/\.(js|png|jpe?g|css|webp|ico|gif)/],
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].bundle.css',
