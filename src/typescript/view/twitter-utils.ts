@@ -17,10 +17,11 @@ export const colorizeSelectedText = (tweetText: string): string => {
 };
 
 export const createCount = (count: number): string => {
-  if (!count) {
+  if (!count && count !== 0) {
     throw new Error(
       'Count argument is missing. A number for count must be provided.'
     );
   }
+
   return count.toString();
 };
